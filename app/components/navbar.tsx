@@ -24,7 +24,7 @@ const LinkItem = ({ href, path, children }) => {
     <NextLink href={href}>
       <Link
         p={2}
-        bg={active ? 'glassTeal' : undefined }
+        bg={active ? '#b0d0d9' : undefined }
         color={active ? '#202023' : inactiveColor }
       >
         {children}
@@ -61,6 +61,9 @@ const Navbar = props => {
           flexGrow={1}
           mt={{ base: 4, nmd: 0 }}
         >
+          <LinkItem href="/dev" path={path}>
+            Dev
+          </LinkItem>
           <LinkItem href="/devices" path={path}>
             Devices
           </LinkItem>
@@ -76,7 +79,10 @@ const Navbar = props => {
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
                 <MenuList>
                   <NextLink href="/" passHref>
-                    <MenuItem as={Link}>Profile</MenuItem>
+                    <MenuItem as={Link}>Home</MenuItem>
+                  </NextLink>
+                  <NextLink href="/dev" passHref>
+                    <MenuItem as={Link}>Dev</MenuItem>
                   </NextLink>
                   <NextLink href="/devices" passHref>
                     <MenuItem as={Link}>Devices</MenuItem>

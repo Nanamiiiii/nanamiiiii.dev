@@ -32,7 +32,8 @@ const components = {
 }
 
 const fonts = {
-  heading: "'Josefin Sans'"
+  heading: "'Josefin Sans'",
+  body: "'Source Sans Pro'"
 }
 
 const colors = {

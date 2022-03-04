@@ -28,7 +28,7 @@ const Logo = () => {
           <Text 
             color={useColorModeValue('gray.800', 'whiteAlpha.900')} 
             fontFamily='Gwendolyn' 
-            fontWeight='thin' 
+            fontWeight='normal' 
             ml={5}
           >
             Nanamiiiii
