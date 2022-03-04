@@ -5,15 +5,16 @@ import styled from '@emotion/styled'
 
 const LogoBox = styled.span`
   front-weight: bold;
-  font-size: 24px;
+  font-size: 26px;
   display: inline-flex;
   align-items: center;
-  height: 45px;
-  line-height: 35px;
+  height: 40px;
+  line-height: 40px;
   padding: 10px;
 
   &:hover img {
-    
+    transform: scale(0.9,0.9);
+    transition-duration: 0.3s;
   }
 `
 
@@ -23,14 +24,14 @@ const Logo = () => {
     <Link href="/">
       <a>
         <LogoBox>
-          <Image src={initialLogo} width={35} height={28} alt="logo" />
+          <Image src={initialLogo} width={20} height={20} alt="logo" />
           <Text 
             color={useColorModeValue('gray.800', 'whiteAlpha.900')} 
-            fontFamily='M PLUS Rounded 1c' 
+            fontFamily='Gwendolyn' 
             fontWeight='thin' 
-            ml={4}
+            ml={5}
           >
-            Nanamiiiii - Akihiro Saiki
+            Nanamiiiii
           </Text>
         </LogoBox>
       </a>
