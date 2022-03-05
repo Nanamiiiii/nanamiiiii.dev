@@ -73,7 +73,6 @@ const Navbar = (props: any) => {
         </Stack>
 
         <Box display="flex" flex={1} alignItems="center" justifyContent="right">
-          <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-block', md: 'none'}}>
             <Menu>
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
