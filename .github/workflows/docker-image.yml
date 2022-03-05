@@ -30,6 +30,7 @@ jobs:
         push: true
         context: .
         file: Dockerfile
+        target: runner
         tags: registry.nanamiiiii.dev/nanamiiiii-dev:main
         cache-from: type=registry,ref=registry.nanamiiiii.dev/nanamiiiii-dev:cache
         cache-to: type=registry,ref=registry.nanamiiiii.dev/nanamiiiii-dev:cache,mode=max
