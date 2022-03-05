@@ -59,7 +59,7 @@ const Home: NextPage = () => {
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName><LinkText href="/works">Movie Creation</LinkText></ItemizeName>
-            MotionGraphics, FPS Montage etc...
+            MotionGraphics, <Link href="https://www.youtube.com/c/kokoromyuu" target="_blank">FPS Montage</Link> etc...
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName><LinkText href="/devices">DIY PC</LinkText></ItemizeName>
