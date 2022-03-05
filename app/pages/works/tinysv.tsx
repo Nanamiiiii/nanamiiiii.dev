@@ -36,7 +36,7 @@ const Work: NextPage = () => {
           </ListItem>
         </List>
 
-        <WorkImagePad src="/images/works/tinysv_1.png" alt="tinysv1" pad="3"/>
+        <WorkImagePad src="/images/works/tinysv_1.png" alt="tinysv1" pad={3}/>
         <WorkImage src="/images/works/tinysv_2.png" alt="tinysv2" />
         <WorkImage src="/images/works/tinysv_3.png" alt="tinysv3" />
       </Container>

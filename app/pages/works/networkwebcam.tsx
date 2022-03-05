@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
-import Section from '../components/section'
+import Section from '../../components/section'
 import { Box, Container, Heading, SimpleGrid, Divider, Text, Button } from '@chakra-ui/react'
-import { WorkContents, ContentsGrid } from '../components/contents-grid'
+import { WorkContents, ContentsGrid } from '../../components/contents-grid'
 import Layout from '../../components/layouts/article'
 
-const Work: Nextpage = () => {
+const Work: NextPage = () => {
   return (
     <Layout title="NetworkWebCamera">
       <Container>
@@ -13,7 +13,7 @@ const Work: Nextpage = () => {
         <Text>フロントエンド分からん…orz</Text>
         <Divider my={6} />
 
-        <Box my={6} align="center">
+        <Box display="flex" my={6} justifyContent="center">
           <NextLink href="/works">
             <Button colorScheme="purple">Go Works</Button>
           </NextLink>

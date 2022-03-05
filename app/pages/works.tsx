@@ -26,12 +26,12 @@ const Works: NextPage = () => {
         </Heading>
 
         <SimpleGrid columns={[1, 2, 2]} gap={6} mb={6}>
-          <Section>
+          <Section delay="0.1">
             <WorkContents id="tinysv" title="tinysv" thumbnail={tinysvThumb}>
               Minimal extensive server application
             </WorkContents>
           </Section>
-          <Section>
+          <Section delay="0.1">
             <WorkContents id="networkwebcam" title="NetworkWebCamera" thumbnail={nwcThumb}>
               Client and Server application to use Android Smartphone as WebCamera
             </WorkContents>
@@ -43,37 +43,37 @@ const Works: NextPage = () => {
         </Heading>
 
         <SimpleGrid columns={[1, 2, 2]} gap={6} mb={6}>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://vimeo.com/657539057" title="mirage" thumbnail={mirageThumb}>
               2021.11 / Vocaloid MV
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://vimeo.com/643014253" title="void" thumbnail={voidThumb}>
               2021.11 / Vocaloid MV
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://vimeo.com/657528799" title="MISW Waseda-Sai 2021" thumbnail={wfesThumb}>
               2021.10 / MotionGraphics
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://vimeo.com/573561720" title="Hello" thumbnail={helloThumb}>
               2021.7 / MotionGraphics
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://nico.ms/sm37790855" title="AmberScash" thumbnail={amberThumb}>
               2020.11 / Vocaloid MV
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://youtu.be/iL3Px_BIiEc" title="Teatime" thumbnail={teatimeThumb}>
               2019.12 / AMV
             </ContentsGrid>
           </Section>
-          <Section>
+          <Section delay="0.2">
             <ContentsGrid href="https://nico.ms/sm35900824" title="baby" thumbnail={babyThumb}>
               2019.11 / Vocaloid MV
             </ContentsGrid>

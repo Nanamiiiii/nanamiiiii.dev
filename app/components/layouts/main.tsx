@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import { Box, Container } from '@chakra-ui/react'
-import { withRouter } from 'next/router'
+import { NextRouter } from 'next/router'
 import Navbar from '../navbar'
 
-const Main = ({ children, router }): JSX.Element => {
+const Main = ({ children, router }: { children: any, router: NextRouter }) => {
   return (
     <Box as="main" pb={8}>
       <Head>

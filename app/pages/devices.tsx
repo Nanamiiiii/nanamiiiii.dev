@@ -5,7 +5,7 @@ import { Box, Container, Heading, SimpleGrid, Divider, Text, Button } from '@cha
 import { WorkContents, ContentsGrid } from '../components/contents-grid'
 import Layout from '../components/layouts/article'
 
-const Devices: Nextpage = () => {
+const Devices: NextPage = () => {
   return (
     <Layout title="Devices">
       <Container>
@@ -13,7 +13,7 @@ const Devices: Nextpage = () => {
         <Text>フロントエンド分からん…orz</Text>
         <Divider my={6} />
 
-        <Box my={6} align="center">
+        <Box display="flex" my={6} justifyContent="center">
           <NextLink href="/">
             <Button colorScheme="purple">Go Home</Button>
           </NextLink>

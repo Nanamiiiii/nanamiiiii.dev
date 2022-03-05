@@ -6,7 +6,7 @@ import Paragraph from '../components/paragraph'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
 
-const LinkText = ({ href, children }) => {
+const LinkText = ({ href, children }: { href: string, children: any }) => {
   return (
     <NextLink href={href}>
       <Link
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
     <Layout title="">
       <Container>
         <Box display={{ md: 'flex' }} justifyContent='center' alignItems='center'>
-          <Box flexShrink={0} mt={{ base: 2, md: 1 }} mb={{ base: 3, md: 3 }} ml={{ md: 6 }} align="center">
+          <Box flexShrink={0} mt={{ base: 3, md: 3 }} mb={{ base: 5, md: 5 }} ml={{ md: 6 }} display="flex" justifyContent="center" alignItems="center">
             <Image
               borderColor={useColorModeValue('gray', 'white')}
               borderWidth={4}
@@ -49,7 +49,7 @@ const Home: NextPage = () => {
 
         </Box>
 
-        <Section delay={0.1}>
+        <Section delay={"0.1"}>
           <Heading as="h3" variant="section-title">
             Hobby
           </Heading>
@@ -71,7 +71,7 @@ const Home: NextPage = () => {
           </ItemizeSection>
         </Section>
 
-        <Section delay={0.2}>
+        <Section delay={"0.2"}>
           <Heading as="h3" variant="section-title">
             Interest
           </Heading>
@@ -79,10 +79,11 @@ const Home: NextPage = () => {
           <Paragraph>Virtualization / Infrastructure / Cyber Security</Paragraph>
         </Section>
 
-        <Section delay={0.3}>
+        <Section delay={"0.3"}>
           <Heading as="h3" variant="section-title">
             Social
           </Heading>
+          <Paragraph>Under Construction...</Paragraph>
         </Section>
       </Container>
     </Layout>

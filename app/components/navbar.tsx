@@ -17,7 +17,7 @@ import {
 import { HamburgerIcon } from '@chakra-ui/icons'
 import ThemeToggleButton from './theme-toggle-button'
 
-const LinkItem = ({ href, path, children }) => {
+const LinkItem = ({ href, path, children }: { href: string, path: string, children: any }) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
   return (
@@ -33,7 +33,7 @@ const LinkItem = ({ href, path, children }) => {
   )
 }
 
-const Navbar = props => {
+const Navbar = (props: any) => {
   const { path } = props
 
   return (
@@ -46,7 +46,7 @@ const Navbar = props => {
       zIndex={1}
       {...props}
     >
-      <Container display="flex" p={2} maxW="container.md" wrap="wrap" align="center" justify="space-between">
+      <Container display="flex" p={2} maxW="container.md" flex-wrap="wrap" alignItems="center" justifyContent="space-between">
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
@@ -72,7 +72,7 @@ const Navbar = props => {
           </LinkItem>
         </Stack>
 
-        <Box flex={1} align="right">
+        <Box display="flex" flex={1} alignItems="center" justifyContent="right">
           <ThemeToggleButton />
           <Box ml={2} display={{ base: 'inline-block', md: 'none'}}>
             <Menu>

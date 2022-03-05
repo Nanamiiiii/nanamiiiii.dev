@@ -1,13 +1,6 @@
 import { NextPage } from 'next'
 import NextLink from 'next/link'
-import {
-  Box, 
-  Heading,
-  Text,
-  Container,
-  Divider,
-  Button
-} from '@chakra-ui/react'
+import { Box, Heading, Text, Container, Divider, Button } from '@chakra-ui/react'
 
 const NotFound: NextPage = () => {
   return (
@@ -16,9 +9,9 @@ const NotFound: NextPage = () => {
       <Text>そんなものはなかった…</Text>
       <Divider my={6} />
 
-      <Box my={6} align="center">
+      <Box display="flex" my={6} justifyContent="center">
         <NextLink href="/">
-          <Button colorScheme="cyan">Go Home</Button>
+          <Button colorScheme="purple">Go Home</Button>
         </NextLink>
       </Box>
     </Container>
