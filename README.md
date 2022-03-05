@@ -1,8 +1,8 @@
 # Nanamiiiii.dev
-[nanamiiiii.dev](https://nanamiiiii.dev)に置いているページのソースです。それ以上でもそれ以下でもないです。
+[nanamiiiii.dev](https://nanamiiiii.dev)に置いている(まだ置いてない)ページのソースです。それ以上でもそれ以下でもないです。
 
 ## Deps
-Nextとかを適当に使ってます。フロントエンド何も知らないんでよく分かりません。
+NextとChakra-UIをネットで見つけたソースから適当に弄って使ってます。フロントエンド何も知らないんでよく分かりません。
 
 ## Dev
 ```
@@ -21,3 +21,5 @@ docker build -f Dockerfile -t nanamiiiii-prod:latest .
 `node`のdocker imageで依存モジュール導入とビルドをして、`distroless/nodejs:16`でサーバーを立ち上げるマルチステージ構成。
 同じく`http://localhost:3000`で見れます。
 
+# フロントエンド、なんも分からん！
+動いたから、ヨシ！
