@@ -1,27 +1,33 @@
 # Nanamiiiii.dev
-[nanamiiiii.dev](https://nanamiiiii.dev)に置いている(まだ置いてない)ページのソースです。それ以上でもそれ以下でもないです。
+Page source of [nanamiiiii.dev](https://nanamiiiii.dev)
 
-## Stack
-NextとChakra-UIをネットで見つけたソースから適当に弄って使ってます。フロントエンド何も知らないんでよく分かりません。
+## Language / Framework
+- Typescript
+- Next.js
+- Chakra-UI
 
-## Dev
+## Need for run / build
+Only `docker`
+
+## Development env
+### Build and Launch container
+```sh
+$ docker-compose build
+$ docker-compose up -d
 ```
-docker-compose build
-docker-compose up -d
+
+### Launch dev server
+```sh
+$ docker-compose exec app "yarn dev"
 ```
-で`./app`以下がコンテナの`/app`と同期されます。コンテナのShellで`$ yarn dev`すれば`http://localhost:3000`でページが見れます。
-別のポートが良ければ`docker-compose.yml`を書き換えるなりなんなりしてください。
 
-## For Deploy
+`docker-compose.yml` & `dev.Dockerfile` is compatible for VSCode Remote Container Extension (you may need to modify `.devcontainer/docker-compose.yml` to change volume mountpoint.)
+
+By default, dev server runs on `localhost:3000`.
+
+## Build and Run production image
+```sh
+$ docker build -f Dockerfile -t nanamiiiii-dev:latest .
+$ docker run nanamiiiii-dev:latest
 ```
-docker build -f Dockerfile -t nanamiiiii-prod:latest .
-```
-(よく考えたら`-f`オプションいらんわ)
-
-`node`のdocker imageで依存モジュール導入とビルドをして、`distroless/nodejs:16`でサーバーを立ち上げるマルチステージ構成。
-同じく`http://localhost:3000`で見れます。
-
-自鯖k8sに載せやすいように作っただけ
-
-# フロントエンド、なんも分からん！
-動いたから、ヨシ！
+By default, server runs on `localhost:3000`
