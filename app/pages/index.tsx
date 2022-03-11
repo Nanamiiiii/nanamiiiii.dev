@@ -1,10 +1,13 @@
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
-import { Text, Container, Box, Heading, Image, useColorModeValue, Link } from "@chakra-ui/react"
+import { Text, Container, Box, Heading, Image, useColorModeValue, Link, List, ListItem, Button } from "@chakra-ui/react"
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
+import { AiFillTwitterCircle, AiFillYoutube, AiOutlineInstagram } from 'react-icons/ai'
+import { IoLogoGithub } from 'react-icons/io5'
+import { BsFacebook } from 'react-icons/bs'
 
 const LinkText = ({ href, children }: { href: string, children: any }) => {
   return (
@@ -43,7 +46,7 @@ const Home: NextPage = () => {
             <Heading as="h2" variant="page-title">
               Nanamiiiii - Akihiro Saiki
             </Heading>
-            <p>Create Movie & Application</p>
+            <p>Create Movie & Write some code</p>
             <p>A Student of Waseda Univ.</p>
           </Box>
 
@@ -51,7 +54,7 @@ const Home: NextPage = () => {
 
         <Section delay={"0.1"}>
           <Heading as="h3" variant="section-title">
-            Hobby
+            Love
           </Heading>
           <ItemizeSection>
             <ItemizeName>VideoGame</ItemizeName>
@@ -83,7 +86,35 @@ const Home: NextPage = () => {
           <Heading as="h3" variant="section-title">
             Social
           </Heading>
-          <Paragraph>Under Construction...</Paragraph>
+          <Box display="flex" justifyContent="center" py={2}>
+            <Link href='https://twitter.com/Nanamii_i' target="_blank">
+              <Button variant="outline" colorScheme="twitter" leftIcon={<AiFillTwitterCircle />} mx={2}>
+                Twitter
+              </Button>
+            </Link>
+            <Link href='https://github.com/Nanamiiiii' target="_blank">
+              <Button variant="outline" colorScheme="blackAlpha" leftIcon={<IoLogoGithub />} mx={2}>
+                GitHub
+              </Button>
+            </Link>
+            <Link href='https://youtube.com/kokoromyuu' target="_blank">
+              <Button variant="outline" colorScheme="red" leftIcon={<AiFillYoutube />} mx={2}>
+                YouTube
+              </Button>
+            </Link>
+          </Box>
+          <Box display="flex" justifyContent="center" py={2}>
+            <Link href='https://www.instagram.com/s.akihiro_lx/' target="_blank">
+              <Button variant="outline" colorScheme="pink" leftIcon={<AiOutlineInstagram />} mx={2}>
+                Instagram
+              </Button>
+            </Link>
+            <Link href='https://github.com/Nanamiiiii' target="_blank">
+              <Button variant="outline" colorScheme="facebook" leftIcon={<BsFacebook />} mx={2}>
+                facebook
+              </Button>
+            </Link>
+          </Box>
         </Section>
       </Container>
     </Layout>
