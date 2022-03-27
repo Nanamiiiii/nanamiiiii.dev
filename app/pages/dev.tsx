@@ -4,7 +4,7 @@ import { Box, Container, Heading, SimpleGrid, Divider, Text, Button, Tag, TagLab
 import Section from '../components/section'
 import { WorkContents, ContentsGrid } from '../components/contents-grid'
 import Layout from '../components/layouts/article'
-import { SiVisualstudiocode, SiNeovim, SiWindows, SiArchlinux, SiRuby, SiRubyonrails, SiRust, SiC, SiCplusplus, SiGo, SiCsharp, SiJava, SiPython, SiTypescript, SiVim, SiJavascript, SiHaskell, SiOcaml, SiDotnet } from 'react-icons/si'
+import { SiVisualstudiocode, SiNeovim, SiApple, SiWindows, SiArchlinux, SiRuby, SiRubyonrails, SiRust, SiC, SiCplusplus, SiGo, SiCsharp, SiJava, SiPython, SiTypescript, SiVim, SiJavascript, SiHaskell, SiOcaml, SiDotnet } from 'react-icons/si'
 
 const Dev: NextPage = () => {
   return (
@@ -120,6 +120,13 @@ const Dev: NextPage = () => {
             Windows
           </Tag>
         </Box>
+        <Box display="flex" justifyContent="center" py={2}>
+          <Tag colorScheme='gray' mx={2}>
+            <TagLeftIcon as={SiApple} />
+            macOS
+          </Tag>
+          ? &nbsp;&nbsp; IDK (But I like design of the UI...)
+        </Box>
 
         <Heading as="h4" fontSize={20} mb={6} variant="section-title">
           Editor
@@ -133,6 +140,7 @@ const Dev: NextPage = () => {
             <TagLeftIcon as={SiVim} />
             Vim
           </Tag>
+          &nbsp; <b>/</b> &nbsp;
           <Tag colorScheme='blue' mx={2}>
             <TagLeftIcon as={SiVisualstudiocode} />
             VSCode
