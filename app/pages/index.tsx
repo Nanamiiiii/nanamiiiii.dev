@@ -109,7 +109,7 @@ const Home: NextPage = () => {
                 Instagram
               </Button>
             </Link>
-            <Link href='https://github.com/Nanamiiiii' target="_blank">
+            <Link href='https://www.facebook.com/akihiro.lx00' target="_blank">
               <Button variant="outline" colorScheme="facebook" leftIcon={<BsFacebook />} mx={2}>
                 facebook
               </Button>
