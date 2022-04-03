@@ -18,10 +18,10 @@ $ docker-compose up -d
 
 ### Launch dev server
 ```sh
-$ docker-compose exec app yarn dev
+$ docker-compose exec app cd app && yarn dev
 ```
 
-`docker-compose.yml` & `dev.Dockerfile` is compatible for VSCode Remote Container Extension (you may need to modify `.devcontainer/docker-compose.yml` to change volume mountpoint.)
+`docker-compose.yml` & `dev.Dockerfile` is compatible for VSCode Remote Container Extension
 
 By default, dev server runs on `localhost:3000`.
 
