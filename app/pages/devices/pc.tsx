@@ -134,7 +134,7 @@ const Pc: NextPage = () => {
                         </Tag>
                         <Tag size='sm' variant='outline' colorScheme='teal' mx={1}>
                           <TagLeftIcon as={SiKubuntu} />
-                          Kubuntu 21.04
+                          Kubuntu 21.10
                         </Tag>
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">

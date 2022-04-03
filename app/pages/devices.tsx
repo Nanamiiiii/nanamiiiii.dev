@@ -43,7 +43,7 @@ const Devices: NextPage = () => {
         </SimpleGrid>
         <SimpleGrid columns={[1, 1, 1]} gap={6} mb={6}>
           <Section delay="0.1">
-            <DeviceContent href="/devices/mobile" title="Mobile" thumbnail={deviceMob}>
+            <DeviceContent href="/devices/mobile" title="Mobile&Others" thumbnail={deviceMob}>
               Mobile & Others
             </DeviceContent>
           </Section>

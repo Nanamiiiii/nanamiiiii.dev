@@ -33,7 +33,7 @@ const Display: NextPage = () => {
                     </ListItem>
                     <ListItem display="flex" mb={1} alignItems="center">
                         <Meta>RESPONSE</Meta>
-                        <span>5ms</span>
+                        <span>8ms</span>
                     </ListItem>
                     <ListItem display="flex" mb={1} alignItems="center">
                         <Meta>COLOR</Meta>
