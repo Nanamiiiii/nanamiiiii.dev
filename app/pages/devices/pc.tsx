@@ -197,6 +197,8 @@ const Pc: NextPage = () => {
                         <span>512GB SSD</span>
                     </ListItem> 
                 </List>
+
+                <Divider />
                 
                 <Heading as="h4" fontSize={18} my={6}>
                     <Center>File Server</Center>
