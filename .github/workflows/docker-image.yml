@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'staging'
     tags:
       - 'v*'
   pull_request:
@@ -30,7 +31,8 @@ jobs:
         username: ${{ secrets.REGISTRY_USER }}
         password: ${{ secrets.REGISTRY_PASSWD }}
     
-    - name: Docker meta
+    - name: Docker meta main
+      if: ${{ github.ref != "staging" }}
       id: meta
       uses: docker/metadata-action@v3
       with:
@@ -40,6 +42,17 @@ jobs:
           type=semver,pattern={{version}}
           type=raw,latest
         
+    - name: Docker meta staging
+      if: ${{ github.ref == "staging" }}
+      id: meta
+      uses: docker/metadata-action@v3
+      with:
+        images: ${{ secrets.REGISTRY_URL }}/nanamiiiii-dev
+        tags: |
+          type=schedule,pattern={{date 'YYYYMMDD'}}
+          type=semver,pattern={{version}}
+          type=raw,staging
+
     - name: build and push image
       uses: docker/build-push-action@v2
       with:
