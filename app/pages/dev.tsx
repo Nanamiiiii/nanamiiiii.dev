@@ -14,7 +14,7 @@ const Dev: NextPage = () => {
           Development
         </Heading>
         <Heading as="h4" fontSize={20} mb={6} variant="section-title">
-          Programming Language
+          Language
         </Heading>
         <Heading as="h5" fontSize={18} mb={2}>
           Awesome
@@ -35,9 +35,6 @@ const Dev: NextPage = () => {
           <Tag colorScheme='purple' mx={2}>
             <TagLeftIcon as={SiCplusplus} />
             C++
-          </Tag>
-          <Tag colorScheme='gray' mx={2}>
-            Shell script
           </Tag>
         </Box>
         <Heading as="h5" fontSize={18} mt={4} mb={2}>

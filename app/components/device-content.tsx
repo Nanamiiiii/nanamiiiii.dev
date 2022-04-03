@@ -28,4 +28,3 @@ export const DeviceContent = ({ children, href, title, thumbnail }: { children: 
     </NextLink>
   </Box>
 )
-

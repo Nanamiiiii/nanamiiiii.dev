@@ -45,7 +45,7 @@ const Work: NextPage = () => {
           </ListItem>
           <ListItem>
             <Meta>Status</Meta>
-            <span>Progressing</span>
+            <span>Work in progress</span>
           </ListItem>
         </List>
 
