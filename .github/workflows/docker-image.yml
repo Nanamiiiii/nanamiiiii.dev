@@ -32,7 +32,7 @@ jobs:
         password: ${{ secrets.REGISTRY_PASSWD }}
     
     - name: Docker meta main
-      if: ${{ github.ref != "staging" }}
+      if: ${{ github.ref != 'staging' }}
       id: meta
       uses: docker/metadata-action@v3
       with:
@@ -43,7 +43,7 @@ jobs:
           type=raw,latest
         
     - name: Docker meta staging
-      if: ${{ github.ref == "staging" }}
+      if: ${{ github.ref == 'staging' }}
       id: meta
       uses: docker/metadata-action@v3
       with:
