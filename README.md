@@ -18,7 +18,7 @@ $ docker-compose up -d
 
 ### Launch dev server
 ```sh
-$ docker-compose exec app cd app && yarn dev
+$ docker-compose exec app yarn dev
 ```
 
 `docker-compose.yml` & `dev.Dockerfile` is compatible for VSCode Remote Container Extension
