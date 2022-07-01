@@ -16,14 +16,14 @@
     "@iconify/icons-logos": "^1.2.4",
     "@iconify/react": "^3.1.4",
     "framer-motion": "^6.3.5",
-    "next": "12.1.0",
+    "next": "12.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
     "sharp": "^0.30.2"
   },
   "devDependencies": {
-    "@types/node": "17.0.21",
+    "@types/node": "18.0.0",
     "@types/react": "17.0.39",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.0",
