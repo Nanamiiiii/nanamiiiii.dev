@@ -28,6 +28,6 @@ By default, dev server runs on `localhost:3000`.
 ## Build and Run production image
 ```sh
 $ docker build -f Dockerfile -t nanamiiiii-dev:latest .
-$ docker run nanamiiiii-dev:latest
+$ docker run -p 3000:3000 nanamiiiii-dev:latest
 ```
 By default, server runs on `localhost:3000`
