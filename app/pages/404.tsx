@@ -10,7 +10,7 @@ const NotFound: NextPage = () => {
       <Divider my={6} />
 
       <Box display="flex" my={6} justifyContent="center">
-        <NextLink href="/">
+        <NextLink href="/" passHref>
           <Button colorScheme="purple">Go Home</Button>
         </NextLink>
       </Box>
