@@ -14,7 +14,7 @@ const Pc: NextPage = () => {
                 </Title>
 
                 <Heading as="h4" fontSize={18} my={6} >
-                    <Center>Main Machine</Center>
+                    <Center>Windows Workstation</Center>
                 </Heading>
 
                 <DevPort src="/images/devices/pc.png" alt="mainpc" />
@@ -22,32 +22,27 @@ const Pc: NextPage = () => {
                 <List my={6} ml={4}>
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>OS</Text></Meta>
-                        <Tag size='sm' variant='outline' colorScheme='blue' mx={1}>
-                          <TagLeftIcon as={SiArchlinux} />
-                          ArchLinux
-                        </Tag>
                         <Tag size='sm' variant='outline' colorScheme='cyan' mx={1}>
                           <TagLeftIcon as={SiWindows} />
-                          Windows10 Pro
+                          Windows11 Pro
                         </Tag>
                     </ListItem>
 
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>MB</Text></Meta>
-                        <ListIcon as={SiAsus} />
-                        <span>ASUS ROG STRIX Z390-F GAMING</span>
+                        <span>MSI MPG Z690 FORCE WIFI</span>
                     </ListItem>
 
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>CPU</Text></Meta>
                         <ListIcon as={SiIntel} />
-                        <span>Intel Core i7-9700K</span>
+                        <span>Intel Core i7-12700K</span>
                     </ListItem>
 
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>RAM</Text></Meta>
                         <ListIcon as={SiCorsair} />
-                        <span>Corsair Vengence DDR4-2666 16GB × 4</span>       
+                        <span>Corsair Vengence DDR5-5200 32GB × 2</span>       
                     </ListItem>
 
                     <ListItem display="flex" mb={2} alignItems="center">
@@ -74,20 +69,7 @@ const Pc: NextPage = () => {
                                 </Tag>
                             </ListItem>
                             <ListItem display="flex" alignItems="center">
-                                <ListIcon as={SiSamsung} />
-                                <span>Samsung SSD 860 EVO 500GB</span>
-                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
-                                    SATA
-                                </Tag>
-                            </ListItem>
-                            <ListItem display="flex" alignItems="center">
                                 <span>Crucial SSD MX300 525GB</span>
-                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
-                                    SATA
-                                </Tag>
-                            </ListItem>
-                            <ListItem display="flex" alignItems="center">
-                                <span>WesternDigital WD1003FZEX 1TB</span>
                                 <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
                                     SATA
                                 </Tag>
@@ -106,12 +88,82 @@ const Pc: NextPage = () => {
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>PSU</Text></Meta>
+                        <span>CoolerMaster V850 Gold V2 White Edition</span>
+                    </ListItem>
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>CASE</Text></Meta>
+                        <span>NZXT H710i White</span>
+                    </ListItem>
+                </List>
+                <Divider />
+
+                <Heading as="h4" fontSize={18} my={6} >
+                    <Center>Linux Workstation</Center>
+                </Heading>
+
+                <List my={6} ml={4}>
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>OS</Text></Meta>
+                        <Tag size='sm' variant='outline' colorScheme='blue' mx={1}>
+                          <TagLeftIcon as={SiArchlinux} />
+                          ArchLinux
+                        </Tag>
+                    </ListItem>
+
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>MB</Text></Meta>
+                        <ListIcon as={SiAsus} />
+                        <span>ASUS ROG STRIX Z390-F GAMING</span>
+                    </ListItem>
+
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>CPU</Text></Meta>
+                        <ListIcon as={SiIntel} />
+                        <span>Intel Core i7-9700K</span>
+                    </ListItem>
+
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>RAM</Text></Meta>
+                        <ListIcon as={SiCorsair} />
+                        <span>Corsair Vengence DDR4-2666 16GB × 4</span>       
+                    </ListItem>
+
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>GPU</Text></Meta>
+                        <ListIcon as={SiNvidia} />
+                        <span>GeForce GT 1030 2GB</span>
+                    </ListItem>
+
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>Storage</Text></Meta>
+                        <List>
+                            <ListItem display="flex" alignItems="center">
+                                <ListIcon as={SiSamsung} />
+                                <span>Samsung SSD 860 EVO 500GB</span>
+                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
+                                    SATA
+                                </Tag>
+                            </ListItem>
+                            <ListItem display="flex" alignItems="center">
+                                <span>WesternDigital WD1003FZEX 1TB</span>
+                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
+                                    SATA
+                                </Tag>
+                            </ListItem>
+                        </List>
+                    </ListItem>
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>Cooling</Text></Meta>
+                        <span>SCYTHE 無限五 Rev.C</span>
+                    </ListItem>
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>PSU</Text></Meta>
                         <ListIcon as={SiCorsair} />
                         <span>Corsair RM750x White</span>
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>CASE</Text></Meta>
-                        <span>NZXT H710i White</span>
+                        <span>CoolerMaster MasterBox Q500L</span>
                     </ListItem>
                 </List>
 
