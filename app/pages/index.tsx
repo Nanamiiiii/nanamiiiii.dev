@@ -11,7 +11,7 @@ import { BsFacebook } from 'react-icons/bs'
 
 const LinkText = ({ href, children }: { href: string, children: any }) => {
   return (
-    <NextLink href={href}>
+    <NextLink href={href} passHref>
       <Link
         bg='undefined'
         color={useColorModeValue('gray200', 'whiteAlpha.900')}

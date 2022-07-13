@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global } from '@emotion/react'
 
-export const ContentsGrid = ({ children, href, title, thumbnail }: { children: any, href: string, title: string, thumbnail: StaticImageData }) => (
+export const ContentsGrid = ({ children, href, title, thumbnail }: { children: any, href: string, title: string, thumbnail: import('next/dist/client/image').StaticImageData }) => (
   <Box display="flex" w="100%" alignItems="center">
     <LinkBox cursor="pointer">
       <Image src={thumbnail}
@@ -20,9 +20,9 @@ export const ContentsGrid = ({ children, href, title, thumbnail }: { children: a
   </Box>
 )
 
-export const WorkContents = ({ children, id, title, thumbnail }: {children: any, id: string, title: string, thumbnail: StaticImageData }) => (
+export const WorkContents = ({ children, id, title, thumbnail }: {children: any, id: string, title: string, thumbnail: import('next/dist/client/image').StaticImageData }) => (
   <Box display="flex" w="100%" alignItems="center">
-    <NextLink href={`/works/${id}`}>
+    <NextLink href={`/works/${id}`} passHref>
       <LinkBox cursor="pointer">
         <Image src={thumbnail}
           alt={title}
