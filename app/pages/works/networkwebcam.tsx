@@ -53,11 +53,11 @@ const Work: NextPage = () => {
             <span>
               <Badge>Cam</Badge>
               &nbsp;&nbsp;
-              2021.7.5
+              0.2.0 (2022/8/16)
               &nbsp;&nbsp;&nbsp;&nbsp;
               <Badge>Server</Badge>
               &nbsp;&nbsp;
-              2021.7.5
+              0.2.0 (2022/8/16)
             </span>
           </ListItem>
           <ListItem>
@@ -66,7 +66,7 @@ const Work: NextPage = () => {
           </ListItem>
           <ListItem>
             <Meta>Status</Meta>
-            <span>End of development</span>
+            <span>Only bumping JDK & SDK</span>
           </ListItem>
         </List>
 
