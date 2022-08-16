@@ -145,6 +145,12 @@ const Pc: NextPage = () => {
                                 </Tag>
                             </ListItem>
                             <ListItem display="flex" alignItems="center">
+                                <span>KINGSTON SSD Q500 480GB</span>
+                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
+                                    SATA
+                                </Tag>
+                            </ListItem>
+                            <ListItem display="flex" alignItems="center">
                                 <span>WesternDigital WD1003FZEX 1TB</span>
                                 <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
                                     SATA
