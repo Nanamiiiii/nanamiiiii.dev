@@ -61,7 +61,7 @@ const Work: NextPage = () => {
             </span>
           </ListItem>
           <ListItem>
-            <Meta>Lisence</Meta>
+            <Meta>License</Meta>
             <span>MIT</span>
           </ListItem>
           <ListItem>

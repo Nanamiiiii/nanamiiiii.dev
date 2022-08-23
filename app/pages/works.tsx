@@ -13,6 +13,7 @@ import helloThumb from '../public/images/works/hello.png'
 import amberThumb from '../public/images/works/amberscash.png'
 import teatimeThumb from '../public/images/works/teatime.png'
 import babyThumb from '../public/images/works/baby.png'
+import birdolThumb from '../public/images/works/birdol.png'
 
 const Works: NextPage = () => {
   return (
@@ -34,6 +35,18 @@ const Works: NextPage = () => {
           <Section delay="0.1">
             <WorkContents id="networkwebcam" title="NetworkWebCamera" thumbnail={nwcThumb}>
               Client and Server application to use Android Smartphone as WebCamera
+            </WorkContents>
+          </Section>
+        </SimpleGrid>
+
+        <Heading as="h4" fontSize={20} mb={4}>
+          Participate
+        </Heading>
+        
+        <SimpleGrid columns={[1, 2, 2]} gap={6} mb={6}>
+          <Section delay="0.15">
+            <WorkContents id="birdol" title="Birdol March" thumbnail={birdolThumb}>
+              Social Game Project
             </WorkContents>
           </Section>
         </SimpleGrid>
