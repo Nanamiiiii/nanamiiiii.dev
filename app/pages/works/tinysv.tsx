@@ -40,7 +40,7 @@ const Work: NextPage = () => {
             <span>0.1.0 (2021/12/18)</span>
           </ListItem>
           <ListItem>
-            <Meta>Lisence</Meta>
+            <Meta>License</Meta>
             <span>MIT</span>
           </ListItem>
           <ListItem>

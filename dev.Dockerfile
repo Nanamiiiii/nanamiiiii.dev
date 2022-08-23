@@ -8,7 +8,8 @@ RUN npm install n -g
 RUN n lts
 RUN apt purge -y nodejs npm
 
+WORKDIR /workspace
+COPY ./ .
 WORKDIR /workspace/app
-COPY ./app .
 RUN yarn
 
