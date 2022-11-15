@@ -75,7 +75,7 @@ jobs:
       with:
         images: |
           ghcr.io/${{ github.repository }}
-          $${{ secrets.REGISTRY_URL }}/${{ github.repositry }}
+          $${{ secrets.REGISTRY_URL }}/${{ github.repository }}
         tags: |
           type=schedule,pattern={{date 'YYYYMMDD'}}
           type=semver,pattern={{version}}
