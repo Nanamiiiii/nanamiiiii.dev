@@ -25,7 +25,14 @@ jobs:
 
     steps:
     - name: Checkout
+      if: ${{ github.event_name != 'pull_request_target' }}
       uses: actions/checkout@v3
+      
+    - name: Alt checkout
+      if: ${{ github.event_name == 'pull_request_target' }}
+      uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha }}
       
     - name: Get changed files
       id: changed-files
