@@ -31,7 +31,7 @@ jobs:
       uses: tj-actions/changed-files@v34
       with:
         files: |
-          .github/workflows/docker-image.yml
+          .github/workflows/build_deploy.yml
           app/**
           Dockerfile
     
