@@ -75,7 +75,7 @@ jobs:
       with:
         images: |
           ghcr.io/${{ github.repository }}
-          $${{ secrets.REGISTRY_URL }}/nanamiiiii.dev
+          ${{ secrets.REGISTRY_URL }}/nanamiiiii.dev
         tags: |
           type=schedule,pattern={{date 'YYYYMMDD'}}
           type=semver,pattern={{version}}
