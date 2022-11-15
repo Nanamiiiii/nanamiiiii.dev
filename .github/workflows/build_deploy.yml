@@ -116,7 +116,7 @@ jobs:
         gcloud run deploy nanamiiiii-port \
           --project=${{ secrets.GCP_PROJECT_ID }} \
           --image=${{ secrets.REGISTRY_URL }}/nanamiiiii.dev:latest \
-          --region="asia-northeast1"
+          --region="asia-northeast1" \
           --service-account=${{ secrets.GCP_SERVICE_ACCOUNT }} \
           --allow-unauthenticated \
           --port=3000
