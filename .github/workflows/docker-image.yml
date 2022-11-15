@@ -59,14 +59,6 @@ jobs:
     - name: Configure Artifact Registry
       run: |
         gcloud auth configure-docker asia-northeast1-docker.pkg.dev
-      
-    - name: Login to private registry
-      uses: docker/login-action@v2
-      if: steps.changed-files.outputs.any_changed == 'true'
-      with:
-        registry: ghcr.io
-        username: ${{ github.repository_owner }}
-        password: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Docker meta
       id: meta
@@ -74,7 +66,6 @@ jobs:
       if: steps.changed-files.outputs.any_changed == 'true'
       with:
         images: |
-          ghcr.io/${{ github.repository }}
           ${{ secrets.REGISTRY_URL }}/nanamiiiii.dev
         tags: |
           type=schedule,pattern={{date 'YYYYMMDD'}}
