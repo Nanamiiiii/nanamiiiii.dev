@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 
 RUN apt update && apt install -y tzdata curl gnupg 
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
