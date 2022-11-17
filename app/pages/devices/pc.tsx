@@ -3,7 +3,7 @@ import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import { Container, Heading, Center, List, ListIcon, Tag, TagLeftIcon, Text, ListItem, Divider } from '@chakra-ui/react'
 import { Title, DevPort, Meta } from '../../components/device'
-import { SiUbuntu, SiNvidia, SiKubuntu, SiSamsung, SiCorsair, SiIntel, SiArchlinux, SiWindows, SiAsus } from 'react-icons/si'
+import { SiUbuntu, SiNvidia, SiKubuntu, SiSamsung, SiCorsair, SiIntel, SiArchlinux, SiWindows, SiAsus, SiRedhat } from 'react-icons/si'
 
 const Pc: NextPage = () => {
     return (
@@ -138,10 +138,9 @@ const Pc: NextPage = () => {
                         <Meta><Text>Storage</Text></Meta>
                         <List>
                             <ListItem display="flex" alignItems="center">
-                                <ListIcon as={SiSamsung} />
-                                <span>Samsung SSD 860 EVO 500GB</span>
+                                <span>Crucial SSD P2 500GB</span>
                                 <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
-                                    SATA
+                                    NVMe
                                 </Tag>
                             </ListItem>
                             <ListItem display="flex" alignItems="center">
@@ -192,7 +191,7 @@ const Pc: NextPage = () => {
                         </Tag>
                         <Tag size='sm' variant='outline' colorScheme='teal' mx={1}>
                           <TagLeftIcon as={SiKubuntu} />
-                          Kubuntu 21.10
+                          Kubuntu 22.04
                         </Tag>
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
@@ -221,7 +220,7 @@ const Pc: NextPage = () => {
                 <Divider />
 
                 <Heading as="h4" fontSize={18} my={6}>
-                    <Center>Main Server</Center>
+                    <Center>Kubernetes nodes host</Center>
                 </Heading>
 
                 <List my={6} ml={4}>
@@ -231,9 +230,9 @@ const Pc: NextPage = () => {
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>OS</Text></Meta>
-                        <Tag size='sm' variant='outline' colorScheme='orange' mx={1}>
-                          <TagLeftIcon as={SiUbuntu} />
-                          Ubuntu Server 20.04
+                        <Tag size='sm' variant='outline' colorScheme='red' mx={1}>
+                          <TagLeftIcon as={SiRedhat} />
+                          RedHat Enterprise Linux 9.0
                         </Tag>
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
@@ -252,14 +251,35 @@ const Pc: NextPage = () => {
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
                         <Meta><Text>STORAGE</Text></Meta>
-                        <span>512GB SSD</span>
+                        <List>
+                            <ListItem display="flex" alignItems="center">
+                                <span>M.2 SSD 500GB</span>
+                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
+                                    NVMe
+                                </Tag>
+                            </ListItem>
+                            <ListItem display="flex" alignItems="center">
+                                <ListIcon as={SiSamsung} />
+                                <span>Samsung SSD 860 EVO</span>
+                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
+                                    SATA
+                                </Tag>
+                            </ListItem>
+                        </List>
                     </ListItem> 
+                    <ListItem display="flex" mb={2} alignItems="center">
+                        <Meta><Text>KVM Guest</Text></Meta>
+                        <Tag size='sm' variant='outline' colorScheme='orange' mx={1}>
+                          <TagLeftIcon as={SiUbuntu} />
+                          Ubuntu Server 22.04
+                        </Tag>
+                    </ListItem>
                 </List>
 
                 <Divider />
                 
                 <Heading as="h4" fontSize={18} my={6}>
-                    <Center>File Server</Center>
+                    <Center>Kuberbetes Control-Plane</Center>
                 </Heading>
 
                 <List my={6} ml={4}>
@@ -271,7 +291,7 @@ const Pc: NextPage = () => {
                         <Meta><Text>OS</Text></Meta>
                         <Tag size='sm' variant='outline' colorScheme='orange' mx={1}>
                           <TagLeftIcon as={SiUbuntu} />
-                          Ubuntu Server 20.04
+                          Ubuntu Server 22.04
                         </Tag>
                     </ListItem>
                     <ListItem display="flex" mb={2} alignItems="center">
@@ -287,12 +307,6 @@ const Pc: NextPage = () => {
                         <List>
                             <ListItem display="flex" alignItems="center">
                                 SanDisk microSDXC 128GB
-                            </ListItem>
-                            <ListItem display="flex" alignItems="center">
-                                Crucial SSD P2 500GB
-                                <Tag size='sm' variant='outline' colorScheme='gray' mx={1}>
-                                    NVMe to USB3.0
-                                </Tag>
                             </ListItem>
                         </List>
                     </ListItem>

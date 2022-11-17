@@ -1,10 +1,34 @@
 import type { NextPage } from 'next'
-import NextLink from 'next/link'
-import { Box, Container, Heading, SimpleGrid, Divider, Text, Button, Tag, TagLabel, TagLeftIcon, TagRightIcon, TagCloseButton } from '@chakra-ui/react'
-import Section from '../components/section'
-import { WorkContents, ContentsGrid } from '../components/contents-grid'
+import { Box, Container, Heading, Tag, TagLeftIcon } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
-import { SiVisualstudiocode, SiNeovim, SiApple, SiWindows, SiArchlinux, SiRuby, SiRubyonrails, SiRust, SiC, SiCplusplus, SiGo, SiCsharp, SiJava, SiPython, SiTypescript, SiVim, SiJavascript, SiHaskell, SiOcaml, SiDotnet } from 'react-icons/si'
+import { 
+  SiVisualstudiocode, 
+  SiNeovim, 
+  SiApple, 
+  SiWindows, 
+  SiArchlinux, 
+  SiRuby, 
+  SiRubyonrails, 
+  SiRust, 
+  SiC, 
+  SiCplusplus, 
+  SiGo, 
+  SiCsharp, 
+  SiJava, 
+  SiPython, 
+  SiTypescript, 
+  SiVim, 
+  SiJavascript, 
+  SiHaskell, 
+  SiOcaml, 
+  SiDotnet,
+  SiKubernetes,
+  SiDocker,
+  SiQemu,
+  SiAmazonaws,
+  SiMicrosoftazure,
+  SiVmware
+} from 'react-icons/si'
 
 const Dev: NextPage = () => {
   return (
@@ -14,12 +38,38 @@ const Dev: NextPage = () => {
           Development
         </Heading>
         <Heading as="h4" fontSize={20} mb={6} variant="section-title">
+          Virtualization
+        </Heading>
+        <Box display="flex" justifyContent="center" py={2}>
+          <Tag colorScheme='blue' mx={2}>
+            <TagLeftIcon as={SiKubernetes} />
+            Kubernetes
+          </Tag>
+          <Tag colorScheme='cyan' mx={2}>
+            <TagLeftIcon as={SiDocker} />
+            Docker
+          </Tag>
+          <Tag colorScheme='green' mx={2}>
+            <TagLeftIcon as={SiVmware} />
+            VMware
+          </Tag>
+          <Tag colorScheme='orange' mx={2}>
+            <TagLeftIcon as={SiQemu} />
+            QEMU KVM
+          </Tag>
+        </Box>
+
+        <Heading as="h4" fontSize={20} mb={6} variant="section-title">
           Language
         </Heading>
         <Heading as="h5" fontSize={18} mb={2}>
           Awesome
         </Heading>
         <Box display="flex" justifyContent="center" py={2}>
+          <Tag colorScheme='cyan' mx={2}>
+            <TagLeftIcon as={SiGo} />
+            Go
+          </Tag>
           <Tag colorScheme='red' mx={2}>
             <TagLeftIcon as={SiRuby} />
             Ruby
@@ -41,10 +91,6 @@ const Dev: NextPage = () => {
           Be used to
         </Heading>
         <Box display="flex" justifyContent="center" py={2}>
-          <Tag colorScheme='cyan' mx={2}>
-            <TagLeftIcon as={SiGo} />
-            Go
-          </Tag>
           <Tag colorScheme='teal' mx={2}>
             <TagLeftIcon as={SiCsharp} />
             C#
@@ -87,16 +133,16 @@ const Dev: NextPage = () => {
         </Box>
 
         <Heading as="h4" fontSize={20} mb={6} variant="section-title">
-          Framework
+          Cloud
         </Heading>
         <Box display="flex" justifyContent="center" py={2}>
-          <Tag colorScheme='purple' mx={2}>
-            <TagLeftIcon as={SiDotnet} />
-            .NET
+          <Tag colorScheme='orange' mx={2}>
+            <TagLeftIcon as={SiAmazonaws} />
+            AWS
           </Tag>
-          <Tag colorScheme='red' mx={2}>
-            <TagLeftIcon as={SiRubyonrails} />
-            Rails
+          <Tag colorScheme='blue' mx={2}>
+            <TagLeftIcon as={SiMicrosoftazure} />
+            Azure
           </Tag>
         </Box>
 
@@ -111,18 +157,18 @@ const Dev: NextPage = () => {
           is GOD
         </Box>
         <Box display="flex" justifyContent="center" py={2}>
-          Destroy
           <Tag colorScheme='cyan' mx={2}>
             <TagLeftIcon as={SiWindows} />
             Windows
           </Tag>
-        </Box>
-        <Box display="flex" justifyContent="center" py={2}>
+          <Tag colorScheme='cyan' mx={2}>
+            <TagLeftIcon as={SiWindows} />
+            Windows Server
+          </Tag>
           <Tag colorScheme='gray' mx={2}>
             <TagLeftIcon as={SiApple} />
             macOS
           </Tag>
-          ? &nbsp;&nbsp; IDK (But I like design of the UI...)
         </Box>
 
         <Heading as="h4" fontSize={20} mb={6} variant="section-title">
@@ -137,10 +183,23 @@ const Dev: NextPage = () => {
             <TagLeftIcon as={SiVim} />
             Vim
           </Tag>
-          &nbsp; <b>/</b> &nbsp;
           <Tag colorScheme='blue' mx={2}>
             <TagLeftIcon as={SiVisualstudiocode} />
             VSCode
+          </Tag>
+        </Box>
+
+        <Heading as="h4" fontSize={20} mb={6} variant="section-title">
+          Framework
+        </Heading>
+        <Box display="flex" justifyContent="center" py={2}>
+          <Tag colorScheme='purple' mx={2}>
+            <TagLeftIcon as={SiDotnet} />
+            .NET
+          </Tag>
+          <Tag colorScheme='red' mx={2}>
+            <TagLeftIcon as={SiRubyonrails} />
+            Rails
           </Tag>
         </Box>
       </Container>

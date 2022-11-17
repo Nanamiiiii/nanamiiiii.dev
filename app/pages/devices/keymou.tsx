@@ -18,6 +18,15 @@ const KeyMouse: NextPage = () => {
 
                 <UnorderedList spacing={2} my={6}>
                     <ListItem display="flex" alignItems="center">
+                        HHKB Professional HYBRID Type-S Yuki
+                        &nbsp;
+                        <Tag size='sm'>US</Tag>
+                        &nbsp;
+                        <Tag size='sm'>60%</Tag>
+                        &nbsp;
+                        <Tag size='sm'>2022</Tag>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
                         Ducky One 3 Fuji w/ VAXEE KC
                         &nbsp;
                         <Tag size='sm'>US</Tag>
@@ -35,15 +44,6 @@ const KeyMouse: NextPage = () => {
                         &nbsp;
                         <Tag size='sm'>2022</Tag>
                     </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                        HHKB Professional HYBRID
-                        &nbsp;
-                        <Tag size='sm'>US</Tag>
-                        &nbsp;
-                        <Tag size='sm'>60%</Tag>
-                        &nbsp;
-                        <Tag size='sm'>2021</Tag>
-                    </ListItem>
                 </UnorderedList>
 
                 <Divider />
@@ -58,7 +58,7 @@ const KeyMouse: NextPage = () => {
                     <ListItem display="flex" alignItems="center">
                         Logicool G PRO X SUPERLIGHT
                         &nbsp;
-                        <Tag size='sm'>2021</Tag>
+                        <Tag size='sm'>2022</Tag>
                     </ListItem>
                     <ListItem display="flex" alignItems="center">
                         Logicool G304 LIGHTSPEED LILAC
