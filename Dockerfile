@@ -10,7 +10,7 @@ COPY --from=deps /usr/src/app/node_modules ./node_modules
 ENV NODE_ENV=production
 RUN yarn build
 
-FROM gcr.io/distroless/nodejs:16 AS runner
+FROM gcr.io/distroless/nodejs:18 AS runner
 WORKDIR /usr/src/app
 COPY --from=builder /usr/src/app/public ./public
 COPY --from=builder /usr/src/app/.next ./.next
