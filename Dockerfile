@@ -1,9 +1,9 @@
-FROM node:16 AS deps
+FROM node:19 AS deps
 WORKDIR /usr/src/app
 COPY ./app/package.json ./app/yarn.lock ./
 RUN yarn install
 
-FROM node:16 AS builder
+FROM node:19 AS builder
 WORKDIR /usr/src/app
 COPY ./app .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
