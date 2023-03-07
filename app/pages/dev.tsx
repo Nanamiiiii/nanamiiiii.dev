@@ -14,7 +14,6 @@ import {
   SiCplusplus, 
   SiGo, 
   SiCsharp, 
-  SiJava, 
   SiPython, 
   SiTypescript, 
   SiVim, 
@@ -29,6 +28,7 @@ import {
   SiMicrosoftazure,
   SiVmware
 } from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
 
 const Dev: NextPage = () => {
   return (
@@ -96,7 +96,7 @@ const Dev: NextPage = () => {
             C#
           </Tag>
           <Tag colorScheme='orange' mx={2}>
-            <TagLeftIcon as={SiJava} />
+            <TagLeftIcon as={FaJava} />
             Java
           </Tag>
           <Tag colorScheme='brown' mx={2}>

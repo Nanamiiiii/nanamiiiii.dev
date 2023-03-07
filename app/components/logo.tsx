@@ -22,19 +22,17 @@ const Logo = () => {
   const initialLogo = `/images/logo_${useColorModeValue("dark", "dark")}.png`
   return (
     <Link href="/">
-      <a>
-        <LogoBox>
-          <Image src={initialLogo} width={20} height={20} alt="logo" />
-          <Text 
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')} 
-            fontFamily='Gwendolyn' 
-            fontWeight='normal' 
-            ml={5}
-          >
-            Nanamiiiii
-          </Text>
-        </LogoBox>
-      </a>
+      <LogoBox>
+        <Image src={initialLogo} width={20} height={20} alt="logo" />
+        <Text 
+          color={useColorModeValue('gray.800', 'whiteAlpha.900')} 
+          fontFamily='Gwendolyn' 
+          fontWeight='normal' 
+          ml={5}
+        >
+          Nanamiiiii
+        </Text>
+      </LogoBox>
     </Link>
   )
 }

@@ -11,14 +11,15 @@ import { BsFacebook } from 'react-icons/bs'
 
 const LinkText = ({ href, children }: { href: string, children: any }) => {
   return (
-    <NextLink href={href} passHref>
-      <Link
+    <Link
+        as={NextLink}
+        href={href}
         bg='undefined'
         color={useColorModeValue('gray200', 'whiteAlpha.900')}
+        passHref
       >
         {children}
-      </Link>
-    </NextLink>
+    </Link>
   )
 }
 
@@ -58,7 +59,7 @@ const Home: NextPage = () => {
           </Heading>
           <ItemizeSection>
             <ItemizeName>VideoGame</ItemizeName>
-            Especially FPS (Call of Duty, Apex Legends...)
+            Especially FPS (Call of Duty, VALORANT...)
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName><LinkText href="/works">Movie Creation</LinkText></ItemizeName>
