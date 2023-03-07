@@ -15,21 +15,21 @@ import {
   useColorModeValue
 } from '@chakra-ui/react'
 import { HamburgerIcon } from '@chakra-ui/icons'
-import ThemeToggleButton from './theme-toggle-button'
 
 const LinkItem = ({ href, path, children }: { href: string, path: string, children: any }) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
   return (
-    <NextLink href={href} passHref>
-      <Link
-        p={2}
-        bg={active ? '#b0d0d9' : undefined }
-        color={active ? '#202023' : inactiveColor }
-      >
-        {children}
-      </Link>
-    </NextLink>
+    <Link
+      as={NextLink}
+      href={href}
+      p={2}
+      bg={active ? '#b0d0d9' : undefined }
+      color={active ? '#202023' : inactiveColor }
+      passHref
+    >
+      {children}
+    </Link>
   )
 }
 
@@ -77,18 +77,18 @@ const Navbar = (props: any) => {
             <Menu>
               <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
                 <MenuList>
-                  <NextLink href="/" passHref>
-                    <MenuItem as={Link}>Home</MenuItem>
-                  </NextLink>
-                  <NextLink href="/dev" passHref>
-                    <MenuItem as={Link}>Development</MenuItem>
-                  </NextLink>
-                  <NextLink href="/devices" passHref>
-                    <MenuItem as={Link}>Devices</MenuItem>
-                  </NextLink>
-                  <NextLink href="/works" passHref>
-                    <MenuItem as={Link}>Works</MenuItem>
-                  </NextLink>
+                  <Link as={NextLink} href="/" passHref>
+                    <MenuItem>Home</MenuItem>
+                  </Link>
+                  <Link as={NextLink} href="/dev" passHref>
+                    <MenuItem>Development</MenuItem>
+                  </Link>
+                  <Link as={NextLink} href="/devices" passHref>
+                    <MenuItem>Devices</MenuItem>
+                  </Link>
+                  <Link as={NextLink} href="/works" passHref>
+                    <MenuItem>Works</MenuItem>
+                  </Link>
                 </MenuList>
             </Menu>
           </Box>

@@ -1,14 +1,16 @@
 FROM node:19 AS deps
 WORKDIR /usr/src/app
-COPY ./app/package.json ./app/yarn.lock ./
-RUN yarn install
+RUN npm install -g pnpm
+COPY ./app/package.json ./app/pnpm-lock.yaml ./
+RUN pnpm install
 
 FROM node:19 AS builder
 WORKDIR /usr/src/app
+RUN npm install -g pnpm
 COPY ./app .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 ENV NODE_ENV=production
-RUN yarn build
+RUN pnpm build
 
 FROM gcr.io/distroless/nodejs:18 AS runner
 WORKDIR /usr/src/app

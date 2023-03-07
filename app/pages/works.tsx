@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import { Container, Heading, SimpleGrid, Divider } from '@chakra-ui/react'
+import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
 import Section from '../components/section'
 import { WorkContents, ContentsGrid } from '../components/contents-grid'
 import Layout from '../components/layouts/article'

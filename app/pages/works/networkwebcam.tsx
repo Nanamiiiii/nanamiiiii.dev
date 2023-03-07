@@ -1,11 +1,11 @@
 import { NextPage } from 'next'
 import { Container, Badge, List, ListItem, ListIcon, Button, Box, Heading, UnorderedList, Center } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Title, WorkImage, WorkImagePad, Meta } from '../../components/work'
+import { Title, WorkImage, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import { IoLogoGithub, IoLogoAndroid, IoLogoWindows } from 'react-icons/io5'
-import { SiJava, SiLinux, SiMacos } from 'react-icons/si'
+import { SiLinux, SiMacos } from 'react-icons/si'
+import { FaJava } from 'react-icons/fa'
 
 const Work: NextPage = () => {
   return (
@@ -46,7 +46,7 @@ const Work: NextPage = () => {
           </ListItem>
           <ListItem>
             <Meta>Language</Meta>
-            <span><ListIcon as={SiJava} />Java</span>
+            <span><ListIcon as={FaJava} />Java</span>
           </ListItem>
           <ListItem>
             <Meta>Latest Ver.</Meta>

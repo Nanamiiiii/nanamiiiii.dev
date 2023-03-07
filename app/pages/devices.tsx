@@ -1,17 +1,13 @@
 import type { NextPage } from 'next'
-import NextLink from 'next/link'
 import Section from '../components/section'
-import { Box, Container, Heading, SimpleGrid, Divider, Text, Button } from '@chakra-ui/react'
-import { WorkContents, ContentsGrid } from '../components/contents-grid'
+import { Container, Heading, SimpleGrid, } from '@chakra-ui/react'
 import Layout from '../components/layouts/article'
 import { DeviceContent } from '../components/device-content'
 
 import devicePc from '../public/images/devices/pc.png'
 import deviceDisplay from '../public/images/devices/display.png'
 import deviceKey from '../public/images/devices/keyboard.png'
-import deviceMouse from '../public/images/devices/mouse.png'
 import deviceMob from '../public/images/devices/mobile.png'
-import deviceAudio from '../public/images/devices/audio.png'
 
 const Devices: NextPage = () => {
   return (
