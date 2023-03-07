@@ -1,7 +1,6 @@
 import NextLink from 'next/link'
 import Image from 'next/image'
-import { Box, Text, LinkBox, LinkOverlay, Heading, SimpleGrid } from '@chakra-ui/react'
-import { Global } from '@emotion/react'
+import { Box, LinkBox, LinkOverlay, Heading, SimpleGrid } from '@chakra-ui/react'
 
 export const DeviceContent = ({ children, href, title, thumbnail }: { children: any, href: string, title: string, thumbnail: import('next/dist/client/image').StaticImageData }) => (
   <Box display="flex" w="100%" alignItems="center">

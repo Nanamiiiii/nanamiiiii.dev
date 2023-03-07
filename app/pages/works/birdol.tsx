@@ -1,12 +1,10 @@
 import { NextPage } from 'next'
 import { Container, Badge, List, ListItem, ListIcon, Button, Box, Heading, UnorderedList, Center, Divider } from '@chakra-ui/react'
-import { ExternalLinkIcon } from '@chakra-ui/icons'
-import { Title, WorkImage, WorkImagePad, Meta } from '../../components/work'
+import { Title, WorkImagePad, Meta } from '../../components/work'
 import P from '../../components/paragraph'
 import Layout from '../../components/layouts/article'
 import { SiGoogleplay, SiMicrosoft, SiApple, SiIos, SiGo, SiCsharp, SiCplusplus, SiKubernetes, SiDocker, SiUnity } from 'react-icons/si'
 import { IoLogoAndroid, IoLogoWindows } from 'react-icons/io5'
-import { FiServer } from 'react-icons/fi'
 
 const Work: NextPage = () => {
   return (

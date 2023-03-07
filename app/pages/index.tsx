@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
-import { Text, Container, Box, Heading, Image, useColorModeValue, Link, List, ListItem, Button } from "@chakra-ui/react"
+import { Container, Box, Heading, Image, useColorModeValue, Link, Button } from "@chakra-ui/react"
 import Section from '../components/section'
 import Paragraph from '../components/paragraph'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
