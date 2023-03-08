@@ -56,6 +56,11 @@ const KeyMouse: NextPage = () => {
 
                 <UnorderedList spacing={2} my={6}>
                     <ListItem display="flex" alignItems="center">
+                        VAXEE XE W Wireless
+                        &nbsp;
+                        <Tag size='sm'>2023</Tag>
+                    </ListItem>
+                    <ListItem display="flex" alignItems="center">
                         Logicool G PRO X SUPERLIGHT
                         &nbsp;
                         <Tag size='sm'>2022</Tag>
@@ -79,11 +84,6 @@ const KeyMouse: NextPage = () => {
                         Logicool G304 White
                         &nbsp;
                         <Tag size='sm'>2019</Tag>
-                    </ListItem>
-                    <ListItem display="flex" alignItems="center">
-                        Logicool G502
-                        &nbsp;
-                        <Tag size='sm'>2015</Tag>
                     </ListItem>
                 </UnorderedList>
             </Container>
