@@ -1,10 +1,21 @@
+import {
+  Container,
+  Badge,
+  List,
+  ListItem,
+  ListIcon,
+  Button,
+  Box,
+  Center,
+  Heading,
+  UnorderedList,
+} from '@chakra-ui/react'
 import { NextPage } from 'next'
-import { Container, Badge, List, ListItem, ListIcon, Button, Box, Center, Heading, UnorderedList } from '@chakra-ui/react'
-import { Title, WorkImage, Meta } from '../../components/work'
-import P from '../../components/paragraph'
-import Layout from '../../components/layouts/article'
 import { IoLogoGithub } from 'react-icons/io5'
 import { SiC, SiLinux } from 'react-icons/si'
+import Layout from '../../components/layouts/article'
+import P from '../../components/paragraph'
+import { Title, WorkImage, Meta } from '../../components/work'
 
 const Work: NextPage = () => {
   return (
@@ -17,11 +28,16 @@ const Work: NextPage = () => {
         <P>
           A <b>minimal & extensive</b> web server application for Linux.
         </P>
-        <Box display='flex' justifyContent='center' alignItems='center' mb={6}>
-          <Button colorScheme="blue" mt={5} as="a" href="https://github.com/Nanamiiiii/tinysv" target="_blank">
+        <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
+          <Button
+            colorScheme="blue"
+            mt={5}
+            as="a"
+            href="https://github.com/Nanamiiiii/tinysv"
+            target="_blank"
+          >
             <IoLogoGithub />
-            &nbsp;
-            Repository
+            &nbsp; Repository
           </Button>
         </Box>
 
@@ -53,25 +69,17 @@ const Work: NextPage = () => {
         </Heading>
 
         <UnorderedList mb={4} mt={2}>
-          <ListItem>
-            Linux syscall based
-          </ListItem>
-          <ListItem>
-            Small footprint
-          </ListItem>
-          <ListItem>
-            Module-based enhancement (no need for rebuild)
-          </ListItem>
-          <ListItem>
-            XML formed configuration
-          </ListItem>
+          <ListItem>Linux syscall based</ListItem>
+          <ListItem>Small footprint</ListItem>
+          <ListItem>Module-based enhancement (no need for rebuild)</ListItem>
+          <ListItem>XML formed configuration</ListItem>
         </UnorderedList>
 
         <Heading as="h4" fontSize={18} mt={6} mb={2}>
           <Center>Screenshots</Center>
         </Heading>
 
-        <WorkImage src="/images/works/tinysv_1.png" alt="tinysv1"/>
+        <WorkImage src="/images/works/tinysv_1.png" alt="tinysv1" />
         <WorkImage src="/images/works/tinysv_2.png" alt="tinysv2" />
         <WorkImage src="/images/works/tinysv_3.png" alt="tinysv3" />
       </Container>

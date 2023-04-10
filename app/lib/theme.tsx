@@ -1,12 +1,23 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
+import { Josefin_Sans, Source_Sans_Pro } from 'next/font/google'
+
+const JosefinSansRegular = Josefin_Sans({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '600'],
+})
+
+const SourceSansProRegular = Source_Sans_Pro({
+  subsets: ['latin'],
+  weight: ['200', '300', '400', '600', '700'],
+})
 
 const styles = {
   global: (props: any) => ({
     body: {
-      bg: mode('#f5fffe', '#202023')(props)
-    }
-  })
+      bg: mode('#f5fffe', '#202023')(props),
+    },
+  }),
 }
 
 const components = {
@@ -17,23 +28,23 @@ const components = {
         fontSize: 20,
         textUnderlineOffset: 6,
         textDecorationColor: '#525252',
-        textDecorationThickness: 4,
+        textDecorationThickness: 2,
         marginTop: 3,
-        marginBottom: 4
-      }
-    }
+        marginBottom: 4,
+      },
+    },
   },
   Link: {
     baseStyle: (props: any) => ({
       color: mode('#3d7aed', '#ff63c3')(props),
-      textUnderlineOffset: 3
-    })
-  }
+      textUnderlineOffset: 3,
+    }),
+  },
 }
 
 const fonts = {
-  heading: `'Josefin Sans', sans-serif`,
-  body: `'Source Sans Pro', sans-serif`
+  heading: `${JosefinSansRegular.style.fontFamily}, sans-serif`,
+  body: `${SourceSansProRegular.style.fontFamily}, sans-serif`,
 }
 
 const colors = {
@@ -66,7 +77,7 @@ const colors = {
 
 const config = {
   initialColorMode: 'light',
-  useSystemColormode: false
+  useSystemColormode: false,
 }
 
 const theme = extendTheme({
@@ -74,7 +85,7 @@ const theme = extendTheme({
   styles,
   components,
   colors,
-  fonts
+  fonts,
 })
 
 export default theme

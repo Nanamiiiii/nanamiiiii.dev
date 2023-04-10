@@ -1,5 +1,4 @@
-import Logo from './logo'
-import NextLink from 'next/link'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Container,
   Box,
@@ -12,11 +11,20 @@ import {
   MenuList,
   MenuButton,
   IconButton,
-  useColorModeValue
+  useColorModeValue,
 } from '@chakra-ui/react'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import NextLink from 'next/link'
+import Logo from './logo'
 
-const LinkItem = ({ href, path, children }: { href: string, path: string, children: any }) => {
+const LinkItem = ({
+  href,
+  path,
+  children,
+}: {
+  href: string
+  path: string
+  children: any
+}) => {
   const active = path === href
   const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
   return (
@@ -24,8 +32,8 @@ const LinkItem = ({ href, path, children }: { href: string, path: string, childr
       as={NextLink}
       href={href}
       p={2}
-      bg={active ? '#b0d0d9' : undefined }
-      color={active ? '#202023' : inactiveColor }
+      bg={active ? '#b0d0d9' : undefined}
+      color={active ? '#202023' : inactiveColor}
       passHref
     >
       {children}
@@ -46,7 +54,14 @@ const Navbar = (props: any) => {
       zIndex={1}
       {...props}
     >
-      <Container display="flex" p={2} maxW="container.md" flex-wrap="wrap" alignItems="center" justifyContent="space-between">
+      <Container
+        display="flex"
+        p={2}
+        maxW="container.md"
+        flex-wrap="wrap"
+        alignItems="center"
+        justifyContent="space-between"
+      >
         <Flex align="center" mr={5}>
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
@@ -73,23 +88,28 @@ const Navbar = (props: any) => {
         </Stack>
 
         <Box display="flex" flex={1} alignItems="center" justifyContent="right">
-          <Box ml={2} display={{ base: 'inline-block', md: 'none'}}>
+          <Box ml={2} display={{ base: 'inline-block', md: 'none' }}>
             <Menu>
-              <MenuButton as={IconButton} icon={<HamburgerIcon />} variant="outline" aria-label="Options" />
-                <MenuList>
-                  <Link as={NextLink} href="/" passHref>
-                    <MenuItem>Home</MenuItem>
-                  </Link>
-                  <Link as={NextLink} href="/dev" passHref>
-                    <MenuItem>Development</MenuItem>
-                  </Link>
-                  <Link as={NextLink} href="/devices" passHref>
-                    <MenuItem>Devices</MenuItem>
-                  </Link>
-                  <Link as={NextLink} href="/works" passHref>
-                    <MenuItem>Works</MenuItem>
-                  </Link>
-                </MenuList>
+              <MenuButton
+                as={IconButton}
+                icon={<HamburgerIcon />}
+                variant="outline"
+                aria-label="Options"
+              />
+              <MenuList>
+                <Link as={NextLink} href="/" passHref>
+                  <MenuItem>Home</MenuItem>
+                </Link>
+                <Link as={NextLink} href="/dev" passHref>
+                  <MenuItem>Development</MenuItem>
+                </Link>
+                <Link as={NextLink} href="/devices" passHref>
+                  <MenuItem>Devices</MenuItem>
+                </Link>
+                <Link as={NextLink} href="/works" passHref>
+                  <MenuItem>Works</MenuItem>
+                </Link>
+              </MenuList>
             </Menu>
           </Box>
         </Box>
