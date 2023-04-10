@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
+import { Gwendolyn } from 'next/font/google'
+import Link from 'next/link'
 
 const LogoBox = styled.span`
   front-weight: bold;
@@ -13,21 +13,24 @@ const LogoBox = styled.span`
   padding: 10px;
 
   &:hover img {
-    transform: scale(0.9,0.9);
+    transform: scale(0.9, 0.9);
     transition-duration: 0.3s;
   }
 `
 
+const Gwendolyn_regular = Gwendolyn({
+  subsets: ['latin'],
+  weight: '400',
+})
+
 const Logo = () => {
-  const initialLogo = `/images/logo_${useColorModeValue("dark", "dark")}.png`
   return (
     <Link href="/">
       <LogoBox>
-        <Image src={initialLogo} width={20} height={20} alt="logo" />
-        <Text 
-          color={useColorModeValue('gray.800', 'whiteAlpha.900')} 
-          fontFamily='Gwendolyn' 
-          fontWeight='normal' 
+        <Text
+          color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+          fontFamily={Gwendolyn_regular.style.fontFamily}
+          fontWeight="normal"
           ml={5}
         >
           Nanamiiiii

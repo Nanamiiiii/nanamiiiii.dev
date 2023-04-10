@@ -1,11 +1,22 @@
+import {
+  Container,
+  Badge,
+  List,
+  ListItem,
+  ListIcon,
+  Button,
+  Box,
+  Heading,
+  UnorderedList,
+  Center,
+} from '@chakra-ui/react'
 import { NextPage } from 'next'
-import { Container, Badge, List, ListItem, ListIcon, Button, Box, Heading, UnorderedList, Center } from '@chakra-ui/react'
-import { Title, WorkImage, Meta } from '../../components/work'
-import P from '../../components/paragraph'
-import Layout from '../../components/layouts/article'
+import { FaJava } from 'react-icons/fa'
 import { IoLogoGithub, IoLogoAndroid, IoLogoWindows } from 'react-icons/io5'
 import { SiLinux, SiMacos } from 'react-icons/si'
-import { FaJava } from 'react-icons/fa'
+import Layout from '../../components/layouts/article'
+import P from '../../components/paragraph'
+import { Title, WorkImage, Meta } from '../../components/work'
 
 const Work: NextPage = () => {
   return (
@@ -16,18 +27,31 @@ const Work: NextPage = () => {
         </Title>
 
         <P>
-          Applications to use Android Smartphone as WebCamera on Multi-Platform Computer.
+          Applications to use Android Smartphone as WebCamera on Multi-Platform
+          Computer.
         </P>
-        <Box display='flex' justifyContent='center' alignItems='center' mb={6}>
-          <Button colorScheme="blue" mt={5} mr={3} as="a" href="https://github.com/Nanamiiiii/NetworkWebCamera" target="_blank">
+        <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
+          <Button
+            colorScheme="blue"
+            mt={5}
+            mr={3}
+            as="a"
+            href="https://github.com/Nanamiiiii/NetworkWebCamera"
+            target="_blank"
+          >
             <IoLogoGithub />
-            &nbsp;
-            CamApp
+            &nbsp; CamApp
           </Button>
-          <Button colorScheme="green" mt={5} ml={3} as="a" href="https://github.com/Nanamiiiii/NetworkWebCameraHost" target="_blank">
+          <Button
+            colorScheme="green"
+            mt={5}
+            ml={3}
+            as="a"
+            href="https://github.com/Nanamiiiii/NetworkWebCameraHost"
+            target="_blank"
+          >
             <IoLogoGithub />
-            &nbsp;
-            ServerApp
+            &nbsp; ServerApp
           </Button>
         </Box>
 
@@ -46,18 +70,18 @@ const Work: NextPage = () => {
           </ListItem>
           <ListItem>
             <Meta>Language</Meta>
-            <span><ListIcon as={FaJava} />Java</span>
+            <span>
+              <ListIcon as={FaJava} />
+              Java
+            </span>
           </ListItem>
           <ListItem>
             <Meta>Latest Ver.</Meta>
             <span>
               <Badge>Cam</Badge>
-              &nbsp;&nbsp;
-              0.2.0 (2022/8/16)
-              &nbsp;&nbsp;&nbsp;&nbsp;
+              &nbsp;&nbsp; 0.2.0 (2022/8/16) &nbsp;&nbsp;&nbsp;&nbsp;
               <Badge>Server</Badge>
-              &nbsp;&nbsp;
-              0.2.0 (2022/8/16)
+              &nbsp;&nbsp; 0.2.0 (2022/8/16)
             </span>
           </ListItem>
           <ListItem>
@@ -77,46 +101,37 @@ const Work: NextPage = () => {
         <UnorderedList mb={4} mt={2}>
           <ListItem>
             <Badge>Cam</Badge>
-            &nbsp;
-            Using Camera2 API
+            &nbsp; Using Camera2 API
           </ListItem>
           <ListItem>
             <Badge>Cam</Badge>
-            &nbsp;
-            Multiple resolutions
+            &nbsp; Multiple resolutions
           </ListItem>
           <ListItem>
             <Badge>Cam</Badge>
-            &nbsp;
-            Motion-JPEG like format
+            &nbsp; Motion-JPEG like format
           </ListItem>
           <ListItem>
             <Badge>Server</Badge>
-            &nbsp;
-            JavaFX GUI
+            &nbsp; JavaFX GUI
           </ListItem>
           <ListItem>
             <Badge>Server</Badge>
-            &nbsp;
-            Show NIC information
+            &nbsp; Show NIC information
           </ListItem>
-          <ListItem>
-            Can disconnect from both
-          </ListItem>
+          <ListItem>Can disconnect from both</ListItem>
         </UnorderedList>
 
         <Heading as="h4" fontSize={18} mt={6} mb={2}>
           <Center>Screenshots</Center>
         </Heading>
 
-        <WorkImage src="/images/works/nwc_1.png" alt="nwc1"/>
-        <WorkImage src="/images/works/nwc_3.png" alt="nwc3"/>
-        <WorkImage src="/images/works/nwc_4.png" alt="nwc4"/>
-
+        <WorkImage src="/images/works/nwc_1.png" alt="nwc1" />
+        <WorkImage src="/images/works/nwc_3.png" alt="nwc3" />
+        <WorkImage src="/images/works/nwc_4.png" alt="nwc4" />
       </Container>
     </Layout>
   )
 }
 
 export default Work
-
