@@ -13,27 +13,29 @@ export const ContentsGrid = ({
   href: string
   title: string
   thumbnail: import('next/dist/client/image').StaticImageData
-}) => (
-  <Box display="flex" w="100%" alignItems="center">
-    <LinkBox cursor="pointer">
-      <Image
-        src={thumbnail}
-        alt={title}
-        className="grid-contents"
-        placeholder="blur"
-        loading="lazy"
-      />
-      <LinkOverlay href={href} target="_blank">
-        <Text mt={2} fontSize={17} textAlign="center">
-          {title}
+}) => {
+  return (
+    <Box display="flex" w="100%" alignItems="center">
+      <LinkBox cursor="pointer">
+        <Image
+          src={thumbnail}
+          alt={title}
+          className="grid-contents"
+          placeholder="blur"
+          loading="lazy"
+        />
+        <LinkOverlay href={href} target="_blank">
+          <Text mt={2} fontSize={17} textAlign="center">
+            {title}
+          </Text>
+        </LinkOverlay>
+        <Text fontSize={14} textAlign="center">
+          {children}
         </Text>
-      </LinkOverlay>
-      <Text fontSize={14} textAlign="center">
-        {children}
-      </Text>
-    </LinkBox>
-  </Box>
-)
+      </LinkBox>
+    </Box>
+  )
+}
 
 export const WorkContents = ({
   children,
