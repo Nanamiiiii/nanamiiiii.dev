@@ -28,11 +28,11 @@ import Layout from '../../components/layouts/article'
 
 const Pc: NextPage = () => {
   return (
-    <Layout title="Computer">
-      <Container>
+    <Layout title="Computers">
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Computers</Title>
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Workstation</Center>
         </Heading>
 
@@ -150,7 +150,7 @@ const Pc: NextPage = () => {
         </List>
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>File Server</Center>
         </Heading>
 
@@ -245,7 +245,7 @@ const Pc: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Laptop</Center>
         </Heading>
 
@@ -302,7 +302,7 @@ const Pc: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Kubernetes Nodes Host</Center>
         </Heading>
 
@@ -375,7 +375,7 @@ const Pc: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Kubernetes Control-Plane</Center>
         </Heading>
 

@@ -20,7 +20,7 @@ import { Title, WorkImage, Meta } from '../../components/work'
 const Work: NextPage = () => {
   return (
     <Layout title="tinysv">
-      <Container>
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           tinysv <Badge>2021</Badge>
         </Title>
@@ -35,6 +35,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://github.com/Nanamiiiii/tinysv"
             target="_blank"
+            fontWeight="300"
           >
             <IoLogoGithub />
             &nbsp; Repository
@@ -64,7 +65,7 @@ const Work: NextPage = () => {
           </ListItem>
         </List>
 
-        <Heading as="h4" fontSize={18} mt={6}>
+        <Heading as="h4" fontSize={20} mt={6} fontWeight="400">
           <Center>Features</Center>
         </Heading>
 
@@ -75,7 +76,7 @@ const Work: NextPage = () => {
           <ListItem>XML formed configuration</ListItem>
         </UnorderedList>
 
-        <Heading as="h4" fontSize={18} mt={6} mb={2}>
+        <Heading as="h4" fontSize={20} mt={6} mb={2} fontWeight="400">
           <Center>Screenshots</Center>
         </Heading>
 

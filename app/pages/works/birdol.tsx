@@ -32,7 +32,7 @@ import { Title, WorkImagePad, Meta } from '../../components/work'
 const Work: NextPage = () => {
   return (
     <Layout title="Birdol March">
-      <Container>
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           Birdol March <Badge>2021</Badge>
         </Title>
@@ -56,6 +56,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://play.google.com/store/apps/details?id=com.ProjectB.birdol"
             target="_blank"
+            fontWeight="300"
           >
             <SiGoogleplay />
             &nbsp; Google Play
@@ -67,6 +68,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://www.microsoft.com/ja-jp/p/birdol-march/9p02ggg09clh"
             target="_blank"
+            fontWeight="300"
           >
             <SiMicrosoft />
             &nbsp; Microsoft Store
@@ -77,6 +79,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://apps.apple.com/jp/app/%E3%83%90%E3%83%BC%E3%83%89%E3%83%AB-%E3%83%9E%E3%83%BC%E3%83%81/id1593183839"
             target="_blank"
+            fontWeight="300"
           >
             <SiApple />
             &nbsp; App Store
@@ -115,8 +118,8 @@ const Work: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} mt={6}>
-          <Center>My Work</Center>
+        <Heading as="h4" fontSize={20} mt={6} fontWeight="400">
+          <Center>My Contribution</Center>
         </Heading>
 
         <List mb={4} mt={3}>

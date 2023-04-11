@@ -14,9 +14,9 @@ import Layout from '../../components/layouts/article'
 const KeyMouse: NextPage = () => {
   return (
     <Layout title="Keyboard & Mouse">
-      <Container>
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Keyboard & Mouse</Title>
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Keyboard</Center>
         </Heading>
 
@@ -51,7 +51,7 @@ const KeyMouse: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Mouse</Center>
         </Heading>
 

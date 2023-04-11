@@ -21,7 +21,7 @@ import { Title, WorkImage, Meta } from '../../components/work'
 const Work: NextPage = () => {
   return (
     <Layout title="NetworkWebCamera">
-      <Container>
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           NetworkWebCamera <Badge>2021</Badge>
         </Title>
@@ -38,6 +38,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://github.com/Nanamiiiii/NetworkWebCamera"
             target="_blank"
+            fontWeight="300"
           >
             <IoLogoGithub />
             &nbsp; CamApp
@@ -49,6 +50,7 @@ const Work: NextPage = () => {
             as="a"
             href="https://github.com/Nanamiiiii/NetworkWebCameraHost"
             target="_blank"
+            fontWeight="300"
           >
             <IoLogoGithub />
             &nbsp; ServerApp
@@ -94,7 +96,7 @@ const Work: NextPage = () => {
           </ListItem>
         </List>
 
-        <Heading as="h4" fontSize={18} mt={6}>
+        <Heading as="h4" fontSize={20} mt={6} fontWeight="400">
           <Center>Features</Center>
         </Heading>
 
@@ -122,7 +124,7 @@ const Work: NextPage = () => {
           <ListItem>Can disconnect from both</ListItem>
         </UnorderedList>
 
-        <Heading as="h4" fontSize={18} mt={6} mb={2}>
+        <Heading as="h4" fontSize={20} mt={6} mb={2} fontWeight="400">
           <Center>Screenshots</Center>
         </Heading>
 

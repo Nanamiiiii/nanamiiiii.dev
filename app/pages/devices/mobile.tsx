@@ -14,9 +14,9 @@ import Layout from '../../components/layouts/article'
 const Mobile: NextPage = () => {
   return (
     <Layout title="Mobile & Others">
-      <Container>
+      <Container maxW="100%" fontSize="18px" fontWeight="300">
         <Title>Mobile & Others</Title>
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Mobile</Center>
         </Heading>
 
@@ -63,7 +63,7 @@ const Mobile: NextPage = () => {
 
         <Divider mt={6} />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Audio</Center>
         </Heading>
 
@@ -79,17 +79,13 @@ const Mobile: NextPage = () => {
             <Tag size="sm">Wireless</Tag>
           </ListItem>
           <ListItem display="flex" alignItems="center">
-            Final E3000 &nbsp;
-            <Tag size="sm">Wired</Tag>
-          </ListItem>
-          <ListItem display="flex" alignItems="center">
             Razer Kraken Kitty Edition &nbsp;
             <Tag size="sm">Wired</Tag>
           </ListItem>
         </UnorderedList>
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Tablet</Center>
         </Heading>
 

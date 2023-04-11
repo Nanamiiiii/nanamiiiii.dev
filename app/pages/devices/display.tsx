@@ -12,11 +12,11 @@ import Layout from '../../components/layouts/article'
 
 const Display: NextPage = () => {
   return (
-    <Layout title="Display">
-      <Container>
+    <Layout title="Displays">
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Displays</Title>
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>DELL U2720QM</Center>
         </Heading>
 
@@ -47,7 +47,7 @@ const Display: NextPage = () => {
 
         <Divider />
 
-        <Heading as="h4" fontSize={18} my={6}>
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>HP OMEN 27i QHD</Center>
         </Heading>
 

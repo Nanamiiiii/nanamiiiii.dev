@@ -4,6 +4,7 @@ import { DeviceContent } from '../components/device-content'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 
+import desktopEnv from '../public/images/devices/desktop_env_20230302.png'
 import deviceDisplay from '../public/images/devices/display.png'
 import deviceKey from '../public/images/devices/keyboard.png'
 import deviceMob from '../public/images/devices/mobile.png'
@@ -11,11 +12,22 @@ import devicePc from '../public/images/devices/pc.png'
 
 const Devices: NextPage = () => {
   return (
-    <Layout title="Devices">
-      <Container>
-        <Heading as="h3" fontSize={25} mt={2} mb={4}>
-          Devices
+    <Layout title="My Environments">
+      <Container maxWidth="100%" fontSize="18px">
+        <Heading as="h3" fontSize={25} mt={2} mb={4} fontWeight="300">
+          My Environments
         </Heading>
+        <SimpleGrid columns={[1, 1, 1]} gap={6} mb={6}>
+          <Section delay="0.1">
+            <DeviceContent
+              href="/devices/dotfiles"
+              title="dotfiles"
+              thumbnail={desktopEnv}
+            >
+              Dotfiles
+            </DeviceContent>
+          </Section>
+        </SimpleGrid>
         <SimpleGrid columns={[1, 1, 1]} gap={6} mb={6}>
           <Section delay="0.1">
             <DeviceContent href="/devices/pc" title="PC" thumbnail={devicePc}>
