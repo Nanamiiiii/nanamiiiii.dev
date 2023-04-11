@@ -7,6 +7,8 @@ import {
   Link,
   Text,
   IconButton,
+  UnorderedList,
+  ListItem,
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import NextLink from 'next/link'
@@ -61,7 +63,7 @@ const Home: NextPage = () => {
               maxWidth="200px"
               display="inline-block"
               borderRadius="full"
-              src="/images/profile_icon.jpg"
+              src="/images/face_icon_web.webp"
               alt="Profile"
             />
           </Box>
@@ -172,7 +174,9 @@ const Home: NextPage = () => {
           <Heading as="h3" variant="section-title" fontWeight="300">
             Achievements
           </Heading>
-          WIP...
+          <UnorderedList>
+            <ListItem><b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;, 情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.</ListItem>
+          </UnorderedList>
         </Section>
 
         <Section delay={'0.25'}>

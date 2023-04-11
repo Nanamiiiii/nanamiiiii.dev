@@ -31,7 +31,6 @@ const Logo = () => {
           color={useColorModeValue('gray.800', 'whiteAlpha.900')}
           fontFamily={Gwendolyn_regular.style.fontFamily}
           fontWeight="normal"
-          ml={5}
         >
           Nanamiiiii
         </Text>
