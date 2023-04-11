@@ -3,7 +3,7 @@ import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
 import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
-  <Box>
+  <Box fontWeight="300">
     <Link as={NextLink} href="/works" passHref>
       Works
     </Link>
@@ -12,7 +12,13 @@ export const Title = ({ children }: { children: any }) => (
       <ChevronRightIcon />
       &nbsp;
     </span>
-    <Heading display="inline-block" as="h3" fontSize={20} mb={4}>
+    <Heading
+      display="inline-block"
+      as="h3"
+      fontSize={20}
+      mb={4}
+      fontWeight="300"
+    >
       {children}
     </Heading>
   </Box>
@@ -43,7 +49,7 @@ export const WorkImagePad = ({
 )
 
 export const Meta = ({ children }: { children: any }) => (
-  <Badge colorScheme="blue" mr={2}>
+  <Badge colorScheme="blue" mr={2} fontSize="14px" fontWeight="400">
     {children}
   </Badge>
 )

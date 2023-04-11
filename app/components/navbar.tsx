@@ -32,7 +32,7 @@ const LinkItem = ({
       as={NextLink}
       href={href}
       p={2}
-      bg={active ? '#b0d0d9' : undefined}
+      bg={active ? '#c4e8f2' : undefined}
       color={active ? '#202023' : inactiveColor}
       passHref
     >
@@ -75,15 +75,16 @@ const Navbar = (props: any) => {
           alignItems="center"
           flexGrow={1}
           mt={{ base: 4, nmd: 0 }}
+          fontWeight="300"
         >
-          <LinkItem href="/dev" path={path}>
-            Development
-          </LinkItem>
-          <LinkItem href="/devices" path={path}>
-            Devices
+          <LinkItem href="/skill" path={path}>
+            Skill
           </LinkItem>
           <LinkItem href="/works" path={path}>
             Works
+          </LinkItem>
+          <LinkItem href="/myenv" path={path}>
+            My Env.
           </LinkItem>
         </Stack>
 

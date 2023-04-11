@@ -4,7 +4,7 @@ import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
   <Box>
-    <Link as={NextLink} href="/devices" passHref>
+    <Link as={NextLink} href="/myenv" passHref>
       Devices
     </Link>
     <span>
@@ -12,7 +12,13 @@ export const Title = ({ children }: { children: any }) => (
       <ChevronRightIcon />
       &nbsp;
     </span>
-    <Heading display="inline-block" as="h3" fontSize={20} mb={4}>
+    <Heading
+      display="inline-block"
+      as="h3"
+      fontSize={20}
+      fontWeight="300"
+      mb={4}
+    >
       {children}
     </Heading>
   </Box>
@@ -43,7 +49,7 @@ export const DevPortPad = ({
 )
 
 export const Meta = ({ children }: { children: any }) => (
-  <Badge colorScheme="blue" mr={2}>
+  <Badge colorScheme="blue" mr={2} fontSize="14px" fontWeight="400">
     {children}
   </Badge>
 )

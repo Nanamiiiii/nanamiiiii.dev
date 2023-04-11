@@ -40,7 +40,7 @@ const LinkText = ({ href, children }: { href: string; children: any }) => {
 
 const Home: NextPage = () => {
   return (
-    <Layout title="">
+    <Layout title="Home">
       <Container maxWidth="100%" fontSize="18px">
         <Box
           display={{ md: 'flex' }}
@@ -140,7 +140,12 @@ const Home: NextPage = () => {
         </Box>
 
         <Section delay={'0.1'}>
-          <Heading as="h3" variant="section-title" fontWeight="300">
+          <Heading
+            as="h3"
+            variant="section-title"
+            fontSize={20}
+            fontWeight="300"
+          >
             Bio
           </Heading>
           <ItemizeSection>
@@ -149,7 +154,7 @@ const Home: NextPage = () => {
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName>Origin</ItemizeName>
-            Niigata, Japan (Very good place to live, but nothing stands out...)
+            Niigata, Japan (Very good place to live!)
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName>Graduated from</ItemizeName>
@@ -158,7 +163,12 @@ const Home: NextPage = () => {
         </Section>
 
         <Section delay={'0.15'}>
-          <Heading as="h3" variant="section-title" fontWeight="300">
+          <Heading
+            as="h3"
+            variant="section-title"
+            fontSize={20}
+            fontWeight="300"
+          >
             Research
           </Heading>
           Belongs to Kimura Laboratory, Waseda Univ.
@@ -171,16 +181,33 @@ const Home: NextPage = () => {
         </Section>
 
         <Section delay={'0.2'}>
-          <Heading as="h3" variant="section-title" fontWeight="300">
+          <Heading
+            as="h3"
+            variant="section-title"
+            fontSize={20}
+            fontWeight="300"
+          >
             Achievements
           </Heading>
+          <Heading as="h4" fontSize="18px" fontWeight="300">
+            NO Peer-Review
+          </Heading>
           <UnorderedList>
-            <ListItem><b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;, 情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.</ListItem>
+            <ListItem>
+              <b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V
+              SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;,
+              情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
+            </ListItem>
           </UnorderedList>
         </Section>
 
         <Section delay={'0.25'}>
-          <Heading as="h3" variant="section-title" fontWeight="300">
+          <Heading
+            as="h3"
+            variant="section-title"
+            fontSize={20}
+            fontWeight="300"
+          >
             Love
           </Heading>
           <ItemizeSection>
@@ -219,7 +246,12 @@ const Home: NextPage = () => {
         </Section>
 
         <Section delay={'0.3'}>
-          <Heading as="h3" variant="section-title" fontWeight="300">
+          <Heading
+            as="h3"
+            variant="section-title"
+            fontSize={20}
+            fontWeight="300"
+          >
             Interest
           </Heading>
           <Paragraph>Computer Architecture / Operating System </Paragraph>

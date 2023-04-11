@@ -18,11 +18,11 @@ import wfesThumb from '../public/images/works/wasefes_cm_2021.png'
 const Works: NextPage = () => {
   return (
     <Layout title="">
-      <Container>
-        <Heading as="h3" fontSize={25} mb={6}>
+      <Container maxWidth="100%" fontSize="18px" fontWeight="300">
+        <Heading as="h3" fontSize={25} mb={6} fontWeight="300">
           Works
         </Heading>
-        <Heading as="h4" fontSize={20} mb={4}>
+        <Heading as="h4" fontSize={20} mb={4} fontWeight="400">
           Applications
         </Heading>
 
@@ -44,7 +44,7 @@ const Works: NextPage = () => {
           </Section>
         </SimpleGrid>
 
-        <Heading as="h4" fontSize={20} mb={4}>
+        <Heading as="h4" fontSize={20} mb={4} fontWeight="400">
           Participate
         </Heading>
 
@@ -60,7 +60,7 @@ const Works: NextPage = () => {
           </Section>
         </SimpleGrid>
 
-        <Heading as="h4" fontSize={20} mb={4}>
+        <Heading as="h4" fontSize={20} mb={4} fontWeight="400">
           Movies
         </Heading>
 
