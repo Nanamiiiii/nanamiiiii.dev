@@ -1,5 +1,5 @@
-# Nanamiiiii.dev
-Page source of [nanamiiiii.dev](https://nanamiiiii.dev)
+# Myuu.dev
+Page source of [myuu.dev](https://myuu.dev)
 
 ## Language / Framework
 - Typescript
@@ -18,7 +18,7 @@ $ docker-compose up -d
 
 ### Launch dev server
 ```sh
-$ docker-compose exec app yarn dev
+$ docker-compose exec app pnpm dev
 ```
 
 `docker-compose.yml` & `dev.Dockerfile` is compatible for VSCode Remote Container Extension
@@ -31,3 +31,4 @@ $ docker build -f Dockerfile -t nanamiiiii-dev:latest .
 $ docker run -p 3000:3000 nanamiiiii-dev:latest
 ```
 By default, server runs on `localhost:3000`
+
