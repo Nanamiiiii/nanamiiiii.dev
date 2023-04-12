@@ -8,25 +8,26 @@ const variants = {
   exit: { opacity: 0, x: 0, y: 20 },
 }
 
-const Layout = ({ children, title }: { children: any; title: string }) => (
-  <motion.article
-    initial="hidden"
-    animate="enter"
-    exit="exit"
-    variants={variants}
-    transition={{ duration: 0.4, type: 'easeInOut' }}
-    style={{ position: 'relative' }}
-  >
-    <>
-      {title && (
+const Layout = ({ children, title }: { children: any, title?: string }) => {
+  const formedTitle = title == undefined ? "Nanamiiiii" : `${title} - Nanamiiiii`
+  return (
+    <motion.article
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ duration: 0.4, type: 'easeInOut' }}
+      style={{ position: 'relative' }}
+    >
+      <>
         <Head>
-          <title>{title} - Nanamiiiii</title>
+          <title>{formedTitle}</title>
         </Head>
-      )}
-      {children}
-      <ContentsGridStyle />
-    </>
-  </motion.article>
-)
+        {children}
+        <ContentsGridStyle />
+      </>
+    </motion.article>
+  )
+}
 
 export default Layout
