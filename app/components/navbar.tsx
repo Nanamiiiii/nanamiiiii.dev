@@ -101,14 +101,14 @@ const Navbar = (props: any) => {
                 <Link as={NextLink} href="/" passHref>
                   <MenuItem>Home</MenuItem>
                 </Link>
-                <Link as={NextLink} href="/dev" passHref>
-                  <MenuItem>Development</MenuItem>
-                </Link>
-                <Link as={NextLink} href="/devices" passHref>
-                  <MenuItem>Devices</MenuItem>
+                <Link as={NextLink} href="/skill" passHref>
+                  <MenuItem>Skill</MenuItem>
                 </Link>
                 <Link as={NextLink} href="/works" passHref>
                   <MenuItem>Works</MenuItem>
+                </Link>
+                <Link as={NextLink} href="/myenv" passHref>
+                  <MenuItem>My Env.</MenuItem>
                 </Link>
               </MenuList>
             </Menu>
