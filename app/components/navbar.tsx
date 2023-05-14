@@ -51,7 +51,7 @@ const Navbar = (props: any) => {
       w="100%"
       bg={useColorModeValue('#ffffff40', '#20202380')}
       css={{ backdropFilter: 'blur(10px)' }}
-      zIndex={1}
+      zIndex={2}
       {...props}
     >
       <Container
@@ -98,18 +98,10 @@ const Navbar = (props: any) => {
                 aria-label="Options"
               />
               <MenuList>
-                <Link as={NextLink} href="/" passHref>
-                  <MenuItem>Home</MenuItem>
-                </Link>
-                <Link as={NextLink} href="/skill" passHref>
-                  <MenuItem>Skill</MenuItem>
-                </Link>
-                <Link as={NextLink} href="/works" passHref>
-                  <MenuItem>Works</MenuItem>
-                </Link>
-                <Link as={NextLink} href="/myenv" passHref>
-                  <MenuItem>My Env.</MenuItem>
-                </Link>
+                <MenuItem as={NextLink} href="/" passHref>Home</MenuItem>
+                <MenuItem as={NextLink} href="/skill" passHref>Skill</MenuItem>
+                <MenuItem as={NextLink} href="/works" passHref>Works</MenuItem>
+                <MenuItem as={NextLink} href="/myenv" passHref>My Env.</MenuItem>
               </MenuList>
             </Menu>
           </Box>

@@ -16,6 +16,7 @@ import {
   AccordionPanel,
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
+import { Zen_Kaku_Gothic_New } from 'next/font/google'
 import NextLink from 'next/link'
 import {
   SiTwitter,
@@ -23,11 +24,17 @@ import {
   SiYoutube,
   SiInstagram,
   SiFacebook,
+  SiVimeo,
 } from 'react-icons/si'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import Section from '../components/section'
+
+const achievementsFont = Zen_Kaku_Gothic_New({
+  subsets: ['latin'],
+  weight: ['300', '500']
+})
 
 const LinkText = ({ href, children }: { href: string; children: any }) => {
   return (
@@ -45,7 +52,7 @@ const LinkText = ({ href, children }: { href: string; children: any }) => {
 
 const Home: NextPage = () => {
   return (
-    <Layout title="Home">
+    <Layout>
       <Container maxWidth="100%" fontSize="18px">
         <Box
           display={{ md: 'flex' }}
@@ -110,6 +117,19 @@ const Home: NextPage = () => {
                   variant="ghost"
                   colorScheme="cyan"
                   icon={<SiYoutube />}
+                  mx={2}
+                  fontSize="18px"
+                />
+              </Link>
+              <Link
+                href="https://vimeo.com/user108826812"
+                target="_blank"
+              >
+                <IconButton
+                  aria-label="vimeo"
+                  variant="ghost"
+                  colorScheme="cyan"
+                  icon={<SiVimeo />}
                   mx={2}
                   fontSize="18px"
                 />

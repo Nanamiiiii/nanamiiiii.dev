@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 export const Title = ({ children }: { children: any }) => (
   <Box>
     <Link as={NextLink} href="/myenv" passHref>
-      Devices
+      My Env.
     </Link>
     <span>
       &nbsp;

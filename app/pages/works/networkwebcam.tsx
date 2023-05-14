@@ -57,7 +57,7 @@ const Work: NextPage = () => {
           </Button>
         </Box>
 
-        <List ml={4} my={4}>
+        <List px={{base: "30px", md: "60px"}} ml={4} my={4}>
           <ListItem>
             <Meta>Platform</Meta>
             <Badge>Cam</Badge>
@@ -100,7 +100,7 @@ const Work: NextPage = () => {
           <Center>Features</Center>
         </Heading>
 
-        <UnorderedList mb={4} mt={2}>
+        <UnorderedList mx={{base: "60px", sm: "100px", md: "160px"}} mb={4} mt={2}>
           <ListItem>
             <Badge>Cam</Badge>
             &nbsp; Using Camera2 API
