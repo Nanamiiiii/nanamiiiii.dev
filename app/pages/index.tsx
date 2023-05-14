@@ -9,6 +9,11 @@ import {
   IconButton,
   UnorderedList,
   ListItem,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionIcon,
+  AccordionPanel,
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { Zen_Kaku_Gothic_New } from 'next/font/google'
@@ -207,18 +212,29 @@ const Home: NextPage = () => {
             fontSize={20}
             fontWeight="300"
           >
-            Achievements
+            Publications
           </Heading>
-          <Heading as="h4" fontSize="18px" fontWeight="300">
-            NO Peer-Review
-          </Heading>
-          <UnorderedList fontFamily={achievementsFont.style.fontFamily} fontWeight="300">
-            <ListItem>
-              <span style={{fontWeight: 400}}>齊木 昭大</span>, 大森 侑, 木村 啓二, &quot;RISC-V
-              SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;,
-              情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
-            </ListItem>
-          </UnorderedList>
+          <Accordion allowMultiple>
+            <AccordionItem>
+              <Heading as="h4" fontSize="18px" fontWeight="300">
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
+                    NO Peer-Review
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </Heading>
+              <AccordionPanel>
+                <UnorderedList>
+                  <ListItem>
+                    <b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V
+                    SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;,
+                    情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
+                  </ListItem>
+                </UnorderedList>
+              </AccordionPanel>
+            </AccordionItem>
+          </Accordion>
         </Section>
 
         <Section delay={'0.25'}>
