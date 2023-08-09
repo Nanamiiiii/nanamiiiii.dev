@@ -4,9 +4,9 @@ import { DeviceContent } from '../components/device-content'
 import Layout from '../components/layouts/article'
 import Section from '../components/section'
 
-import desktopEnv from '../public/images/devices/mac_desktop.webp'
 import deviceDisplay from '../public/images/devices/display.png'
 import deviceKey from '../public/images/devices/keyboard.png'
+import desktopEnv from '../public/images/devices/mac_desktop.webp'
 import deviceMob from '../public/images/devices/mobile.png'
 import devicePc from '../public/images/devices/pc.png'
 
