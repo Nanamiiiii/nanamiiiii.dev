@@ -40,6 +40,8 @@ import {
   SiRedhat,
   SiUbuntu,
   SiKalilinux,
+  SiFedora,
+  SiLua,
 } from 'react-icons/si'
 import Layout from '../components/layouts/article'
 
@@ -120,6 +122,12 @@ const Skill: NextPage = () => {
           <Tag colorScheme="green" mx={2}>
             <TagLeftIcon as={SiVim} />
             Vim script
+          </Tag>
+        </Box>
+        <Box display="flex" py={2} pl={4}>
+          <Tag colorScheme="purple" mx={2}>
+            <TagLeftIcon as={SiLua} />
+            Lua
           </Tag>
           <Tag colorScheme="cyan" mx={2}>
             <TagLeftIcon as={SiHaskell} />
@@ -215,10 +223,16 @@ const Skill: NextPage = () => {
             <TagLeftIcon as={SiRedhat} />
             RHEL
           </Tag>
+          <Tag colorScheme="blue" mx={2}>
+            <TagLeftIcon as={SiFedora} />
+            Fedora
+          </Tag>
           <Tag colorScheme="orange" mx={2}>
             <TagLeftIcon as={SiUbuntu} />
             Ubuntu
           </Tag>
+        </Box>
+        <Box display="flex" py={2} pl={4}>
           <Tag colorScheme="navy" mx={2}>
             <TagLeftIcon as={SiKalilinux} />
             Kali Linux
@@ -228,7 +242,6 @@ const Skill: NextPage = () => {
             Windows
           </Tag>
         </Box>
-        <Box display="flex" justifyContent="center" py={2}></Box>
 
         <Heading
           as="h4"
@@ -261,7 +274,7 @@ const Skill: NextPage = () => {
         </Heading>
         <Box display="flex" py={2} pl={2}>
           <UnorderedList>
-            <ListItem>IPA 情報処理安全確保支援士 (2022/10)</ListItem>
+            <ListItem>IPA 情報処理安全確保支援士 (2022/10, Not Registered)</ListItem>
             <ListItem>IPA 応用情報技術者試験 (2020/10)</ListItem>
           </UnorderedList>
         </Box>
