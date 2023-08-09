@@ -18,7 +18,7 @@ import P from '../../components/paragraph'
 
 const Dotfiles: NextPage = () => {
   return (
-    <Layout title="Dotfiles">
+    <Layout title="dotfiles">
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>dotfiles</Title>
 
@@ -40,7 +40,7 @@ const Dotfiles: NextPage = () => {
         <P>includes i3wm, Neovim, Zsh, tmux, etc...</P>
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
-          <Center>Desktop env.</Center>
+          <Center>Linux Desktop env.</Center>
         </Heading>
 
         <DevPort src="/images/devices/desktop_env_20230302.png" alt="i3-de" />
@@ -81,6 +81,27 @@ const Dotfiles: NextPage = () => {
         </List>
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
+          <Center>macOS Desktop env.</Center>
+        </Heading>
+
+        <DevPort src="/images/devices/mac_desktop.webp" alt="mac-de" />
+
+        <List my={6} ml={4}>
+          <ListItem display="flex" mb={1} alignItems="center">
+            <Meta>Window Manager</Meta>
+            yabai
+          </ListItem>
+          <ListItem display="flex" mb={1} alignItems="center">
+            <Meta>Key Binding</Meta>
+            skhd
+          </ListItem>
+          <ListItem display="flex" mb={1} alignItems="center">
+            <Meta>Input</Meta>
+            ATOK
+          </ListItem>
+        </List>
+
+        <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Terminal / Neovim</Center>
         </Heading>
 
@@ -91,11 +112,11 @@ const Dotfiles: NextPage = () => {
           <List pl={4}>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Emulator</Meta>
-              Alacritty
+              WezTerm
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Mux</Meta>
-              tmux
+              WezTerm MUX / tmux
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Shell</Meta>
@@ -117,7 +138,7 @@ const Dotfiles: NextPage = () => {
           <List pl={4}>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Plugin Manager</Meta>
-              dein.vim
+              lazy.vim
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Filer</Meta>
@@ -129,11 +150,11 @@ const Dotfiles: NextPage = () => {
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Completion</Meta>
-              ddc.vim
+              nvim-cmp
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Fuzzy Finder</Meta>
-              fzf.vim
+              telescope.nvim
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Status Line</Meta>

@@ -22,6 +22,8 @@ import {
   SiAsus,
   SiRedhat,
   SiTruenas,
+  SiMacos,
+  SiApple,
 } from 'react-icons/si'
 import { Title, DevPort, Meta } from '../../components/device'
 import Layout from '../../components/layouts/article'
@@ -254,56 +256,49 @@ const Pc: NextPage = () => {
             <Meta>
               <Text>MODEL</Text>
             </Meta>
-            <span>MSI P65-8RE-015jp</span>
+            <span>Apple MacBook Pro 14-inch (2021)</span>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
             <Meta>
               <Text>OS</Text>
             </Meta>
             <Tag size="sm" variant="outline" colorScheme="cyan" mx={1}>
-              <TagLeftIcon as={SiWindows} />
-              Windows11 Pro
-            </Tag>
-            <Tag size="sm" variant="outline" colorScheme="blue" mx={1}>
-              <TagLeftIcon as={SiArchlinux} />
-              ArchLinux
+              <TagLeftIcon as={SiMacos} />
+              macOS 13 Ventura
             </Tag>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
             <Meta>
               <Text>CPU</Text>
             </Meta>
-            <ListIcon as={SiIntel} />
-            <span>Intel Core i7-8750H</span>
+            <ListIcon as={SiApple} />
+            <span>Apple M1 Pro</span>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
             <Meta>
               <Text>RAM</Text>
             </Meta>
-            <span>DDR4-2666 8GB × 2</span>
+            <span>16GB</span>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
             <Meta>
               <Text>GPU</Text>
             </Meta>
-            <ListIcon as={SiNvidia} />
-            <span>NVIDIA GeForce GTX 1060 Max-Q 6GB</span>
+            <ListIcon as={SiApple} />
+            <span>Apple M1 Pro 10-Core</span>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
             <Meta>
               <Text>STORAGE</Text>
             </Meta>
-            <span>WesternDigital SN520 512GB</span>
-            <Tag size="sm" variant="outline" colorScheme="gray" mx={1}>
-              NVMe
-            </Tag>
+            <span>512GB</span>
           </ListItem>
         </List>
 
         <Divider />
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
-          <Center>Kubernetes Nodes Host</Center>
+          <Center>Kubernetes Worker</Center>
         </Heading>
 
         <List my={6} ml={4}>
@@ -361,15 +356,6 @@ const Pc: NextPage = () => {
                 </Tag>
               </ListItem>
             </List>
-          </ListItem>
-          <ListItem display="flex" mb={2} alignItems="center">
-            <Meta>
-              <Text>KVM Guest</Text>
-            </Meta>
-            <Tag size="sm" variant="outline" colorScheme="orange" mx={1}>
-              <TagLeftIcon as={SiUbuntu} />
-              Ubuntu Server 22.04
-            </Tag>
           </ListItem>
         </List>
 
