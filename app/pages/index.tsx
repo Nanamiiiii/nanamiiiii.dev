@@ -25,6 +25,8 @@ import {
   SiInstagram,
   SiFacebook,
   SiVimeo,
+  SiLinkedin,
+  SiDiscord,
 } from 'react-icons/si'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
@@ -33,7 +35,7 @@ import Section from '../components/section'
 
 const achievementsFont = Zen_Kaku_Gothic_New({
   subsets: ['latin'],
-  weight: ['300', '500']
+  weight: ['300', '500'],
 })
 
 const LinkText = ({ href, children }: { href: string; children: any }) => {
@@ -111,6 +113,19 @@ const Home: NextPage = () => {
                   fontSize="18px"
                 />
               </Link>
+              <Link
+                href="https://discordapp.com/users/251614842203537408"
+                target="_blank"
+              >
+                <IconButton
+                  aria-label="discord"
+                  variant="ghost"
+                  colorScheme="cyan"
+                  icon={<SiDiscord />}
+                  mx={2}
+                  fontSize="18px"
+                />
+              </Link>
               <Link href="https://youtube.com/kokoromyuu" target="_blank">
                 <IconButton
                   aria-label="youtube"
@@ -121,10 +136,7 @@ const Home: NextPage = () => {
                   fontSize="18px"
                 />
               </Link>
-              <Link
-                href="https://vimeo.com/user108826812"
-                target="_blank"
-              >
+              <Link href="https://vimeo.com/user108826812" target="_blank">
                 <IconButton
                   aria-label="vimeo"
                   variant="ghost"
@@ -156,6 +168,19 @@ const Home: NextPage = () => {
                   variant="ghost"
                   colorScheme="cyan"
                   icon={<SiFacebook />}
+                  mx={2}
+                  fontSize="18px"
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/in/akihiro-saiki-88b846232/"
+                target="_blank"
+              >
+                <IconButton
+                  aria-label="Linkedin"
+                  variant="ghost"
+                  colorScheme="cyan"
+                  icon={<SiLinkedin />}
                   mx={2}
                   fontSize="18px"
                 />
@@ -196,7 +221,8 @@ const Home: NextPage = () => {
           >
             Research
           </Heading>
-          Belongs to Kimura Laboratory, Waseda Univ.
+          Kimura Laboratory, Waseda Univ. <br />
+          Advanced Processor Architecture
           <ItemizeSection>
             <ItemizeName>
               <b>Keywords</b>
@@ -228,7 +254,8 @@ const Home: NextPage = () => {
                 <UnorderedList>
                   <ListItem>
                     <b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V
-                    SoCにおけるSecure Bootの実装と検証の高速化に向けた評価&quot;,
+                    SoCにおけるSecure
+                    Bootの実装と検証の高速化に向けた評価&quot;,
                     情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
                   </ListItem>
                 </UnorderedList>
@@ -263,7 +290,7 @@ const Home: NextPage = () => {
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName>
-              <LinkText href="/devices">DIY PC</LinkText>
+              <LinkText href="/devices/pc">DIY PC</LinkText>
             </ItemizeName>
             Create Custom PCs & Collect Devices
           </ItemizeSection>

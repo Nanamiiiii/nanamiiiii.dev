@@ -153,7 +153,7 @@ const Pc: NextPage = () => {
         <Divider />
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
-          <Center>File Server</Center>
+          <Center>Storage & VM Server</Center>
         </Heading>
 
         <List my={6} ml={4}>
@@ -314,7 +314,7 @@ const Pc: NextPage = () => {
             </Meta>
             <Tag size="sm" variant="outline" colorScheme="red" mx={1}>
               <TagLeftIcon as={SiRedhat} />
-              RedHat Enterprise Linux 9.0
+              RedHat Enterprise Linux 9.2
             </Tag>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">

@@ -86,7 +86,7 @@ const Work: NextPage = () => {
           </Button>
         </Box>
 
-        <List px={{base: "60px", md: "160px"}} ml={4} my={4}>
+        <List px={{ base: '60px', md: '160px' }} ml={4} my={4}>
           <ListItem>
             <Meta>Platform</Meta>
             <ListIcon as={IoLogoAndroid} />
@@ -122,7 +122,7 @@ const Work: NextPage = () => {
           <Center>My Contribution</Center>
         </Heading>
 
-        <List px={{base: "60px", md: "160px"}}mb={4} mt={3}>
+        <List px={{ base: '60px', md: '160px' }} mb={4} mt={3}>
           <ListItem>
             <b>Backend Server</b>
             <UnorderedList pl={3} mb={3}>

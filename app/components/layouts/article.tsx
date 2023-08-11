@@ -8,8 +8,9 @@ const variants = {
   exit: { opacity: 0, x: 0, y: 20 },
 }
 
-const Layout = ({ children, title }: { children: any, title?: string }) => {
-  const formedTitle = title == undefined ? "Nanamiiiii" : `${title} - Nanamiiiii`
+const Layout = ({ children, title }: { children: any; title?: string }) => {
+  const formedTitle =
+    title == undefined || title == '' ? 'Nanamiiiii' : `${title} - Nanamiiiii`
   return (
     <motion.article
       initial="hidden"

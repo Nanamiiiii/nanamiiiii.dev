@@ -98,10 +98,18 @@ const Navbar = (props: any) => {
                 aria-label="Options"
               />
               <MenuList>
-                <MenuItem as={NextLink} href="/" passHref>Home</MenuItem>
-                <MenuItem as={NextLink} href="/skill" passHref>Skill</MenuItem>
-                <MenuItem as={NextLink} href="/works" passHref>Works</MenuItem>
-                <MenuItem as={NextLink} href="/myenv" passHref>My Env.</MenuItem>
+                <MenuItem as={NextLink} href="/" passHref>
+                  Home
+                </MenuItem>
+                <MenuItem as={NextLink} href="/skill" passHref>
+                  Skill
+                </MenuItem>
+                <MenuItem as={NextLink} href="/works" passHref>
+                  Works
+                </MenuItem>
+                <MenuItem as={NextLink} href="/myenv" passHref>
+                  My Env.
+                </MenuItem>
               </MenuList>
             </Menu>
           </Box>

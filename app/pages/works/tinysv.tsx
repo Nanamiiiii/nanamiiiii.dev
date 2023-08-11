@@ -42,7 +42,7 @@ const Work: NextPage = () => {
           </Button>
         </Box>
 
-        <List px={{base: "60px", md: "150px"}} ml={4} my={4}>
+        <List px={{ base: '60px', md: '150px' }} ml={4} my={4}>
           <ListItem>
             <Meta>Platform</Meta>
             <ListIcon as={SiLinux} />
@@ -69,7 +69,7 @@ const Work: NextPage = () => {
           <Center>Features</Center>
         </Heading>
 
-        <UnorderedList px={{base: "60px", md: "150px"}} mb={4} mt={2}>
+        <UnorderedList px={{ base: '60px', md: '150px' }} mb={4} mt={2}>
           <ListItem>Linux syscall based</ListItem>
           <ListItem>Small footprint</ListItem>
           <ListItem>Module-based enhancement (no need for rebuild)</ListItem>

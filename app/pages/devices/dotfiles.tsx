@@ -96,6 +96,10 @@ const Dotfiles: NextPage = () => {
             skhd
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
+            <Meta>Status Bar</Meta>
+            Übersicht / simple-bar (customized)
+          </ListItem>
+          <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Input</Meta>
             ATOK
           </ListItem>
@@ -108,7 +112,9 @@ const Dotfiles: NextPage = () => {
         <DevPort src="/images/devices/neovim_env.png" alt="term-vim" />
 
         <List my={6} pl={4}>
-          <ListItem fontWeight="400" fontSize={20} mb={1}>Terminal</ListItem>
+          <ListItem fontWeight="400" fontSize={20} mb={1}>
+            Terminal
+          </ListItem>
           <List pl={4}>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Emulator</Meta>
@@ -134,11 +140,13 @@ const Dotfiles: NextPage = () => {
         </List>
 
         <List my={6} pl={4}>
-          <ListItem fontWeight="400" fontSize={20} mb={1}>NeoVim</ListItem>
+          <ListItem fontWeight="400" fontSize={20} mb={1}>
+            NeoVim
+          </ListItem>
           <List pl={4}>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Plugin Manager</Meta>
-              lazy.vim
+              lazy.nvim
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Filer</Meta>
@@ -173,7 +181,7 @@ const Dotfiles: NextPage = () => {
               skkeleton
             </ListItem>
           </List>
-        </List> 
+        </List>
       </Container>
     </Layout>
   )

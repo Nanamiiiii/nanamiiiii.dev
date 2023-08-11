@@ -274,7 +274,9 @@ const Skill: NextPage = () => {
         </Heading>
         <Box display="flex" py={2} pl={2}>
           <UnorderedList>
-            <ListItem>IPA 情報処理安全確保支援士 (2022/10, Not Registered)</ListItem>
+            <ListItem>
+              IPA 情報処理安全確保支援士 (2022/10, Not Registered)
+            </ListItem>
             <ListItem>IPA 応用情報技術者試験 (2020/10)</ListItem>
           </UnorderedList>
         </Box>
