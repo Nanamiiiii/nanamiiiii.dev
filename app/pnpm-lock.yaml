@@ -38,6 +38,9 @@ dependencies:
   '@iconify/react':
     specifier: ^4.1.0
     version: 4.1.0(react@18.2.0)
+  '@next/swc-darwin-arm64':
+    specifier: ^13.4.19
+    version: 13.4.19
   framer-motion:
     specifier: ^10.2.1
     version: 10.2.1(react-dom@18.2.0)(react@18.2.0)
@@ -1428,6 +1431,7 @@ packages:
 
   /@emotion/memoize@0.7.4:
     resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
+    requiresBuild: true
     dev: false
     optional: true
 
@@ -1624,6 +1628,13 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@next/swc-darwin-arm64@13.4.19:
+    resolution: {integrity: sha512-vv1qrjXeGbuF2mOkhkdxMDtv9np7W4mcBtaDnHU+yJG+bBwa6rYsYSCI/9Xm5+TuF5SbZbrWO6G1NfTh1TMjvQ==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+    dev: false
 
   /@next/swc-darwin-x64@13.3.0:
     resolution: {integrity: sha512-oQoqFa88OGgwnYlnAGHVct618FRI/749se0N3S8t9Bzdv5CRbscnO0RcX901+YnNK4Q6yeiizfgO3b7kogtsZg==}
