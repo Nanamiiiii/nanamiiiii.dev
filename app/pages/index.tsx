@@ -113,29 +113,6 @@ const Home: NextPage = () => {
                   fontSize="18px"
                 />
               </Link>
-              <Link
-                href="https://discordapp.com/users/251614842203537408"
-                target="_blank"
-              >
-                <IconButton
-                  aria-label="discord"
-                  variant="ghost"
-                  colorScheme="cyan"
-                  icon={<SiDiscord />}
-                  mx={2}
-                  fontSize="18px"
-                />
-              </Link>
-              <Link href="https://youtube.com/kokoromyuu" target="_blank">
-                <IconButton
-                  aria-label="youtube"
-                  variant="ghost"
-                  colorScheme="cyan"
-                  icon={<SiYoutube />}
-                  mx={2}
-                  fontSize="18px"
-                />
-              </Link>
               <Link href="https://vimeo.com/user108826812" target="_blank">
                 <IconButton
                   aria-label="vimeo"
@@ -204,7 +181,7 @@ const Home: NextPage = () => {
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName>Origin</ItemizeName>
-            Niigata, Japan (Very good place to live!)
+            Niigata, Niigata, Japan (Very good place to live!)
           </ItemizeSection>
           <ItemizeSection>
             <ItemizeName>Graduated from</ItemizeName>
@@ -257,6 +234,12 @@ const Home: NextPage = () => {
                     SoCにおけるSecure
                     Bootの実装と検証の高速化に向けた評価&quot;,
                     情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
+                  </ListItem>
+                  <ListItem>
+                    梅澤拓夢, 齊木昭大, 木村啓二, &quot; RISC-V
+                    KeystoneにおけるEnclaveアプリケーションキャッシュ機能の拡張&quot;,
+                    信学技報, vol. 123, no. 145, CPSY2023-15, pp. 43-48,
+                    2023年8月.
                   </ListItem>
                 </UnorderedList>
               </AccordionPanel>
