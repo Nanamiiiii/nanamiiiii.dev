@@ -8,7 +8,7 @@ import {
   AspectRatio,
 } from '@chakra-ui/react'
 import { css } from '@emotion/react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
 const ContentStyle = css`
@@ -30,7 +30,7 @@ export const DeviceContent = ({
   children: any
   href: string
   title: string
-  thumbnail: import('next/dist/client/image').StaticImageData
+  thumbnail: StaticImageData
 }) => (
   <Box
     display="flex"

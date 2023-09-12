@@ -1,13 +1,13 @@
 import { extendTheme } from '@chakra-ui/react'
 import { mode } from '@chakra-ui/theme-tools'
-import { Josefin_Sans, Source_Sans_Pro } from 'next/font/google'
+import { Josefin_Sans, Source_Sans_3 } from 'next/font/google'
 
 const JosefinSansRegular = Josefin_Sans({
   subsets: ['latin'],
   weight: ['100', '200', '300', '400', '600'],
 })
 
-const SourceSansProRegular = Source_Sans_Pro({
+const SourceSansProRegular = Source_Sans_3({
   subsets: ['latin'],
   weight: ['200', '300', '400', '600', '700'],
 })

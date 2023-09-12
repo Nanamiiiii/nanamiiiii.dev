@@ -22,7 +22,6 @@
     "@emotion/styled": "^11.10.6",
     "@iconify/icons-logos": "^1.2.23",
     "@iconify/react": "^4.1.0",
-    "@next/swc-darwin-arm64": "^13.4.19",
     "framer-motion": "^10.2.1",
     "next": "^13.3.0",
     "react": "^18.2.0",

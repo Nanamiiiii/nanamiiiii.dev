@@ -1,6 +1,6 @@
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global, css } from '@emotion/react'
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
 export const ContentsGrid = ({
@@ -12,7 +12,7 @@ export const ContentsGrid = ({
   children: any
   href: string
   title: string
-  thumbnail: import('next/dist/client/image').StaticImageData
+  thumbnail: StaticImageData
 }) => {
   return (
     <Box
@@ -76,7 +76,7 @@ export const WorkContents = ({
   children: any
   id: string
   title: string
-  thumbnail: import('next/dist/client/image').StaticImageData
+  thumbnail: StaticImageData
 }) => (
   <Box
     display="flex"
