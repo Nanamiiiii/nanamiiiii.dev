@@ -20,7 +20,7 @@
     "@emotion/babel-plugin": "^11.10.6",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@iconify/icons-logos": "^1.2.23",
+    "@iconify/icons-logos": "^1.2.36",
     "@iconify/react": "^4.1.0",
     "framer-motion": "^10.2.1",
     "next": "^13.3.0",
