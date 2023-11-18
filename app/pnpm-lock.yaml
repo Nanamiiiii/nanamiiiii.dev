@@ -33,8 +33,8 @@ dependencies:
     specifier: ^11.10.6
     version: 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.37)(react@18.2.0)
   '@iconify/icons-logos':
-    specifier: ^1.2.23
-    version: 1.2.35
+    specifier: ^1.2.36
+    version: 1.2.36
   '@iconify/react':
     specifier: ^4.1.0
     version: 4.1.1(react@18.2.0)
@@ -1577,8 +1577,8 @@ packages:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
     dev: true
 
-  /@iconify/icons-logos@1.2.35:
-    resolution: {integrity: sha512-w/CdiGZth3qOOzFCvtwxy5iFp7S2HUEwPu+drd6AujcAUSS4hae6gyPwQXH7eJkix50Ne0xmR4HBZGozDIa6Hw==}
+  /@iconify/icons-logos@1.2.36:
+    resolution: {integrity: sha512-RVdZE9figuWmd8HeVmM8oQvOdv/4YzXV6lZ+G9QJgzCB/VBLV0inPltZxOt939oj4GbKbr7PF6J4bADMua/GPw==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: false
