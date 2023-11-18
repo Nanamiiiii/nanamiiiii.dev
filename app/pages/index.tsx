@@ -14,6 +14,10 @@ import {
   AccordionButton,
   AccordionIcon,
   AccordionPanel,
+  VStack,
+  Card,
+  CardHeader,
+  CardBody,
 } from '@chakra-ui/react'
 import type { NextPage } from 'next'
 import { Zen_Kaku_Gothic_New } from 'next/font/google'
@@ -49,6 +53,20 @@ const LinkText = ({ href, children }: { href: string; children: any }) => {
     >
       {children}
     </Link>
+  )
+}
+
+const AchievementsCard = ({title, booktitle, children}: {title: string, booktitle: string, children: any}) => {
+  return (
+    <Card variant="outline" size='sm' width="100%" backgroundColor="#00000000" fontFamily="Hack, monospace">
+      <CardHeader pb="0">
+        <Heading fontSize="18px" fontFamily="Hack, monospace">{title}</Heading>
+        <Text fontSize="16px">{children}</Text>
+      </CardHeader>
+      <CardBody>
+        <Text color='gray' as='i' fontSize="16px">{booktitle}</Text>
+      </CardBody>
+    </Card>
   )
 }
 
@@ -222,26 +240,46 @@ const Home: NextPage = () => {
               <Heading as="h4" fontSize="18px" fontWeight="300">
                 <AccordionButton>
                   <Box as="span" flex="1" textAlign="left">
+                    Peer-Reviewed
+                  </Box>
+                  <AccordionIcon />
+                </AccordionButton>
+              </Heading>
+              <AccordionPanel>
+                <VStack>
+                  <AchievementsCard
+                    title='Parallel Verification in RISC-V Secure Boot'
+                    booktitle='16th IEEE International Symposium on Embedded Multicore/Manycore SoCs (MCSoC-2023), Dec 2023'
+                  >
+                    <u>Akihiro Saiki</u>, Yu Omori, Keiji Kimura
+                  </AchievementsCard> 
+                </VStack>
+              </AccordionPanel>
+            </AccordionItem>
+            <AccordionItem>
+              <Heading as="h4" fontSize="18px" fontWeight="300">
+                <AccordionButton>
+                  <Box as="span" flex="1" textAlign="left">
                     NO Peer-Review
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
               </Heading>
               <AccordionPanel>
-                <UnorderedList>
-                  <ListItem>
-                    <b>齊木 昭大</b>, 大森 侑, 木村 啓二, &quot;RISC-V
-                    SoCにおけるSecure
-                    Bootの実装と検証の高速化に向けた評価&quot;,
-                    情報処理学会研究報告, Vol.2023-EMB-62, No.16, Mar. 2023.
-                  </ListItem>
-                  <ListItem>
-                    梅澤拓夢, 齊木昭大, 木村啓二, &quot; RISC-V
-                    KeystoneにおけるEnclaveアプリケーションキャッシュ機能の拡張&quot;,
-                    信学技報, vol. 123, no. 145, CPSY2023-15, pp. 43-48,
-                    2023年8月.
-                  </ListItem>
-                </UnorderedList>
+                <VStack>
+                  <AchievementsCard
+                    title='RISC-V KeystoneにおけるEnclaveアプリケーションキャッシュ機能の拡張'
+                    booktitle='並列/分散/協調処理に関するサマー・ワークショップ (SWoPP 2023), Aug 2023'
+                  >
+                    梅澤拓夢, <u>齊木昭大</u>, 木村啓二
+                  </AchievementsCard> 
+                  <AchievementsCard
+                    title='RISC-V SoCにおけるSecure Bootの実装と検証の高速化に向けた評価'
+                    booktitle='組込み技術とネットワークに関するワークショップ ETNET2023, Mar 2023'
+                  >
+                    <u>齊木昭大</u>, 大森侑, 木村啓二
+                  </AchievementsCard> 
+                </VStack>
               </AccordionPanel>
             </AccordionItem>
           </Accordion>
@@ -266,9 +304,7 @@ const Home: NextPage = () => {
               <LinkText href="/works">Movie Creation</LinkText>
             </ItemizeName>
             MotionGraphics,{' '}
-            <Link href="https://www.youtube.com/c/kokoromyuu" target="_blank">
-              Gameplay Montage
-            </Link>{' '}
+            Gameplay Montage{' '}
             etc...
           </ItemizeSection>
           <ItemizeSection>

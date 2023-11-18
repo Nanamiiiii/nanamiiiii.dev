@@ -97,7 +97,7 @@ const Dotfiles: NextPage = () => {
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Status Bar</Meta>
-            Übersicht / simple-bar (customized)
+            Sketchybar
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Input</Meta>

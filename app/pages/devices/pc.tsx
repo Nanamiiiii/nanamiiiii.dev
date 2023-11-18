@@ -264,7 +264,7 @@ const Pc: NextPage = () => {
             </Meta>
             <Tag size="sm" variant="outline" colorScheme="cyan" mx={1}>
               <TagLeftIcon as={SiMacos} />
-              macOS 13 Ventura
+              macOS 14 Sonoma
             </Tag>
           </ListItem>
           <ListItem display="flex" mb={2} alignItems="center">
