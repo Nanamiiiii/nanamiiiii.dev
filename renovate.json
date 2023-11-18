@@ -2,5 +2,39 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:base"
+  ],
+  "dependencyDashboard": true,
+  "requiredStatusChecks": null,
+  "schedule": [
+    "every 1 hour after 00:00 and before 23:59 every day"
+  ],
+  "automergeSchedule": [
+     "after 10pm and before 5am every weekday",
+     "every weekend"
+  ],
+  "enabledManagers": ["npm"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackagePatterns": ["^react", "^next"],
+      "groupName": "Next.js",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackagePatterns": ["^chakra"],
+      "groupName": "Chakra UI",
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchPackagePatterns": ["^eslint"],
+      "groupName": "eslint",
+      "automerge": true
+    }
   ]
 }
