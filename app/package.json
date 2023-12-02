@@ -22,7 +22,7 @@
     "@emotion/styled": "^11.11.0",
     "@iconify/icons-logos": "^1.2.36",
     "@iconify/react": "^4.1.1",
-    "framer-motion": "^10.16.5",
+    "framer-motion": "^10.16.12",
     "next": "^13.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
