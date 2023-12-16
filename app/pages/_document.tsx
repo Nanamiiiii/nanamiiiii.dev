@@ -7,7 +7,7 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-         <link rel="stylesheet" href="https://use.typekit.net/uhz5aqh.css" />
+          <link rel="stylesheet" href="https://use.typekit.net/uhz5aqh.css" />
         </Head>
         <body>
           <ColorModeScript initialColorMode={theme.config.initialColorMode} />

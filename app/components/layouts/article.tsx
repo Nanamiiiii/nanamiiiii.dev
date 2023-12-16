@@ -10,7 +10,7 @@ const variants = {
 
 const Layout = ({ children, title }: { children: any; title?: string }) => {
   const formedTitle =
-    title == undefined || title == '' ? 'Nanamiiiii' : `${title} - Nanamiiiii`
+    title == undefined || title == '' ? 'Myuu.dev' : `${title} - Myuu.dev`
   return (
     <motion.article
       initial="hidden"

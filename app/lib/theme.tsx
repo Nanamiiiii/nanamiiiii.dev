@@ -45,7 +45,7 @@ const components = {
 const fonts = {
   heading: `${JosefinSansRegular.style.fontFamily}, sans-serif`,
   body: `${SourceSansProRegular.style.fontFamily}, sans-serif`,
-  mono: "Hack, monospace",
+  mono: 'Hack, monospace',
 }
 
 const colors = {

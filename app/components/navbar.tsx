@@ -84,7 +84,10 @@ const Navbar = (props: any) => {
             Works
           </LinkItem>
           <LinkItem href="/myenv" path={path}>
-            My Env.
+            My Env
+          </LinkItem>
+          <LinkItem href="/blogs" path={path}>
+            Blogs
           </LinkItem>
         </Stack>
 
@@ -108,7 +111,10 @@ const Navbar = (props: any) => {
                   Works
                 </MenuItem>
                 <MenuItem as={NextLink} href="/myenv" passHref>
-                  My Env.
+                  My Env
+                </MenuItem>
+                <MenuItem as={NextLink} href="/blogs" passHref>
+                  Blogs
                 </MenuItem>
               </MenuList>
             </Menu>

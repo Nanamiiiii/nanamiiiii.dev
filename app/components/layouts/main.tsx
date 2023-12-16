@@ -7,7 +7,7 @@ const Main = ({ children, router }: { children: any; router: NextRouter }) => {
   return (
     <Box as="main" pb={8}>
       <Head>
-        <title>Nanamiiiii</title>
+        <title>Myuu.dev</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
