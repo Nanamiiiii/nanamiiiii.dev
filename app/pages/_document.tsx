@@ -5,7 +5,7 @@ import theme from '../lib/theme'
 export default class Document extends NextDocument {
   render() {
     return (
-      <Html lang="en">
+      <Html lang="ja">
         <Head>
           <link rel="stylesheet" href="https://use.typekit.net/uhz5aqh.css" />
         </Head>

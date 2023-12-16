@@ -6,8 +6,9 @@ import {
   ListItem,
   Link,
   Code as ChakraCode,
+  OrderedList,
 } from '@chakra-ui/react'
-import highlight from 'highlight.js';
+import highlight from 'highlight.js'
 import parse, { domToReact, HTMLReactParserOptions } from 'html-react-parser'
 
 import 'highlight.js/styles/tokyo-night-dark.css'
@@ -93,6 +94,17 @@ const ul = {
   },
 }
 
+const ol = {
+  component: OrderedList,
+  props: {
+    color: '#000',
+    mt: 0,
+    mb: 0,
+    pl: '2em',
+    lineHeight: '1.6',
+  },
+}
+
 const li = {
   component: ListItem,
 }
@@ -112,20 +124,19 @@ const a = {
 
 const code = {
   props: {
-      fontSize: "14px",
-      px: "0.2em",
-      mx: "0.2rem",
-      display: 'inline',
+    fontSize: '14px',
+    px: '0.2em',
+    mx: '0.2rem',
+    display: 'inline',
   },
 }
 
 const preCode = {
   props: {
-    fontSize: "14px",
-    mb: "10px",
-  }
+    fontSize: '14px',
+    mb: '10px',
+  },
 }
-
 
 const options: HTMLReactParserOptions = {
   replace: (domNode: any) => {
@@ -165,6 +176,13 @@ const options: HTMLReactParserOptions = {
           </UnorderedList>
         )
       }
+      if (domNode.name === 'ol') {
+        return (
+          <OrderedList {...ul.props}>
+            {domToReact(domNode.children, options)}
+          </OrderedList>
+        )
+      }
       if (domNode.name === 'li') {
         return <ListItem>{domToReact(domNode.children, options)}</ListItem>
       }
@@ -180,16 +198,24 @@ const options: HTMLReactParserOptions = {
       }
       if (domNode.name === 'code') {
         if (domNode.parent.name === 'pre') {
-          const highlightCode = highlight.highlightAuto(domToReact(domNode.children) as string).value
+          const highlightCode = highlight.highlightAuto(
+            domToReact(domNode.children) as string,
+          ).value
           return (
-            <Box as="code" className="hljs" borderRadius={10} overflowX="scroll" {...preCode.props}>
-                {parse(highlightCode)}
+            <Box
+              as="code"
+              className="hljs"
+              borderRadius={10}
+              overflowX="scroll"
+              {...preCode.props}
+            >
+              {parse(highlightCode)}
             </Box>
           )
         } else {
           return (
             <ChakraCode {...code.props}>
-                {domToReact(domNode.children, options)}
+              {domToReact(domNode.children, options)}
             </ChakraCode>
           )
         }
