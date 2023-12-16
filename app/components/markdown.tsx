@@ -59,6 +59,19 @@ const h3 = {
   },
 }
 
+const h4 = {
+  component: Text,
+  props: {
+    mt: '12px',
+    mb: '8px',
+    lineHeight: 1.25,
+
+    color: '#202020',
+    fontWeight: '600',
+    fontSize: '1.125em',
+  },
+}
+
 const p = {
   component: Text,
   props: {
@@ -99,15 +112,17 @@ const a = {
 
 const code = {
   props: {
-      fontSize: 'md',
+      fontSize: "14px",
       px: "0.2em",
       mx: "0.2rem",
+      display: 'inline',
   },
 }
 
 const preCode = {
   props: {
     fontSize: "14px",
+    mb: "10px",
   }
 }
 
@@ -132,6 +147,13 @@ const options: HTMLReactParserOptions = {
       if (domNode.name === 'h3') {
         return (
           <Text as="h3" {...h3.props}>
+            {domToReact(domNode.children, options)}
+          </Text>
+        )
+      }
+      if (domNode.name === 'h4') {
+        return (
+          <Text as="h4" {...h4.props}>
             {domToReact(domNode.children, options)}
           </Text>
         )
