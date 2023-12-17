@@ -76,7 +76,7 @@ const BlogArticle: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
             </Tag>
           ))}
         </HStack>
-        <TableContainer fontWeight="400" fontSize="14px">
+        <TableContainer fontWeight="400" fontSize="14px" pb={5}>
           <Table variant="simple" size="sm">
             <Tbody>
               <Tr>
