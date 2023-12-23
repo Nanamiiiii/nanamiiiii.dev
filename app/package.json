@@ -18,7 +18,7 @@
     "@chakra-ui/system": "^2.6.2",
     "@chakra-ui/theme-tools": "^2.1.2",
     "@emotion/babel-plugin": "^11.11.0",
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@iconify/icons-logos": "^1.2.36",
     "@iconify/react": "^4.1.1",
