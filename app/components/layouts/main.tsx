@@ -2,6 +2,7 @@ import { Box, Container } from '@chakra-ui/react'
 import Head from 'next/head'
 import { NextRouter } from 'next/router'
 import Navbar from '../navbar'
+import { ScrollToTop } from '../scrolltop'
 
 const Main = ({ children, router }: { children: any; router: NextRouter }) => {
   return (
@@ -16,6 +17,8 @@ const Main = ({ children, router }: { children: any; router: NextRouter }) => {
       <Container maxW="container.md" pt={16}>
         {children}
       </Container>
+
+      <ScrollToTop />
     </Box>
   )
 }

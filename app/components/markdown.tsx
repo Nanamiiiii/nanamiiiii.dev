@@ -9,7 +9,12 @@ import {
   OrderedList,
 } from '@chakra-ui/react'
 import highlight from 'highlight.js'
-import parse, { domToReact, HTMLReactParserOptions } from 'html-react-parser'
+import parse, {
+  DOMNode,
+  domToReact,
+  Element,
+  HTMLReactParserOptions,
+} from 'html-react-parser'
 
 import 'highlight.js/styles/tokyo-night-dark.css'
 
@@ -139,67 +144,98 @@ const preCode = {
 }
 
 const options: HTMLReactParserOptions = {
-  replace: (domNode: any) => {
+  replace: (domNode: DOMNode) => {
     if (domNode.type === 'tag') {
       if (domNode.name === 'h1') {
         return (
-          <Text as="h1" {...h1.props}>
-            {domToReact(domNode.children, options)}
+          <Text
+            as="h1"
+            id={(domNode.children[0] as unknown as Text).data}
+            scrollMarginTop={20}
+            {...h1.props}
+          >
+            {domToReact(domNode.children as DOMNode[], options)}
           </Text>
         )
       }
       if (domNode.name === 'h2') {
         return (
-          <Text as="h2" {...h2.props}>
-            {domToReact(domNode.children, options)}
+          <Text
+            as="h2"
+            id={(domNode.children[0] as unknown as Text).data}
+            scrollMarginTop={20}
+            {...h2.props}
+          >
+            {domToReact(domNode.children as DOMNode[], options)}
           </Text>
         )
       }
       if (domNode.name === 'h3') {
         return (
-          <Text as="h3" {...h3.props}>
-            {domToReact(domNode.children, options)}
+          <Text
+            as="h3"
+            id={(domNode.children[0] as unknown as Text).data}
+            scrollMarginTop={20}
+            {...h3.props}
+          >
+            {domToReact(domNode.children as DOMNode[], options)}
           </Text>
         )
       }
       if (domNode.name === 'h4') {
         return (
-          <Text as="h4" {...h4.props}>
-            {domToReact(domNode.children, options)}
+          <Text
+            as="h4"
+            id={(domNode.children[0] as unknown as Text).data}
+            scrollMarginTop={20}
+            {...h4.props}
+          >
+            {domToReact(domNode.children as DOMNode[], options)}
           </Text>
         )
       }
       if (domNode.name === 'ul') {
         return (
           <UnorderedList {...ul.props}>
-            {domToReact(domNode.children, options)}
+            {domToReact(domNode.children as DOMNode[], options)}
           </UnorderedList>
         )
       }
       if (domNode.name === 'ol') {
         return (
           <OrderedList {...ul.props}>
-            {domToReact(domNode.children, options)}
+            {domToReact(domNode.children as DOMNode[], options)}
           </OrderedList>
         )
       }
       if (domNode.name === 'li') {
-        return <ListItem>{domToReact(domNode.children, options)}</ListItem>
+        return (
+          <ListItem>
+            {domToReact(domNode.children as DOMNode[], options)}
+          </ListItem>
+        )
       }
       if (domNode.name === 'a') {
         return (
           <Link {...a.props} href={domNode.attribs.href}>
-            {domToReact(domNode.children, options)}
+            {domToReact(domNode.children as DOMNode[], options)}
           </Link>
         )
       }
       if (domNode.name === 'p') {
-        return <Text {...p.props}>{domToReact(domNode.children, options)}</Text>
+        return (
+          <Text {...p.props}>
+            {domToReact(domNode.children as DOMNode[], options)}
+          </Text>
+        )
       }
       if (domNode.name === 'code') {
-        if (domNode.parent.name === 'pre') {
+        if (
+          domNode.parent instanceof Element &&
+          domNode.parent.name === 'pre'
+        ) {
           const highlightCode = highlight.highlightAuto(
-            domToReact(domNode.children) as string,
+            domToReact(domNode.children as DOMNode[]) as string,
           ).value
           return (
             <Box
@@ -215,7 +251,7 @@ const options: HTMLReactParserOptions = {
         } else {
           return (
             <ChakraCode {...code.props}>
-              {domToReact(domNode.children, options)}
+              {domToReact(domNode.children as DOMNode[], options)}
             </ChakraCode>
           )
         }
