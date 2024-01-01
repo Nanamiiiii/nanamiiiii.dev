@@ -20,7 +20,7 @@ import { Title, WorkImage, Meta } from '../../components/work'
 
 const Work: NextPage = () => {
   return (
-    <Layout title="NetworkWebCamera">
+    <Layout title="NetworkWebCamera" desc='Applications to use Android Smartphone as WebCamera on Multi-Platform Computer.' path='/works/networkwebcam'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           NetworkWebCamera <Badge>2021</Badge>

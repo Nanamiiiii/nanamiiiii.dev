@@ -4,7 +4,7 @@ import { NextRouter } from 'next/router'
 import Navbar from '../navbar'
 import { ScrollToTop } from '../scrolltop'
 
-const Main = ({ children, router }: { children: any; router: NextRouter }) => {
+const Main = ({ children, router }: { children: any, router: NextRouter }) => {
   return (
     <Box as="main" pb={8}>
       <Head>

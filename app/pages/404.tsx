@@ -8,20 +8,23 @@ import {
 } from '@chakra-ui/react'
 import { NextPage } from 'next'
 import NextLink from 'next/link'
+import Layout from '../components/layouts/article'
 
 const NotFound: NextPage = () => {
   return (
-    <Container>
-      <Heading as="h1">404 Not Found</Heading>
-      <Text>そんなものはなかった…</Text>
-      <Divider my={6} />
+    <Layout title='404 Not Found' path='/404'>
+      <Container>
+        <Heading as="h1">404 Not Found</Heading>
+        <Text>そんなものはなかった…</Text>
+        <Divider my={6} />
 
-      <Box display="flex" my={6} justifyContent="center">
-        <NextLink href="/" passHref>
-          <Button colorScheme="purple">Go Home</Button>
-        </NextLink>
-      </Box>
-    </Container>
+        <Box display="flex" my={6} justifyContent="center">
+          <NextLink href="/" passHref>
+            <Button colorScheme="purple">Go Home</Button>
+          </NextLink>
+        </Box>
+      </Container>
+    </Layout>
   )
 }
 

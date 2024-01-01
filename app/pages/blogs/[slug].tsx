@@ -59,6 +59,7 @@ export const getStaticProps: GetStaticProps<Props, Params> = async context => {
     props: {
       article: article,
       tocItems: tocs,
+      slug: slug,
     },
   }
 }
@@ -66,11 +67,13 @@ export const getStaticProps: GetStaticProps<Props, Params> = async context => {
 type Props = {
   article: Article
   tocItems: TocItem[]
+  slug: string
 }
 
 const BlogArticle: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   article,
   tocItems,
+  slug,
 }: Props) => {
   const formatDigit = (n: number) => {
     if (n < 10) {
@@ -85,7 +88,7 @@ const BlogArticle: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     )}:${formatDigit(date.getMinutes())}:${formatDigit(date.getSeconds())}`
   }
   return (
-    <Layout title={article.title}>
+    <Layout title={article.title} desc={article.meta.description} path={'/blogs/' + slug}>
       <Container maxWidth="100%">
         <Text fontStyle="italic" textColor="gray">
           Myuu&rsquo;s garbage

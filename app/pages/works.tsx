@@ -17,7 +17,7 @@ import wfesThumb from '../public/images/works/wasefes_cm_2021.png'
 
 const Works: NextPage = () => {
   return (
-    <Layout title="">
+    <Layout title="Works" desc='My Works' path='/works'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Heading as="h3" fontSize={25} mb={6} fontWeight="300">
           Works

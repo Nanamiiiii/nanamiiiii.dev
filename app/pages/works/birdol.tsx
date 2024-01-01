@@ -31,7 +31,7 @@ import { Title, WorkImagePad, Meta } from '../../components/work'
 
 const Work: NextPage = () => {
   return (
-    <Layout title="Birdol March">
+    <Layout title="Birdol March" desc='A game of bringing up bishoujo based on wild birds' path='/works/birdol'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           Birdol March <Badge>2021</Badge>

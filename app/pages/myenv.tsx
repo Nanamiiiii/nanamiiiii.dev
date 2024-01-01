@@ -12,7 +12,7 @@ import devicePc from '../public/images/devices/pc.png'
 
 const Devices: NextPage = () => {
   return (
-    <Layout title="My Environments">
+    <Layout title="My Environments" desc='Introduction of device setup' path='/myenv'>
       <Container maxWidth="100%" fontSize="18px">
         <Heading as="h3" fontSize={25} mt={2} mb={4} fontWeight="300">
           My Environments

@@ -19,7 +19,7 @@ import { Title, WorkImage, Meta } from '../../components/work'
 
 const Work: NextPage = () => {
   return (
-    <Layout title="tinysv">
+    <Layout title="tinysv" desc='A minimal & extensive web server application for Linux' path='/works/tinysv'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>
           tinysv <Badge>2021</Badge>

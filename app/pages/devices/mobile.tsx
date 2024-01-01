@@ -13,7 +13,7 @@ import Layout from '../../components/layouts/article'
 
 const Mobile: NextPage = () => {
   return (
-    <Layout title="Mobile & Others">
+    <Layout title="Mobile & Others" desc='Mobile & Other devices' path='/devices/mobile'>
       <Container maxW="100%" fontSize="18px" fontWeight="300">
         <Title>Mobile & Others</Title>
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">

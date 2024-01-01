@@ -30,7 +30,7 @@ import Layout from '../../components/layouts/article'
 
 const Pc: NextPage = () => {
   return (
-    <Layout title="Computers">
+    <Layout title="Computers" desc='Introduction of my computers' path='/devices/pc'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Computers</Title>
 

@@ -18,7 +18,7 @@ import P from '../../components/paragraph'
 
 const Dotfiles: NextPage = () => {
   return (
-    <Layout title="dotfiles">
+    <Layout title="dotfiles" desc='dotfile introduction' path='/devices/dotfiles'>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>dotfiles</Title>
 
