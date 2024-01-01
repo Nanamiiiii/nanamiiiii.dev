@@ -8,6 +8,7 @@ import {
   Code as ChakraCode,
   OrderedList,
 } from '@chakra-ui/react'
+import { css } from '@emotion/react'
 import highlight from 'highlight.js'
 import parse, {
   DOMNode,
@@ -143,6 +144,13 @@ const preCode = {
   },
 }
 
+const quoteStyle = css`
+  margin: 1.4rem 0;
+  border-left: 3px solid #9dacb7;
+  padding: 2px 0 2px .7em;
+  color: #505c64
+`
+
 const options: HTMLReactParserOptions = {
   replace: (domNode: DOMNode) => {
     if (domNode.type === 'tag') {
@@ -255,6 +263,13 @@ const options: HTMLReactParserOptions = {
             </ChakraCode>
           )
         }
+      }
+      if (domNode.name === 'blockquote') {
+        return (
+          <Box css={quoteStyle}>
+            {domToReact(domNode.children as DOMNode[], options)}
+          </Box>
+        )
       }
     }
   },
