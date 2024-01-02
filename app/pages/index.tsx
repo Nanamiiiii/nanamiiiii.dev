@@ -161,7 +161,7 @@ const Home: NextPage = () => {
                   />
                 </Link>
                 <Link
-                  href="https://www.instagram.com/s.akihiro_lx/"
+                  href="https://www.instagram.com/773skiz/"
                   target="_blank"
                 >
                   <IconButton
