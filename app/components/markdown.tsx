@@ -7,6 +7,15 @@ import {
   Link,
   Code as ChakraCode,
   OrderedList,
+  Card,
+  Image,
+  Stack,
+  CardBody,
+  Heading,
+  CardFooter,
+  HStack,
+  LinkBox,
+  LinkOverlay,
 } from '@chakra-ui/react'
 import { css } from '@emotion/react'
 import highlight from 'highlight.js'
@@ -147,8 +156,8 @@ const preCode = {
 const quoteStyle = css`
   margin: 1.4rem 0;
   border-left: 3px solid #9dacb7;
-  padding: 2px 0 2px .7em;
-  color: #505c64
+  padding: 2px 0 2px 0.7em;
+  color: #505c64;
 `
 
 const options: HTMLReactParserOptions = {
@@ -269,6 +278,64 @@ const options: HTMLReactParserOptions = {
           <Box css={quoteStyle}>
             {domToReact(domNode.children as DOMNode[], options)}
           </Box>
+        )
+      }
+      if (domNode.name === 'linkcard') {
+        const url = domNode.attribs.href
+        const title = domNode.attribs.title
+        const desc = domNode.attribs.desc
+        const image = domNode.attribs.img
+        const domain = new URL(url).origin
+        return (
+          <LinkBox>
+            <Card
+              variant="outline"
+              direction={{ base: 'column', md: 'row' }}
+              overflow="hidden"
+              size="sm"
+              mb="10px"
+              borderRadius={10}
+              backgroundColor="#ffffff10"
+              _hover={{ backgroundColor: '#60aaf020' }}
+              transitionDuration="0.3s"
+            >
+              <Image
+                objectFit="contain"
+                minW="25%"
+                maxW={{ base: '100%', md: '40%' }}
+                src={image}
+                alt={title}
+              />
+              <CardBody>
+                <Heading fontSize="18px" pb={1}>
+                  {title}
+                </Heading>
+                <LinkOverlay href={url} isExternal={true}>
+                  <Text
+                    textColor="gray"
+                    pb={1}
+                    overflow="hidden"
+                    css={`
+                      -webkit-line-clamp: 1;
+                      -webkit-box-orient: vertical;
+                    `}
+                    display="-webkit-box"
+                  >
+                    {desc}
+                  </Text>
+                </LinkOverlay>
+                <HStack>
+                  <Image
+                    maxW="14px"
+                    maxH="14px"
+                    src={'https://www.google.com/s2/favicons?domain=' + domain}
+                    alt={title + 'favicon'}
+                  />
+                  <Text>{domain}</Text>
+                </HStack>
+              </CardBody>
+            </Card>
+          </LinkBox>
         )
       }
     }

@@ -110,7 +110,11 @@ const Blogs: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     )}:${formatDigit(date.getMinutes())}:${formatDigit(date.getSeconds())}`
   }
   return (
-    <Layout title={"Blogs - Page " + pageNum} desc={'Blog entries - Page ' + pageNum} path={'/blogs/page' + pageNum}>
+    <Layout
+      title={'Blogs - Page ' + pageNum}
+      desc={'Blog entries - Page ' + pageNum}
+      path={'/blogs/page' + pageNum}
+    >
       <Container maxWidth="100%" fontSize="18px">
         <Heading as="h3" fontSize={25} mt={2} mb={4} fontWeight="300">
           Blogs

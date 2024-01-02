@@ -12,7 +12,7 @@ import Layout from '../components/layouts/article'
 
 const NotFound: NextPage = () => {
   return (
-    <Layout title='404 Not Found' path='/404'>
+    <Layout title="404 Not Found" path="/404">
       <Container>
         <Heading as="h1">404 Not Found</Heading>
         <Text>そんなものはなかった…</Text>

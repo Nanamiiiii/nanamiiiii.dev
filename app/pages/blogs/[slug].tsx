@@ -31,12 +31,21 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return { paths, fallback: false }
 }
 
+type OgpMeta = {
+  url: string
+  title: string
+  description: string
+  image: string
+}
+
 export const getStaticProps: GetStaticProps<Props, Params> = async context => {
   const slug = context.params?.slug
   const article = await getArticleBySlug(slug)
   if (article == null) {
     throw new Error('reference to non-existent entry')
   }
+
+  // Generate ToC
   const doc = new JSDOM(article.body).window.document
   const elems = doc.querySelectorAll<HTMLElement>('h1, h2, h3, h4')
   const tocs: TocItem[] = []
@@ -53,6 +62,65 @@ export const getStaticProps: GetStaticProps<Props, Params> = async context => {
       lastOuter = lastOuter[len - 1].inner
       len = lastOuter.length
     }
+  })
+
+  // Fetch OGP
+  const linkPara = /<p>(https?:\/\/.+?)<\/p>/g
+  const links = Array.from(article.body.matchAll(linkPara)) || []
+  let cardDatas: OgpMeta[] = []
+  const temps = await Promise.all(
+    links.map(async link => {
+      const metas = await fetch(link[1])
+        .then(res => res.text())
+        .then(text => {
+          const metaData: OgpMeta = {
+            url: link[1],
+            title: '',
+            description: '',
+            image: '',
+          }
+          const doms = new JSDOM(text)
+          const metas = Array.from(
+            doms.window.document.getElementsByTagName('meta'),
+          )
+          for (const meta of metas) {
+            const np =
+              meta.getAttribute('name') || meta.getAttribute('property')
+            if (typeof np !== 'string') continue
+            if (np === 'og:title') {
+              metaData.title = meta.getAttribute('content') || ''
+            }
+            if (np === 'og:description') {
+              metaData.description = (meta.getAttribute('content') || '').slice(
+                0,
+                100,
+              )
+            }
+            if (np === 'og:image') {
+              metaData.image = meta.getAttribute('content') || ''
+            }
+          }
+          return metaData
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      return metas
+    }),
+  )
+  cardDatas = temps.filter(temp => temp !== undefined) as OgpMeta[]
+
+  // Replace potential linkcard node
+  article.body = article.body.replaceAll(linkPara, (match, p1, offset, str) => {
+    for (let i = 0; i < cardDatas.length; i++) {
+      if (cardDatas[i].url === p1) {
+        const ogpTitle = cardDatas[i].title
+        const ogpDesc = cardDatas[i].description
+        const ogpImage = cardDatas[i].image
+        return `<linkcard href=\"${p1}\" title=\"${ogpTitle}\" desc=\"${ogpDesc}\" img=\"${ogpImage}\"></linkcard>`
+      }
+    }
+    return `<a href=\"${p1}\">${p1}</a>`
   })
 
   return {
@@ -88,7 +156,11 @@ const BlogArticle: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
     )}:${formatDigit(date.getMinutes())}:${formatDigit(date.getSeconds())}`
   }
   return (
-    <Layout title={article.title} desc={article.meta.description} path={'/blogs/' + slug}>
+    <Layout
+      title={article.title}
+      desc={article.meta.description}
+      path={'/blogs/' + slug}
+    >
       <Container maxWidth="100%">
         <Text fontStyle="italic" textColor="gray">
           Myuu&rsquo;s garbage

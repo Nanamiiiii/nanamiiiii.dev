@@ -13,7 +13,11 @@ import Layout from '../../components/layouts/article'
 
 const KeyMouse: NextPage = () => {
   return (
-    <Layout title="Keyboard & Mouse" desc='Keyboard & Mouse' path='/devices/keymou'>
+    <Layout
+      title="Keyboard & Mouse"
+      desc="Keyboard & Mouse"
+      path="/devices/keymou"
+    >
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Keyboard & Mouse</Title>
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">

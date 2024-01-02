@@ -12,7 +12,7 @@ import Layout from '../../components/layouts/article'
 
 const Display: NextPage = () => {
   return (
-    <Layout title="Displays" desc='Displays' path='/devices/display'>
+    <Layout title="Displays" desc="Displays" path="/devices/display">
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Displays</Title>
 

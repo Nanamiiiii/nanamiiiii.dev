@@ -47,7 +47,7 @@ import Layout from '../components/layouts/article'
 
 const Skill: NextPage = () => {
   return (
-    <Layout title="Skill" desc='Introduction of my skill' path='/skill'>
+    <Layout title="Skill" desc="Introduction of my skill" path="/skill">
       <Container maxWidth="100%" fontSize="18px">
         <Heading as="h3" fontSize={25} mt={2} mb={4} fontWeight="300">
           Development Skills
