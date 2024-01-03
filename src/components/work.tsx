@@ -1,3 +1,4 @@
+'use client'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
 import NextLink from 'next/link'
