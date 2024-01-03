@@ -4,7 +4,7 @@ import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
   <Box>
-    <Link as={NextLink} href="/myenv" passHref>
+    <Link as={NextLink} href="/env" passHref>
       My Env.
     </Link>
     <span>

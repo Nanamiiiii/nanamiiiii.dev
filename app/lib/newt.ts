@@ -1,14 +1,21 @@
 import { createClient } from 'newt-client-js'
+import { cache } from 'react'
 import type { Article, ArticleTag } from '../types/blog'
 
-const client = createClient({
+const cdnClient = createClient({
   spaceUid: process.env.NEWT_SPACE_UID || '',
   token: process.env.NEWT_CDN_API_TOKEN || '',
   apiType: 'cdn',
 })
 
-export const getArticles = async () => {
-  const { items } = await client.getContents<Article>({
+const apiClient = createClient({
+  spaceUid: process.env.NEWT_SPACE_UID || '',
+  token: process.env.NEWT_API_TOKEN || '',
+  apiType: 'api',
+})
+
+export const getArticles = cache(async () => {
+  const { items } = await cdnClient.getContents<Article>({
     appUid: 'blog',
     modelUid: 'article',
     query: {
@@ -25,10 +32,10 @@ export const getArticles = async () => {
     },
   })
   return items
-}
+})
 
-export const getVisibleArticles = async () => {
-  const { items } = await client.getContents<Article>({
+export const getVisibleArticles = cache(async () => {
+  const { items } = await cdnClient.getContents<Article>({
     appUid: 'blog',
     modelUid: 'article',
     query: {
@@ -51,10 +58,10 @@ export const getVisibleArticles = async () => {
     return acm
   }, [])
   return visibleArticles
-}
+})
 
-export const getTags = async () => {
-  const { items } = await client.getContents<ArticleTag>({
+export const getTags = cache(async () => {
+  const { items } = await cdnClient.getContents<ArticleTag>({
     appUid: 'blog',
     modelUid: 'tag',
     query: {
@@ -62,25 +69,28 @@ export const getTags = async () => {
     },
   })
   return items
-}
+})
 
-export const getArticleBySlug = async (slug: string) => {
-  const article = await client.getFirstContent<Article>({
-    appUid: 'blog',
-    modelUid: 'article',
-    query: {
-      slug,
-      select: [
-        '_id',
-        '_sys',
-        'title',
-        'slug',
-        'meta',
-        'body',
-        'tags',
-        'visibility',
-      ],
-    },
-  })
-  return article
-}
+export const getArticleBySlug = cache(
+  async (slug: string, isDraft?: boolean) => {
+    const client = isDraft ? apiClient : cdnClient
+    const article = await client.getFirstContent<Article>({
+      appUid: 'blog',
+      modelUid: 'article',
+      query: {
+        slug,
+        select: [
+          '_id',
+          '_sys',
+          'title',
+          'slug',
+          'meta',
+          'body',
+          'tags',
+          'visibility',
+        ],
+      },
+    })
+    return article
+  },
+)

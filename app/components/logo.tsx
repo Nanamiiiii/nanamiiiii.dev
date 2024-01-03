@@ -1,3 +1,4 @@
+'use client'
 import { Text, useColorModeValue } from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import { Gwendolyn } from 'next/font/google'

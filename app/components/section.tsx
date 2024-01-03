@@ -1,3 +1,4 @@
+'use client'
 import { chakra, shouldForwardProp } from '@chakra-ui/react'
 import { motion } from 'framer-motion'
 

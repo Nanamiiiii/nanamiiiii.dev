@@ -1,3 +1,4 @@
+'use client'
 import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Container,
@@ -41,7 +42,7 @@ const LinkItem = ({
   )
 }
 
-const Navbar = (props: any) => {
+export const Navbar = (props: any) => {
   const { path } = props
 
   return (
@@ -83,7 +84,7 @@ const Navbar = (props: any) => {
           <LinkItem href="/works" path={path}>
             Works
           </LinkItem>
-          <LinkItem href="/myenv" path={path}>
+          <LinkItem href="/env" path={path}>
             My Env
           </LinkItem>
           <LinkItem href="/blogs" path={path}>
@@ -110,7 +111,7 @@ const Navbar = (props: any) => {
                 <MenuItem as={NextLink} href="/works" passHref>
                   Works
                 </MenuItem>
-                <MenuItem as={NextLink} href="/myenv" passHref>
+                <MenuItem as={NextLink} href="/env" passHref>
                   My Env
                 </MenuItem>
                 <MenuItem as={NextLink} href="/blogs" passHref>
@@ -124,5 +125,3 @@ const Navbar = (props: any) => {
     </Box>
   )
 }
-
-export default Navbar

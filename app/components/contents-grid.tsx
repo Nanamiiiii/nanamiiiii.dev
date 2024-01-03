@@ -1,3 +1,4 @@
+'use client'
 import { Box, Text, LinkBox, LinkOverlay } from '@chakra-ui/react'
 import { Global, css } from '@emotion/react'
 import Image, { StaticImageData } from 'next/image'

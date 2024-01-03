@@ -1,11 +1,10 @@
+'use client'
 import {
   Box,
   LinkBox,
   LinkOverlay,
   Heading,
   SimpleGrid,
-  Text,
-  AspectRatio,
 } from '@chakra-ui/react'
 import { css } from '@emotion/react'
 import Image, { StaticImageData } from 'next/image'

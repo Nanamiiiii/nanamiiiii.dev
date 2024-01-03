@@ -1,3 +1,4 @@
+'use client'
 import {
   BoxProps,
   Box,
@@ -9,10 +10,8 @@ import {
   OrderedList,
   Card,
   Image,
-  Stack,
   CardBody,
   Heading,
-  CardFooter,
   HStack,
   LinkBox,
   LinkOverlay,

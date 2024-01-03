@@ -1,3 +1,4 @@
+'use client'
 import { Icon, useBoolean } from '@chakra-ui/react'
 import { FC, useEffect } from 'react'
 import { RiArrowUpSLine } from 'react-icons/ri'
