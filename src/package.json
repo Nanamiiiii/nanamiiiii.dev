@@ -24,7 +24,7 @@
     "@iconify/react": "^4.1.1",
     "@vercel/analytics": "^1.1.1",
     "@vercel/speed-insights": "^1.0.2",
-    "framer-motion": "^10.17.4",
+    "framer-motion": "^10.17.6",
     "fs": "0.0.1-security",
     "highlight.js": "11.8.0",
     "jsdom": "^23.0.1",
