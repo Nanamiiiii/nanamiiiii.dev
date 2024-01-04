@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     template: '%s - Myuu.dev',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
   },
 }
 
