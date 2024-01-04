@@ -1,7 +1,6 @@
 'use client'
 import { motion } from 'framer-motion'
 import { ContentsGridStyle } from '../contents-grid'
-import CommonMeta from '../metadata'
 
 const variants = {
   hidden: { opacity: 0, x: 0, y: 20 },

@@ -17,7 +17,6 @@ import {
   CardBody,
 } from '@chakra-ui/react'
 import type { Metadata, NextPage } from 'next'
-import { Zen_Kaku_Gothic_New } from 'next/font/google'
 import NextLink from 'next/link'
 import {
   SiTwitter,
@@ -41,11 +40,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 }
-
-const achievementsFont = Zen_Kaku_Gothic_New({
-  subsets: ['latin'],
-  weight: ['300', '500'],
-})
 
 const LinkText = ({ href, children }: { href: string; children: any }) => {
   return (

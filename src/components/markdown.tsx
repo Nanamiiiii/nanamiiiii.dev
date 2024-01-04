@@ -16,16 +16,22 @@ import {
   LinkBox,
   LinkOverlay,
 } from '@chakra-ui/react'
-import { css } from '@emotion/react'
 import highlight from 'highlight.js'
-import parse, {
-  DOMNode,
-  domToReact,
-  Element,
-  HTMLReactParserOptions,
-} from 'html-react-parser'
 
 import 'highlight.js/styles/tokyo-night-dark.css'
+import React, {
+  AnchorHTMLAttributes,
+  BlockquoteHTMLAttributes,
+  FC,
+  Fragment,
+  HTMLAttributes,
+  LiHTMLAttributes,
+} from 'react'
+import * as jsxRuntime from 'react/jsx-runtime'
+import rehypeParse from 'rehype-parse'
+import rehypeReact from 'rehype-react'
+import type { Options as RehypeReactOptions } from 'rehype-react'
+import { unified } from 'unified'
 
 type MarkdownTemplateProps = {
   source: string
@@ -119,10 +125,6 @@ const ol = {
   },
 }
 
-const li = {
-  component: ListItem,
-}
-
 const a = {
   component: Link,
   props: {
@@ -152,195 +154,192 @@ const preCode = {
   },
 }
 
-const quoteStyle = css`
-  margin: 1.4rem 0;
-  border-left: 3px solid #9dacb7;
-  padding: 2px 0 2px 0.7em;
-  color: #505c64;
-`
+const MdHeading1: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+  return (
+    <Text as="h1" id={String(children)} scrollMarginTop={20} {...h1.props}>
+      {children}
+    </Text>
+  )
+}
 
-const options: HTMLReactParserOptions = {
-  replace: (domNode: DOMNode) => {
-    if (domNode.type === 'tag') {
-      if (domNode.name === 'h1') {
-        return (
-          <Text
-            as="h1"
-            id={(domNode.children[0] as unknown as Text).data}
-            scrollMarginTop={20}
-            {...h1.props}
-          >
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Text>
-        )
-      }
-      if (domNode.name === 'h2') {
-        return (
-          <Text
-            as="h2"
-            id={(domNode.children[0] as unknown as Text).data}
-            scrollMarginTop={20}
-            {...h2.props}
-          >
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Text>
-        )
-      }
-      if (domNode.name === 'h3') {
-        return (
-          <Text
-            as="h3"
-            id={(domNode.children[0] as unknown as Text).data}
-            scrollMarginTop={20}
-            {...h3.props}
-          >
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Text>
-        )
-      }
-      if (domNode.name === 'h4') {
-        return (
-          <Text
-            as="h4"
-            id={(domNode.children[0] as unknown as Text).data}
-            scrollMarginTop={20}
-            {...h4.props}
-          >
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Text>
-        )
-      }
-      if (domNode.name === 'ul') {
-        return (
-          <UnorderedList {...ul.props}>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </UnorderedList>
-        )
-      }
-      if (domNode.name === 'ol') {
-        return (
-          <OrderedList {...ul.props}>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </OrderedList>
-        )
-      }
-      if (domNode.name === 'li') {
-        return (
-          <ListItem>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </ListItem>
-        )
-      }
-      if (domNode.name === 'a') {
-        return (
-          <Link {...a.props} href={domNode.attribs.href}>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Link>
-        )
-      }
-      if (domNode.name === 'p') {
-        return (
-          <Text {...p.props}>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Text>
-        )
-      }
-      if (domNode.name === 'code') {
-        if (
-          domNode.parent instanceof Element &&
-          domNode.parent.name === 'pre'
-        ) {
-          const highlightCode = highlight.highlightAuto(
-            domToReact(domNode.children as DOMNode[]) as string,
-          ).value
-          return (
-            <Box
-              as="code"
-              className="hljs"
-              borderRadius={10}
-              overflowX="scroll"
-              {...preCode.props}
-            >
-              {parse(highlightCode)}
-            </Box>
-          )
-        } else {
-          return (
-            <ChakraCode {...code.props}>
-              {domToReact(domNode.children as DOMNode[], options)}
-            </ChakraCode>
-          )
-        }
-      }
-      if (domNode.name === 'blockquote') {
-        return (
-          <Box css={quoteStyle}>
-            {domToReact(domNode.children as DOMNode[], options)}
-          </Box>
-        )
-      }
-      if (domNode.name === 'linkcard') {
-        const url = domNode.attribs.href
-        const title = domNode.attribs.title
-        const desc = domNode.attribs.desc
-        const image = domNode.attribs.img
-        const domain = new URL(url).origin
-        return (
-          <LinkBox>
-            <Card
-              variant="outline"
-              direction={{ base: 'column', md: 'row' }}
+const MdHeading2: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+  return (
+    <Text as="h2" id={String(children)} scrollMarginTop={20} {...h2.props}>
+      {children}
+    </Text>
+  )
+}
+
+const MdHeading3: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+  return (
+    <Text as="h3" id={String(children)} scrollMarginTop={20} {...h3.props}>
+      {children}
+    </Text>
+  )
+}
+
+const MdHeading4: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+  return (
+    <Text as="h4" id={String(children)} scrollMarginTop={20} {...h4.props}>
+      {children}
+    </Text>
+  )
+}
+
+const MdUnorderedList: FC<HTMLAttributes<HTMLUListElement>> = ({
+  children,
+}) => {
+  return <UnorderedList {...ul.props}>{children}</UnorderedList>
+}
+
+const MdOrderedList: FC<HTMLAttributes<HTMLOListElement>> = ({ children }) => {
+  return <OrderedList {...ol.props}>{children}</OrderedList>
+}
+
+const MdListItem: FC<LiHTMLAttributes<HTMLElement>> = ({ children }) => {
+  return <ListItem>{children}</ListItem>
+}
+
+const MdLink: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
+  children,
+  href,
+}) => {
+  return <Link {...a.props} href={href}>{children}</Link>
+}
+
+const MdParagraph: FC<HTMLAttributes<HTMLParagraphElement>> = ({
+  children,
+}) => {
+  return <Text {...p.props}>{children}</Text>
+}
+
+const MdCodeblock: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
+  const highlightCode = highlight.highlightAuto(
+    String(children),
+  ).value
+  return (
+    <pre>
+      <Box
+        as="code"
+        className="hljs"
+        borderRadius={10}
+        overflowX="scroll"
+        {...preCode.props}
+        dangerouslySetInnerHTML={{ __html: highlightCode }}
+      />
+    </pre>
+  )
+}
+
+const MdInlineCode: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
+  return <ChakraCode {...code.props}>{children}</ChakraCode>
+}
+
+const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
+  children,
+}) => {
+  return (
+    <Box
+      css={`
+        margin: 1.4rem 0;
+        border-left: 3px solid #9dacb7;
+        padding: 2px 0 2px 0.7em;
+        color: #505c64;
+      `}
+    >
+      {children}
+    </Box>
+  )
+}
+
+type LinkCardProps = {
+  href: string
+  title: string
+  desc: string
+  img: string
+}
+
+const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
+  const domain = new URL(href).origin
+
+  return (
+    <LinkBox>
+      <Card
+        variant="outline"
+        direction={{ base: 'column', md: 'row' }}
+        overflow="hidden"
+        size="sm"
+        mb="10px"
+        borderRadius={10}
+        backgroundColor="#ffffff10"
+        _hover={{ backgroundColor: '#60aaf020' }}
+        transitionDuration="0.3s"
+      >
+        <Image
+          objectFit="contain"
+          minW="25%"
+          maxW={{ base: '100%', md: '40%' }}
+          src={img}
+          alt={title}
+        />
+        <CardBody>
+          <Heading fontSize="18px" pb={1}>
+            {title}
+          </Heading>
+          <LinkOverlay href={href} isExternal={true}>
+            <Text
+              textColor="gray"
+              pb={1}
               overflow="hidden"
-              size="sm"
-              mb="10px"
-              borderRadius={10}
-              backgroundColor="#ffffff10"
-              _hover={{ backgroundColor: '#60aaf020' }}
-              transitionDuration="0.3s"
+              css={`
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+              `}
+              display="-webkit-box"
             >
-              <Image
-                objectFit="contain"
-                minW="25%"
-                maxW={{ base: '100%', md: '40%' }}
-                src={image}
-                alt={title}
-              />
-              <CardBody>
-                <Heading fontSize="18px" pb={1}>
-                  {title}
-                </Heading>
-                <LinkOverlay href={url} isExternal={true}>
-                  <Text
-                    textColor="gray"
-                    pb={1}
-                    overflow="hidden"
-                    css={`
-                      -webkit-line-clamp: 1;
-                      -webkit-box-orient: vertical;
-                    `}
-                    display="-webkit-box"
-                  >
-                    {desc}
-                  </Text>
-                </LinkOverlay>
-                <HStack>
-                  <Image
-                    maxW="14px"
-                    maxH="14px"
-                    src={'https://www.google.com/s2/favicons?domain=' + domain}
-                    alt={title + 'favicon'}
-                  />
-                  <Text>{domain}</Text>
-                </HStack>
-              </CardBody>
-            </Card>
-          </LinkBox>
-        )
-      }
-    }
-  },
+              {desc}
+            </Text>
+          </LinkOverlay>
+          <HStack>
+            <Image
+              maxW="14px"
+              maxH="14px"
+              src={'https://www.google.com/s2/favicons?domain=' + domain}
+              alt={title + 'favicon'}
+            />
+            <Text>{domain}</Text>
+          </HStack>
+        </CardBody>
+      </Card>
+    </LinkBox>
+  )
 }
 
 export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
-  return <Box {...props}>{parse(props.source, options)}</Box>
+  const processor = unified()
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeReact, {
+      Fragment: Fragment,
+      /* @ts-ignore */
+      jsx: jsxRuntime.jsx,
+      /* @ts-ignore */
+      jsxs: jsxRuntime.jsxs,
+      passNode: true,
+      components: {
+        h1: MdHeading1,
+        h2: MdHeading2,
+        h3: MdHeading3,
+        h4: MdHeading4,
+        ul: MdUnorderedList,
+        ol: MdOrderedList,
+        li: MdListItem,
+        a: MdLink,
+        p: MdParagraph,
+        codeblk: MdCodeblock,
+        code: MdInlineCode,
+        blockquote: MdQuote,
+        linkcard: MdLinkCard,
+      },
+    } as RehypeReactOptions)
+  return <Box {...props}>{processor.processSync(props.source).result}</Box>
 }

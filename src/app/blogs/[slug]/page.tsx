@@ -67,6 +67,7 @@ const BlogArticle = async ({ params }: Props) => {
     const content = elem.innerHTML || ''
     let len = tocs.length
     let lastOuter: TocItem[] = tocs
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       if (len == 0 || lastOuter[len - 1].lv === lv) {
         lastOuter.push({ text: content, lv: lv, inner: [] })
@@ -78,7 +79,7 @@ const BlogArticle = async ({ params }: Props) => {
   })
 
   // Fetch OGP
-  const linkPara = /<p>(https?:\/\/.+?)<\/p>/g
+  const linkPara = /<p>(https?:\/\/.+?)<\/p>/gu
   const links = Array.from(article.body.matchAll(linkPara)) || []
   let cardDatas: OgpMeta[] = []
   const temps = await Promise.all(
@@ -124,16 +125,22 @@ const BlogArticle = async ({ params }: Props) => {
   cardDatas = temps.filter(temp => temp !== undefined) as OgpMeta[]
 
   // Replace potential linkcard node
-  article.body = article.body.replaceAll(linkPara, (match, p1, offset, str) => {
+  article.body = article.body.replaceAll(linkPara, (match, p1) => {
     for (let i = 0; i < cardDatas.length; i++) {
       if (cardDatas[i].url === p1) {
         const ogpTitle = cardDatas[i].title
         const ogpDesc = cardDatas[i].description
         const ogpImage = cardDatas[i].image
-        return `<linkcard href=\"${p1}\" title=\"${ogpTitle}\" desc=\"${ogpDesc}\" img=\"${ogpImage}\"></linkcard>`
+        return `<linkcard href="${p1}" title="${ogpTitle}" desc="${ogpDesc}" img="${ogpImage}"></linkcard>`
       }
     }
-    return `<a href=\"${p1}\">${p1}</a>`
+    return `<a href="${p1}">${p1}</a>`
+  })
+
+  // Replace Codeblock
+  const codeBlkPattern = /<pre><code.*?>(.*?)<\/code><\/pre>/gus
+  article.body = article.body.replaceAll(codeBlkPattern, (match, p1) => {
+    return `<codeblk>${p1}</codeblk>`
   })
 
   const formatDigit = (n: number) => {

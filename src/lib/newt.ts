@@ -1,3 +1,4 @@
+import 'server-only'
 import { createClient } from 'newt-client-js'
 import { cache } from 'react'
 import type { Article, ArticleTag } from '../types/blog'

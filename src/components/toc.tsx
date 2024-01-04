@@ -62,7 +62,7 @@ const iconMap = {
 
 const renderTocItem = (tocs: TocItem[], indent: number) => {
   const finalRender: JSX.Element[] = []
-  tocs.forEach((item, idx) => {
+  tocs.forEach(item => {
     finalRender.push(
       <ListItem key={item.text}>
         <ListIcon
