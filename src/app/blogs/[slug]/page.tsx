@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { JSDOM } from 'jsdom'
 import { Metadata } from 'next'
+import { draftMode } from 'next/headers'
+import { notFound } from 'next/navigation'
 import Layout from '../../../components/layouts/article'
 import { MarkdownTemplate } from '../../../components/markdown'
 import { Headings, MarkdownToc, TocItem } from '../../../components/toc'
@@ -27,13 +29,14 @@ export const generateStaticParams = async () => {
 export const generateMetadata = async ({
   params,
 }: Props): Promise<Metadata> => {
-  const article = await getArticleBySlug(params.slug)
+  const { isEnabled } = draftMode()
+  const article = await getArticleBySlug(params.slug, isEnabled)
   if (article == null) {
     throw new Error('reference to non-existent entry')
   }
   return {
-    title: article.title,
-    description: article.meta.description,
+    title: article.title || '',
+    description: article.meta.description || '',
   }
 }
 
@@ -52,10 +55,11 @@ type Props = {
 
 const BlogArticle = async ({ params }: Props) => {
   const slug = params.slug
+  const { isEnabled } = draftMode()
 
-  const article = await getArticleBySlug(slug)
+  const article = await getArticleBySlug(slug, isEnabled)
   if (article == null) {
-    throw new Error('reference to non-existent entry')
+    notFound()
   }
 
   // Generate ToC
@@ -138,7 +142,7 @@ const BlogArticle = async ({ params }: Props) => {
   })
 
   // Replace Codeblock
-  const codeBlkPattern = /<pre><code.*?>(.*?)<\/code><\/pre>/gus
+  const codeBlkPattern = /<pre><code.*?>(.*?)<\/code><\/pre>/gsu
   article.body = article.body.replaceAll(codeBlkPattern, (match, p1) => {
     return `<codeblk>${p1}</codeblk>`
   })

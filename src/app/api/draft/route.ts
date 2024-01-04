@@ -1,6 +1,6 @@
 import { draftMode } from 'next/headers'
 import { redirect } from 'next/navigation'
-import { getArticleBySlug } from '../../lib/newt'
+import { getArticleBySlug } from '../../../lib/newt'
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)

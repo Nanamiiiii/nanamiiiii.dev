@@ -204,7 +204,11 @@ const MdLink: FC<AnchorHTMLAttributes<HTMLAnchorElement>> = ({
   children,
   href,
 }) => {
-  return <Link {...a.props} href={href}>{children}</Link>
+  return (
+    <Link {...a.props} href={href}>
+      {children}
+    </Link>
+  )
 }
 
 const MdParagraph: FC<HTMLAttributes<HTMLParagraphElement>> = ({
@@ -214,9 +218,7 @@ const MdParagraph: FC<HTMLAttributes<HTMLParagraphElement>> = ({
 }
 
 const MdCodeblock: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
-  const highlightCode = highlight.highlightAuto(
-    String(children),
-  ).value
+  const highlightCode = highlight.highlightAuto(String(children)).value
   return (
     <pre>
       <Box
