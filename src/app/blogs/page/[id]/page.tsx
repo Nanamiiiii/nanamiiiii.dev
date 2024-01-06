@@ -33,6 +33,9 @@ export const generateMetadata = async ({
   return {
     title: 'Page ' + params.id,
     description: "Myuu's trashcan",
+    openGraph: {
+      url: 'https://myuu.dev/blogs/page/' + params.id,
+    },
   }
 }
 

@@ -3,6 +3,9 @@ import { Component } from './component'
 
 export const metadata: Metadata = {
   title: 'Display',
+  openGraph: {
+    url: 'https://myuu.dev/env/display',
+  },
 }
 
 const Display: NextPage = () => {

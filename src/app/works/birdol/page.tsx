@@ -5,6 +5,9 @@ import { Component } from './component'
 export const metadata: Metadata = {
   title: 'Birdol',
   description: 'A game of bringing up bishoujo based on wild birds',
+  openGraph: {
+    url: 'https://myuu.dev/works/birdol',
+  },
 }
 
 const Work: NextPage = () => {

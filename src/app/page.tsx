@@ -36,8 +36,6 @@ export const metadata: Metadata = {
   description: "Myuu's Website",
   openGraph: {
     url: 'https://myuu.dev',
-    siteName: 'Myuu.dev',
-    type: 'website',
   },
 }
 

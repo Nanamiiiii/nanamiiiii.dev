@@ -13,6 +13,9 @@ import devicePc from '../../public/images/devices/pc.png'
 export const metadata: Metadata = {
   title: 'My Environments',
   description: 'Introduction of environments & setup',
+  openGraph: {
+    url: 'https://myuu.dev/env',
+  },
 }
 
 const Devices: NextPage = () => {

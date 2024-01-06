@@ -9,6 +9,10 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
+  openGraph: {
+    siteName: 'Myuu.dev',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

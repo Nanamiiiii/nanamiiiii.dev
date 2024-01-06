@@ -5,6 +5,9 @@ import { Component } from './component'
 export const metadata: Metadata = {
   title: 'Skills',
   description: "Myuu's Skills",
+  openGraph: {
+    url: 'https://myuu.dev/skill',
+  },
 }
 
 const Skill: NextPage = () => {

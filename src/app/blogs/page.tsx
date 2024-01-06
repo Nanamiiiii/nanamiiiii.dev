@@ -21,6 +21,9 @@ import type { Article, ArticleTag } from '../../types/blog'
 export const metadata: Metadata = {
   title: 'Blogs',
   description: "Myuu's trashcan",
+  openGraph: {
+    url: 'https://myuu.dev/blogs',
+  },
 }
 
 type BlogEntryProps = {

@@ -18,6 +18,9 @@ import wfesThumb from '../../public/images/works/wasefes_cm_2021.png'
 export const metadata: Metadata = {
   title: 'Works',
   description: "Myuu's Works",
+  openGraph: {
+    url: 'https://myuu.dev/works',
+  },
 }
 
 const Works: NextPage = () => {
