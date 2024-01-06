@@ -18,9 +18,7 @@ export type Category = {
   revisedAt: string
 }
 
-export type Article = {
-  _id: string
-  _sys: {
+type SysInfo = {
     createdAt: string
     updatedAt: string
     raw: {
@@ -29,10 +27,9 @@ export type Article = {
       firstPublishedAt: string
       publishedAt: string
     }
-  }
-  title: string
-  slug: string
-  meta: {
+}
+
+type MetaData = {
     title: string
     description: string
     ogImage: {
@@ -44,7 +41,25 @@ export type Article = {
       width: number
       height: number
     }
+}
+
+type Author = {
+  _id: string
+  type: string
+  data: {
+    name: string
+    myname: boolean
   }
+}
+
+type PubType = 'reviewed' | 'no-review' | 'journal' | 'thesis'
+
+export type Article = {
+  _id: string
+  _sys: SysInfo
+  title: string
+  slug: string
+  meta: MetaData 
   body: string
   visibility: boolean
   tags: ArticleTag[]
@@ -52,16 +67,17 @@ export type Article = {
 
 export type ArticleTag = {
   _id: string
-  _sys: {
-    createdAt: string
-    updatedAt: string
-    raw: {
-      createdAt: string
-      updatedAt: string
-      firstPublishedAt: string
-      publishedAt: string
-    }
-  }
+  _sys: SysInfo  
   name: string
   slug: string
+}
+
+export type Publication = {
+  _id: string
+  _sys: SysInfo
+  title: string
+  author: Author[]
+  publishedTo: string
+  publishedOn: string
+  publishedType: PubType
 }

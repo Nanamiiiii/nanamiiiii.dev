@@ -30,6 +30,8 @@ import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
 import Paragraph from '../components/paragraph'
 import Section from '../components/section'
+import { getPublications } from '../lib/newt'
+import { Publication } from '../types/blog'
 
 export const metadata: Metadata = {
   title: 'Myuu.dev',
@@ -79,7 +81,101 @@ const AchievementsCard = ({
   )
 }
 
-const Home: NextPage = () => {
+const PubSection = ({
+  reviewed,
+  noreview,
+  journal,
+  thesis,
+}: {
+  reviewed: Publication[]
+  noreview: Publication[]
+  journal: Publication[]
+  thesis: Publication[]
+}) => {
+  const PubItem = ({ items, name }: { items: Publication[]; name: string }) => {
+    if (items.length == 0) return <></>
+    return (
+        <AccordionItem>
+          <Heading as="h4" fontSize="18px" fontWeight="300">
+            <AccordionButton>
+              <Box as="span" flex="1" textAlign="left">
+                {name}
+              </Box>
+              <AccordionIcon />
+            </AccordionButton>
+          </Heading>
+          <AccordionPanel>
+            <VStack>
+              {
+                items.map((pub, idx) => {
+                  const date = new Date(pub.publishedOn).toDateString().split(' ')
+                  return (
+                    <AchievementsCard
+                      title={pub.title}
+                      booktitle={`${pub.publishedTo}, ${date[1]} ${date[3]}`}
+                      key={`${name}-${idx}`}
+                    >
+                      {
+                        pub.author.map((author, idx) => {
+                          if (author.data.myname) {
+                            if (idx == 0) {
+                              return (
+                                <u key={idx}>{author.data.name}</u>
+                              )
+                            } else {
+                              return (
+                                <span key={idx}>, <u>{author.data.name}</u></span>
+                              )
+                            }
+                          } else {
+                            if (idx == 0) {
+                              return (
+                                <span key={idx}>{author.data.name}</span>
+                              )
+                            } else {
+                              return (
+                                <span key={idx}>, {author.data.name}</span>
+                              )
+                            }
+                          }
+                        })
+                      }
+                    </AchievementsCard>
+                  )
+                })
+              }
+            </VStack>
+          </AccordionPanel>
+        </AccordionItem>
+    )
+  }
+  return (
+    <>
+      <Heading
+        as="h3"
+        variant="section-title"
+        fontSize={20}
+        fontWeight="300"
+      >
+        Publications
+      </Heading>
+      <Accordion allowMultiple>
+        <PubItem items={reviewed} name='Peer Reviewed' />
+        <PubItem items={noreview} name='No Review' />
+        <PubItem items={journal} name='Journal' />
+        <PubItem items={thesis} name='Thesis' />
+      </Accordion>
+    </>
+  )
+}
+
+const Home: NextPage = async () => {
+  const publications = await getPublications()
+  const reviewedPub = publications.filter((pub) => pub.publishedType === 'reviewed')
+  const noreviewPub = publications.filter((pub) => pub.publishedType === 'no-review')
+  const journalPub = publications.filter((pub) => pub.publishedType === 'journal')
+  const thesisPub = publications.filter((pub) => pub.publishedType === 'thesis')
+
   return (
     <>
       <Layout>
@@ -234,62 +330,7 @@ const Home: NextPage = () => {
           </Section>
 
           <Section delay={'0.2'}>
-            <Heading
-              as="h3"
-              variant="section-title"
-              fontSize={20}
-              fontWeight="300"
-            >
-              Publications
-            </Heading>
-            <Accordion allowMultiple>
-              <AccordionItem>
-                <Heading as="h4" fontSize="18px" fontWeight="300">
-                  <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
-                      Peer-Reviewed
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </Heading>
-                <AccordionPanel>
-                  <VStack>
-                    <AchievementsCard
-                      title="Parallel Verification in RISC-V Secure Boot"
-                      booktitle="16th IEEE International Symposium on Embedded Multicore/Manycore SoCs (MCSoC-2023), Dec 2023"
-                    >
-                      <u>Akihiro Saiki</u>, Yu Omori, Keiji Kimura
-                    </AchievementsCard>
-                  </VStack>
-                </AccordionPanel>
-              </AccordionItem>
-              <AccordionItem>
-                <Heading as="h4" fontSize="18px" fontWeight="300">
-                  <AccordionButton>
-                    <Box as="span" flex="1" textAlign="left">
-                      NO Peer-Review
-                    </Box>
-                    <AccordionIcon />
-                  </AccordionButton>
-                </Heading>
-                <AccordionPanel>
-                  <VStack>
-                    <AchievementsCard
-                      title="RISC-V KeystoneにおけるEnclaveアプリケーションキャッシュ機能の拡張"
-                      booktitle="並列/分散/協調処理に関するサマー・ワークショップ (SWoPP 2023), Aug 2023"
-                    >
-                      梅澤拓夢, <u>齊木昭大</u>, 木村啓二
-                    </AchievementsCard>
-                    <AchievementsCard
-                      title="RISC-V SoCにおけるSecure Bootの実装と検証の高速化に向けた評価"
-                      booktitle="組込み技術とネットワークに関するワークショップ ETNET2023, Mar 2023"
-                    >
-                      <u>齊木昭大</u>, 大森侑, 木村啓二
-                    </AchievementsCard>
-                  </VStack>
-                </AccordionPanel>
-              </AccordionItem>
-            </Accordion>
+            <PubSection reviewed={reviewedPub} noreview={noreviewPub} journal={journalPub} thesis={thesisPub} />
           </Section>
 
           <Section delay={'0.25'}>

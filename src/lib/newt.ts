@@ -1,7 +1,7 @@
 import 'server-only'
 import { createClient } from 'newt-client-js'
 import { cache } from 'react'
-import type { Article, ArticleTag } from '../types/blog'
+import { Publication, type Article, type ArticleTag } from '../types/blog'
 
 const cdnClient = createClient({
   spaceUid: process.env.NEWT_SPACE_UID || '',
@@ -94,4 +94,25 @@ export const getArticleBySlug = cache(
     })
     return article
   },
+)
+
+export const getPublications = cache(
+  async () => {
+    const { items } = await cdnClient.getContents<Publication>({
+      appUid: 'profile',
+      modelUid: 'publication',
+      query: {
+        select: [
+          '_id',
+          '_sys',
+          'title',
+          'author',
+          'publishedTo',
+          'publishedOn',
+          'publishedType',
+        ]
+      }
+    })
+    return items
+  }
 )
