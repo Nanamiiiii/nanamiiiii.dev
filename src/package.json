@@ -27,7 +27,7 @@
     "framer-motion": "^10.17.9",
     "fs": "0.0.1-security",
     "highlight.js": "11.8.0",
-    "jsdom": "^23.1.0",
+    "jsdom": "^23.2.0",
     "microcms-js-sdk": "^2.7.0",
     "net": "^1.0.2",
     "newt-client-js": "^3.2.8",
