@@ -96,23 +96,21 @@ export const getArticleBySlug = cache(
   },
 )
 
-export const getPublications = cache(
-  async () => {
-    const { items } = await cdnClient.getContents<Publication>({
-      appUid: 'profile',
-      modelUid: 'publication',
-      query: {
-        select: [
-          '_id',
-          '_sys',
-          'title',
-          'author',
-          'publishedTo',
-          'publishedOn',
-          'publishedType',
-        ]
-      }
-    })
-    return items
-  }
-)
+export const getPublications = cache(async () => {
+  const { items } = await cdnClient.getContents<Publication>({
+    appUid: 'profile',
+    modelUid: 'publication',
+    query: {
+      select: [
+        '_id',
+        '_sys',
+        'title',
+        'author',
+        'publishedTo',
+        'publishedOn',
+        'publishedType',
+      ],
+    },
+  })
+  return items
+})

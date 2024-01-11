@@ -1,11 +1,17 @@
-import { Metadata, NextPage } from 'next'
+import { Metadata, NextPage, ResolvingMetadata } from 'next'
 import { Component } from './component'
 
-export const metadata: Metadata = {
-  title: 'Keyboard & Mouse',
-  openGraph: {
-    url: 'https://myuu.dev/env/keyboard-mouse',
-  },
+export const generateMetadata = async (
+  props: any,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  return {
+    title: 'Keyboard & Mouse',
+    openGraph: {
+      ...(await parent).openGraph,
+      url: 'https://myuu.dev/env/keyboard-mouse',
+    },
+  }
 }
 
 const KeyMouse: NextPage = () => {

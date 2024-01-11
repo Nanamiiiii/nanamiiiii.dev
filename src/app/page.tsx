@@ -16,7 +16,7 @@ import {
   CardHeader,
   CardBody,
 } from '@chakra-ui/react'
-import type { Metadata, NextPage } from 'next'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
 import {
   SiTwitter,
@@ -33,12 +33,18 @@ import Section from '../components/section'
 import { getPublications } from '../lib/newt'
 import { Publication } from '../types/blog'
 
-export const metadata: Metadata = {
-  title: 'Myuu.dev',
-  description: "Myuu's Website",
-  openGraph: {
-    url: 'https://myuu.dev',
-  },
+export const generateMetadata = async (
+  props: any,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  return {
+    title: 'Myuu.dev',
+    description: "Myuu's Website",
+    openGraph: {
+      ...(await parent).openGraph,
+      url: 'https://myuu.dev',
+    },
+  }
 }
 
 const LinkText = ({ href, children }: { href: string; children: any }) => {
@@ -95,75 +101,62 @@ const PubSection = ({
   const PubItem = ({ items, name }: { items: Publication[]; name: string }) => {
     if (items.length == 0) return <></>
     return (
-        <AccordionItem>
-          <Heading as="h4" fontSize="18px" fontWeight="300">
-            <AccordionButton>
-              <Box as="span" flex="1" textAlign="left">
-                {name}
-              </Box>
-              <AccordionIcon />
-            </AccordionButton>
-          </Heading>
-          <AccordionPanel>
-            <VStack>
-              {
-                items.map((pub, idx) => {
-                  const date = new Date(pub.publishedOn).toDateString().split(' ')
-                  return (
-                    <AchievementsCard
-                      title={pub.title}
-                      booktitle={`${pub.publishedTo}, ${date[1]} ${date[3]}`}
-                      key={`${name}-${idx}`}
-                    >
-                      {
-                        pub.author.map((author, idx) => {
-                          if (author.data.myname) {
-                            if (idx == 0) {
-                              return (
-                                <u key={idx}>{author.data.name}</u>
-                              )
-                            } else {
-                              return (
-                                <span key={idx}>, <u>{author.data.name}</u></span>
-                              )
-                            }
-                          } else {
-                            if (idx == 0) {
-                              return (
-                                <span key={idx}>{author.data.name}</span>
-                              )
-                            } else {
-                              return (
-                                <span key={idx}>, {author.data.name}</span>
-                              )
-                            }
-                          }
-                        })
+      <AccordionItem>
+        <Heading as="h4" fontSize="18px" fontWeight="300">
+          <AccordionButton>
+            <Box as="span" flex="1" textAlign="left">
+              {name}
+            </Box>
+            <AccordionIcon />
+          </AccordionButton>
+        </Heading>
+        <AccordionPanel>
+          <VStack>
+            {items.map((pub, idx) => {
+              const date = new Date(pub.publishedOn).toDateString().split(' ')
+              return (
+                <AchievementsCard
+                  title={pub.title}
+                  booktitle={`${pub.publishedTo}, ${date[1]} ${date[3]}`}
+                  key={`${name}-${idx}`}
+                >
+                  {pub.author.map((author, idx) => {
+                    if (author.data.myname) {
+                      if (idx == 0) {
+                        return <u key={idx}>{author.data.name}</u>
+                      } else {
+                        return (
+                          <span key={idx}>
+                            , <u>{author.data.name}</u>
+                          </span>
+                        )
                       }
-                    </AchievementsCard>
-                  )
-                })
-              }
-            </VStack>
-          </AccordionPanel>
-        </AccordionItem>
+                    } else {
+                      if (idx == 0) {
+                        return <span key={idx}>{author.data.name}</span>
+                      } else {
+                        return <span key={idx}>, {author.data.name}</span>
+                      }
+                    }
+                  })}
+                </AchievementsCard>
+              )
+            })}
+          </VStack>
+        </AccordionPanel>
+      </AccordionItem>
     )
   }
   return (
     <>
-      <Heading
-        as="h3"
-        variant="section-title"
-        fontSize={20}
-        fontWeight="300"
-      >
+      <Heading as="h3" variant="section-title" fontSize={20} fontWeight="300">
         Publications
       </Heading>
       <Accordion allowMultiple>
-        <PubItem items={reviewed} name='Peer Reviewed' />
-        <PubItem items={noreview} name='No Review' />
-        <PubItem items={journal} name='Journal' />
-        <PubItem items={thesis} name='Thesis' />
+        <PubItem items={reviewed} name="Peer Reviewed" />
+        <PubItem items={noreview} name="No Review" />
+        <PubItem items={journal} name="Journal" />
+        <PubItem items={thesis} name="Thesis" />
       </Accordion>
     </>
   )
@@ -171,10 +164,14 @@ const PubSection = ({
 
 const Home: NextPage = async () => {
   const publications = await getPublications()
-  const reviewedPub = publications.filter((pub) => pub.publishedType === 'reviewed')
-  const noreviewPub = publications.filter((pub) => pub.publishedType === 'no-review')
-  const journalPub = publications.filter((pub) => pub.publishedType === 'journal')
-  const thesisPub = publications.filter((pub) => pub.publishedType === 'thesis')
+  const reviewedPub = publications.filter(
+    pub => pub.publishedType === 'reviewed',
+  )
+  const noreviewPub = publications.filter(
+    pub => pub.publishedType === 'no-review',
+  )
+  const journalPub = publications.filter(pub => pub.publishedType === 'journal')
+  const thesisPub = publications.filter(pub => pub.publishedType === 'thesis')
 
   return (
     <>
@@ -330,7 +327,12 @@ const Home: NextPage = async () => {
           </Section>
 
           <Section delay={'0.2'}>
-            <PubSection reviewed={reviewedPub} noreview={noreviewPub} journal={journalPub} thesis={thesisPub} />
+            <PubSection
+              reviewed={reviewedPub}
+              noreview={noreviewPub}
+              journal={journalPub}
+              thesis={thesisPub}
+            />
           </Section>
 
           <Section delay={'0.25'}>

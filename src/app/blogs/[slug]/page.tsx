@@ -12,7 +12,7 @@ import {
   Tr,
 } from '@chakra-ui/react'
 import { JSDOM } from 'jsdom'
-import { Metadata } from 'next'
+import { Metadata, ResolvingMetadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import Layout from '../../../components/layouts/article'
@@ -26,9 +26,10 @@ export const generateStaticParams = async () => {
   return articles.map((article: Article) => ({ slug: `${article.slug}` }))
 }
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
+export const generateMetadata = async (
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
   const { isEnabled } = draftMode()
   const article = await getArticleBySlug(params.slug, isEnabled)
   if (article == null) {
@@ -38,6 +39,7 @@ export const generateMetadata = async ({
     title: article.title || '',
     description: article.meta.description || '',
     openGraph: {
+      ...(await parent).openGraph,
       url: 'https://myuu.dev/blogs/' + article.slug,
     },
   }

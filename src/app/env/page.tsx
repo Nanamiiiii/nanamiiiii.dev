@@ -1,5 +1,5 @@
 import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
-import type { Metadata, NextPage } from 'next'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import { DeviceContent } from '../../components/device-content'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
@@ -10,12 +10,18 @@ import desktopEnv from '../../public/images/devices/mac_desktop.webp'
 import deviceMob from '../../public/images/devices/mobile.png'
 import devicePc from '../../public/images/devices/pc.png'
 
-export const metadata: Metadata = {
-  title: 'My Environments',
-  description: 'Introduction of environments & setup',
-  openGraph: {
-    url: 'https://myuu.dev/env',
-  },
+export const generateMetadata = async (
+  props: any,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  return {
+    title: 'My Environments',
+    description: 'Introduction of environments & setup',
+    openGraph: {
+      ...(await parent).openGraph,
+      url: 'https://myuu.dev/env',
+    },
+  }
 }
 
 const Devices: NextPage = () => {

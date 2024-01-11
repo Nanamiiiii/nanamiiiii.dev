@@ -11,19 +11,25 @@ import {
   VStack,
   Link,
 } from '@chakra-ui/react'
-import { Metadata, NextPage } from 'next'
+import { Metadata, NextPage, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
 import Layout from '../../components/layouts/article'
 import { Pagenation } from '../../components/pagenation'
 import { getTags, getVisibleArticles } from '../../lib/newt'
 import type { Article, ArticleTag } from '../../types/blog'
 
-export const metadata: Metadata = {
-  title: 'Blogs',
-  description: "Myuu's trashcan",
-  openGraph: {
-    url: 'https://myuu.dev/blogs',
-  },
+export const generateMetadata = async (
+  props: any,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  return {
+    title: 'Blogs',
+    description: "Myuu's trashcan",
+    openGraph: {
+      ...(await parent).openGraph,
+      url: 'https://myuu.dev/blogs',
+    },
+  }
 }
 
 type BlogEntryProps = {

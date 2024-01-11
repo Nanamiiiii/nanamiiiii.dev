@@ -1,5 +1,5 @@
 import { Container, Heading, SimpleGrid } from '@chakra-ui/react'
-import type { Metadata, NextPage } from 'next'
+import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import { WorkContents, ContentsGrid } from '../../components/contents-grid'
 import Layout from '../../components/layouts/article'
 import Section from '../../components/section'
@@ -15,12 +15,18 @@ import tinysvThumb from '../../public/images/works/tinysv_thumb.png'
 import voidThumb from '../../public/images/works/void.png'
 import wfesThumb from '../../public/images/works/wasefes_cm_2021.png'
 
-export const metadata: Metadata = {
-  title: 'Works',
-  description: "Myuu's Works",
-  openGraph: {
-    url: 'https://myuu.dev/works',
-  },
+export const generateMetadata = async (
+  props: any,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
+  return {
+    title: 'Works',
+    description: "Myuu's Works",
+    openGraph: {
+      ...(await parent).openGraph,
+      url: 'https://myuu.dev/works',
+    },
+  }
 }
 
 const Works: NextPage = () => {

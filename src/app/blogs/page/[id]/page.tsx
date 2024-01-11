@@ -11,7 +11,7 @@ import {
   VStack,
   Link,
 } from '@chakra-ui/react'
-import { Metadata } from 'next'
+import { Metadata, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
 import Layout from '../../../../components/layouts/article'
 import { Pagenation } from '../../../../components/pagenation'
@@ -27,13 +27,15 @@ export const generateStaticParams = async () => {
   }))
 }
 
-export const generateMetadata = async ({
-  params,
-}: Props): Promise<Metadata> => {
+export const generateMetadata = async (
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> => {
   return {
     title: 'Page ' + params.id,
     description: "Myuu's trashcan",
     openGraph: {
+      ...(await parent).openGraph,
       url: 'https://myuu.dev/blogs/page/' + params.id,
     },
   }

@@ -19,28 +19,28 @@ export type Category = {
 }
 
 type SysInfo = {
+  createdAt: string
+  updatedAt: string
+  raw: {
     createdAt: string
     updatedAt: string
-    raw: {
-      createdAt: string
-      updatedAt: string
-      firstPublishedAt: string
-      publishedAt: string
-    }
+    firstPublishedAt: string
+    publishedAt: string
+  }
 }
 
 type MetaData = {
-    title: string
-    description: string
-    ogImage: {
-      _id: string
-      src: string
-      fileType: string
-      fileSize: number
-      fileName: string
-      width: number
-      height: number
-    }
+  title: string
+  description: string
+  ogImage: {
+    _id: string
+    src: string
+    fileType: string
+    fileSize: number
+    fileName: string
+    width: number
+    height: number
+  }
 }
 
 type Author = {
@@ -59,7 +59,7 @@ export type Article = {
   _sys: SysInfo
   title: string
   slug: string
-  meta: MetaData 
+  meta: MetaData
   body: string
   visibility: boolean
   tags: ArticleTag[]
@@ -67,7 +67,7 @@ export type Article = {
 
 export type ArticleTag = {
   _id: string
-  _sys: SysInfo  
+  _sys: SysInfo
   name: string
   slug: string
 }
