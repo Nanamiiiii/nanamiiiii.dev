@@ -30,7 +30,7 @@
     "jsdom": "^23.2.0",
     "microcms-js-sdk": "^2.7.0",
     "net": "^1.0.2",
-    "newt-client-js": "^3.2.8",
+    "newt-client-js": "^3.3.0",
     "next": "^14.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
