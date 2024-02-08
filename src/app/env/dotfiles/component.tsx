@@ -40,7 +40,7 @@ export const Component = () => {
           <Center>Linux Desktop env.</Center>
         </Heading>
 
-        <DevPort src="/images/devices/desktop_env_20230302.png" alt="i3-de" />
+        <DevPort src="/images/devices/desktop_env_20240208.png" alt="i3-de" />
 
         <List my={6} ml={4}>
           <ListItem display="flex" mb={1} alignItems="center">
@@ -143,7 +143,7 @@ export const Component = () => {
           <List pl={4}>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Plugin Manager</Meta>
-              lazy.nvim
+              Lazy.nvim
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Filer</Meta>
@@ -171,7 +171,7 @@ export const Component = () => {
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Term Ext.</Meta>
-              deol.nvim
+              FTerm.nvim
             </ListItem>
             <ListItem display="flex" mb={1} alignItems="center">
               <Meta>Input</Meta>
