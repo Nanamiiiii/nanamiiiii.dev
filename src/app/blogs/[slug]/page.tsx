@@ -147,9 +147,13 @@ const BlogArticle = async ({ params }: Props) => {
   })
 
   // Replace Codeblock
-  const codeBlkPattern = /<pre><code.*?>(.*?)<\/code><\/pre>/gsu
-  article.body = article.body.replaceAll(codeBlkPattern, (match, p1) => {
-    return `<codeblk>${p1}</codeblk>`
+  const codeBlkPattern = /<pre><code( class="language-(.+?)")?.*?>(.*?)<\/code><\/pre>/gsu
+  article.body = article.body.replaceAll(codeBlkPattern, (match, p1, p2, p3) => {
+    if (!p1 || !p2) {
+      return `<codeblk>${p3}</codeblk>`
+    } else {
+      return `<codeblk lang="${p2}">${p3}</codeblk>`
+    }
   })
 
   const formatDigit = (n: number) => {

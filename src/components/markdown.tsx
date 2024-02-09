@@ -36,6 +36,10 @@ type MarkdownTemplateProps = {
   source: string
 } & BoxProps
 
+type CodeBlockProps = HTMLAttributes<HTMLElement> & {
+  lang?: string
+}
+
 const h1 = {
   component: Text,
   props: {
@@ -216,20 +220,36 @@ const MdParagraph: FC<HTMLAttributes<HTMLParagraphElement>> = ({
   return <Text {...p.props}>{children}</Text>
 }
 
-const MdCodeblock: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
-  const highlightCode = highlight.highlightAuto(String(children)).value
-  return (
-    <pre>
-      <Box
-        as="code"
-        className="hljs"
-        borderRadius={10}
-        overflowX="scroll"
-        {...preCode.props}
-        dangerouslySetInnerHTML={{ __html: highlightCode }}
-      />
-    </pre>
-  )
+const MdCodeblock: FC<CodeBlockProps> = ({ children, lang }) => {
+  if (lang) {
+    const highlightCode = highlight.highlight(String(children), { language: lang }).value
+    return (
+      <pre>
+        <Box
+          as="code"
+          className="hljs"
+          borderRadius={10}
+          overflowX="scroll"
+          {...preCode.props}
+          dangerouslySetInnerHTML={{ __html: highlightCode }}
+        />
+      </pre>
+    )
+  } else {
+    return (
+      <pre>
+        <Box
+          as="code"
+          className="hljs"
+          borderRadius={10}
+          overflowX="scroll"
+          {...preCode.props}
+        >
+          {String(children)}
+        </Box>
+      </pre>
+    )
+  }
 }
 
 const MdInlineCode: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
