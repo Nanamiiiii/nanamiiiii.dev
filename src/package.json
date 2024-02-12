@@ -24,6 +24,7 @@
     "@iconify/react": "^4.1.1",
     "@vercel/analytics": "^1.1.2",
     "@vercel/speed-insights": "^1.0.9",
+    "dayjs": "^1.11.10",
     "framer-motion": "^10.18.0",
     "fs": "0.0.1-security",
     "highlight.js": "11.8.0",

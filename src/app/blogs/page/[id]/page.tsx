@@ -11,6 +11,9 @@ import {
   VStack,
   Link,
 } from '@chakra-ui/react'
+import dayjs from 'dayjs'
+import timezone from 'dayjs/plugin/timezone'
+import utc from 'dayjs/plugin/utc'
 import { Metadata, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
 import Layout from '../../../../components/layouts/article'
@@ -87,18 +90,16 @@ const Blogs = async ({ params }: Props) => {
 
   const entryStart = (pageNum - 1) * 10
   const entryEnd = pageNum * 10
-  const formatDigit = (n: number) => {
-    if (n < 10) {
-      return `0${Math.floor(n)}`
-    }
-    return `${Math.floor(n)}`
-  }
+
+  dayjs.extend(utc)
+  dayjs.extend(timezone)
+  dayjs.tz.setDefault("Asia/Tokyo")
+
   const formatDate = (datestr: string) => {
-    const date = new Date(datestr)
-    return `${date.toDateString()} ${formatDigit(
-      date.getHours(),
-    )}:${formatDigit(date.getMinutes())}:${formatDigit(date.getSeconds())}`
+    const jstdate = dayjs(datestr).tz()
+    return jstdate.format("YYYY-MM-DD HH:mm:ss")
   }
+
   return (
     <Layout>
       <Container maxWidth="100%" fontSize="18px">
