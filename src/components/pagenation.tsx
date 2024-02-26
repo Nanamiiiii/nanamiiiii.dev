@@ -1,11 +1,14 @@
 import { Button, HStack, Link } from '@chakra-ui/react'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
 
 type Props = {
   totalCounts: number
   nowPage?: number
 }
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = publicRuntimeConfig.pagenation
 
 export const Pagenation = ({ totalCounts, nowPage = 1 }: Props) => {
   const range = (start: number, end: number) =>

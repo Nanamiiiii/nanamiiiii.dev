@@ -15,11 +15,14 @@ import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { Metadata, NextPage, ResolvingMetadata } from 'next'
+import getConfig from 'next/config'
 import NextLink from 'next/link'
 import Layout from '../../components/layouts/article'
 import { Pagenation } from '../../components/pagenation'
 import { getTags, getVisibleArticles } from '../../lib/newt'
 import type { Article, ArticleTag } from '../../types/blog'
+
+const { publicRuntimeConfig } = getConfig()
 
 export const generateMetadata = async (
   props: any,
@@ -101,11 +104,13 @@ const Blogs: NextPage = async () => {
         >
           Tags
         </Heading>
-        <HStack justifyContent="center" pb={5}>
+        <HStack justifyContent="space-between" pb={5} overflow="auto">
           {tags.map((tag, idx) => (
-            <Tag key={idx} variant="subtle" colorScheme="cyan">
-              {tag.name}
-            </Tag>
+            <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
+              <Tag key={idx} variant="subtle" colorScheme="cyan" flexShrink="0">
+                {tag.name}
+              </Tag>
+            </Link>
           ))}
         </HStack>
         <Heading
@@ -119,15 +124,17 @@ const Blogs: NextPage = async () => {
           Entries
         </Heading>
         <VStack pb={5}>
-          {articles.slice(0, 10).map((article: Article, idx: number) => (
-            <BlogEntry
-              key={idx}
-              id={article.slug}
-              title={article.title}
-              tags={article.tags.map((val: ArticleTag) => val.name)}
-              dateString={formatDate(article._sys.updatedAt)}
-            />
-          ))}
+          {articles
+            .slice(0, publicRuntimeConfig.pagenation)
+            .map((article: Article, idx: number) => (
+              <BlogEntry
+                key={idx}
+                id={article.slug}
+                title={article.title}
+                tags={article.tags.map((val: ArticleTag) => val.name)}
+                dateString={formatDate(article._sys.createdAt)}
+              />
+            ))}
         </VStack>
         <Pagenation totalCounts={articles.length} />
       </Container>

@@ -40,6 +40,7 @@ export const getVisibleArticles = cache(async () => {
     appUid: 'blog',
     modelUid: 'article',
     query: {
+      visibility: true,
       select: [
         '_id',
         '_sys',
@@ -52,13 +53,7 @@ export const getVisibleArticles = cache(async () => {
       ],
     },
   })
-  const visibleArticles = items.reduce((acm: Article[], current: Article) => {
-    if (current.visibility) {
-      acm.push(current)
-    }
-    return acm
-  }, [])
-  return visibleArticles
+  return items
 })
 
 export const getTags = cache(async () => {
@@ -67,6 +62,73 @@ export const getTags = cache(async () => {
     modelUid: 'tag',
     query: {
       select: ['_id', '_sys', 'name', 'slug'],
+    },
+  })
+  return items
+})
+
+export const getTag = cache(async (slug: string) => {
+  const tagInfo = await cdnClient.getFirstContent<ArticleTag>({
+    appUid: 'blog',
+    modelUid: 'tag',
+    query: {
+      slug: slug,
+      select: ['_id', '_sys', 'name', 'slug'],
+    },
+  })
+  return tagInfo
+})
+
+export const getVisibleArticlesByTagId = cache(async (tagId: string) => {
+  const { items } = await cdnClient.getContents<Article>({
+    appUid: 'blog',
+    modelUid: 'article',
+    query: {
+      tags: tagId,
+      visibility: true,
+      select: [
+        '_id',
+        '_sys',
+        'title',
+        'slug',
+        'meta',
+        'body',
+        'tags',
+        'visibility',
+      ],
+    },
+  })
+  return items
+})
+
+export const getVisibleArticlesByTag = cache(async (tag: string) => {
+  const tagInfo = await cdnClient.getFirstContent<{ _id: string }>({
+    appUid: 'blog',
+    modelUid: 'tag',
+    query: {
+      slug: tag,
+      select: ['_id'],
+    },
+  })
+  if (!tagInfo) {
+    return [] as Article[]
+  }
+  const { items } = await cdnClient.getContents<Article>({
+    appUid: 'blog',
+    modelUid: 'article',
+    query: {
+      tags: tagInfo._id,
+      visibility: true,
+      select: [
+        '_id',
+        '_sys',
+        'title',
+        'slug',
+        'meta',
+        'body',
+        'tags',
+        'visibility',
+      ],
     },
   })
   return items

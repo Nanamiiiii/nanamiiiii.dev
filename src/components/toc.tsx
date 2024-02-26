@@ -70,15 +70,15 @@ const unescapeHtml = (str: string) => {
   if (typeof str !== 'string') return str
 
   const patterns: { [index: string]: string } = {
-    '&lt;': '<',
-    '&gt;': '>',
-    '&amp;': '&',
-    '&quot;': '"',
+    '&#x3c;': '<',
+    '&#x3e;': '>',
+    '&#x26;': '&',
+    '&#x22;': '"',
     '&#x27;': "'",
     '&#x60;': '`',
   }
 
-  return str.replace(/&(lt|gt|amp|quot|#x27|#x60);/g, function (match) {
+  return str.replace(/&(#x22|#x26|#x27|#x3c|#x3e|#x60);/g, function (match) {
     return patterns[match]
   })
 }
