@@ -11,18 +11,24 @@ import {
   ListIcon,
   ListItem,
 } from '@chakra-ui/react'
+import { parse } from 'node-html-parser'
 import { FaRegCircle, FaAngleRight } from 'react-icons/fa'
 import { LiaAngleRightSolid, LiaAngleDoubleRightSolid } from 'react-icons/lia'
 import { MdToc } from 'react-icons/md'
+import rehypeParse from 'rehype-parse'
+import rehypeSlug from 'rehype-slug'
+import rehypeStringify from 'rehype-stringify'
+import { unified } from 'unified'
 
 type TocProps = {
-  tocItems: TocItem[]
+  source: string
 } & BoxProps
 
 export type Headings = 'h1' | 'h2' | 'h3' | 'h4'
 
 export type TocItem = {
   text: string
+  id: string
   lv: Headings
   inner: TocItem[]
 }
@@ -60,6 +66,23 @@ const iconMap = {
   },
 }
 
+const unescapeHtml = (str: string) => {
+  if (typeof str !== 'string') return str
+
+  const patterns: { [index: string]: string } = {
+    '&lt;': '<',
+    '&gt;': '>',
+    '&amp;': '&',
+    '&quot;': '"',
+    '&#x27;': "'",
+    '&#x60;': '`',
+  }
+
+  return str.replace(/&(lt|gt|amp|quot|#x27|#x60);/g, function (match) {
+    return patterns[match]
+  })
+}
+
 const renderTocItem = (tocs: TocItem[], indent: number) => {
   const finalRender: JSX.Element[] = []
   tocs.forEach(item => {
@@ -72,8 +95,8 @@ const renderTocItem = (tocs: TocItem[], indent: number) => {
           fontSize={iconMap[item.lv].size}
           mr={1}
         />
-        <Link href={`#${item.text}`} scrollMarginTop={50}>
-          {item.text}
+        <Link href={`#${item.id}`} scrollMarginTop={50}>
+          {unescapeHtml(item.text)}
         </Link>
         {item.inner.length != 0 ? (
           <List ml={indent}>{renderTocItem(item.inner, indent)}</List>
@@ -87,6 +110,33 @@ const renderTocItem = (tocs: TocItem[], indent: number) => {
 }
 
 export const MarkdownToc = (props: TocProps) => {
+  const processor = unified()
+    .use(rehypeParse, { fragment: true })
+    .use(rehypeSlug)
+    .use(rehypeStringify)
+  const parsedHtml = processor.processSync(props.source).toString()
+
+  //const doc = new JSDOM(parsedHtml).window.document
+  //const doc = new DOMParser().parseFromString(parsedHtml, 'text/html')
+  const doc = parse(parsedHtml)
+  const elems = doc.querySelectorAll('h1, h2, h3, h4')
+  const tocs: TocItem[] = []
+  elems.forEach(elem => {
+    const lv = (elem.tagName.toLowerCase() as Headings) || 'h1'
+    const content = elem.innerHTML || ''
+    let len = tocs.length
+    let lastOuter: TocItem[] = tocs
+    // eslint-disable-next-line no-constant-condition
+    while (true) {
+      if (len == 0 || lastOuter[len - 1].lv === lv) {
+        lastOuter.push({ text: content, id: elem.id, lv: lv, inner: [] })
+        break
+      }
+      lastOuter = lastOuter[len - 1].inner
+      len = lastOuter.length
+    }
+  })
+
   return (
     <Box display="flex" justifyContent="center">
       <Accordion allowToggle borderColor="#00000000" width="100%">
@@ -100,7 +150,7 @@ export const MarkdownToc = (props: TocProps) => {
             <Box ml={2}>Table of Contents</Box>
           </AccordionButton>
           <AccordionPanel>
-            <List>{renderTocItem(props.tocItems, 5)}</List>
+            <List>{renderTocItem(tocs, 5)}</List>
           </AccordionPanel>
         </AccordionItem>
       </Accordion>

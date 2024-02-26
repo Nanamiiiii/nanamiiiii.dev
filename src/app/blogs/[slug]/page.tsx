@@ -20,7 +20,7 @@ import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
 import Layout from '../../../components/layouts/article'
 import { MarkdownTemplate } from '../../../components/markdown'
-import { Headings, MarkdownToc, TocItem } from '../../../components/toc'
+import { MarkdownToc } from '../../../components/toc'
 import { getArticleBySlug, getArticles } from '../../../lib/newt'
 import { Article } from '../../../types/blog'
 
@@ -71,25 +71,6 @@ const BlogArticle = async ({ params }: Props) => {
   }
 
   // Generate ToC
-  const doc = new JSDOM(article.body).window.document
-  const elems = doc.querySelectorAll<HTMLElement>('h1, h2, h3, h4')
-  const tocs: TocItem[] = []
-  elems.forEach(elem => {
-    const lv = (elem.tagName.toLowerCase() as Headings) || 'h1'
-    const content = elem.innerHTML || ''
-    let len = tocs.length
-    let lastOuter: TocItem[] = tocs
-    // eslint-disable-next-line no-constant-condition
-    while (true) {
-      if (len == 0 || lastOuter[len - 1].lv === lv) {
-        lastOuter.push({ text: content, lv: lv, inner: [] })
-        break
-      }
-      lastOuter = lastOuter[len - 1].inner
-      len = lastOuter.length
-    }
-  })
-
   // Fetch OGP
   const linkPara = /<p>(https?:\/\/.+?)<\/p>/gu
   const links = Array.from(article.body.matchAll(linkPara)) || []
@@ -150,22 +131,26 @@ const BlogArticle = async ({ params }: Props) => {
   })
 
   // Replace Codeblock
-  const codeBlkPattern = /<pre><code( class="language-(.+?)")?.*?>(.*?)<\/code><\/pre>/gsu
-  article.body = article.body.replaceAll(codeBlkPattern, (match, p1, p2, p3) => {
-    if (!p1 || !p2) {
-      return `<codeblk>${p3}</codeblk>`
-    } else {
-      return `<codeblk lang="${p2}">${p3}</codeblk>`
-    }
-  })
+  const codeBlkPattern =
+    /<pre><code( class="language-(.+?)")?.*?>(.*?)<\/code><\/pre>/gsu
+  article.body = article.body.replaceAll(
+    codeBlkPattern,
+    (match, p1, p2, p3) => {
+      if (!p1 || !p2) {
+        return `<codeblk>${p3}</codeblk>`
+      } else {
+        return `<codeblk lang="${p2}">${p3}</codeblk>`
+      }
+    },
+  )
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
-  dayjs.tz.setDefault("Asia/Tokyo")
+  dayjs.tz.setDefault('Asia/Tokyo')
 
   const formatDate = (datestr: string) => {
     const jstdate = dayjs(datestr).tz()
-    return jstdate.format("YYYY-MM-DD HH:mm:ss")
+    return jstdate.format('YYYY-MM-DD HH:mm:ss')
   }
 
   return (
@@ -200,7 +185,7 @@ const BlogArticle = async ({ params }: Props) => {
           </Table>
         </TableContainer>
         <Divider />
-        <MarkdownToc tocItems={tocs} />
+        <MarkdownToc source={article.body} />
         <Divider />
         <MarkdownTemplate source={article.body} pt={5} />
       </Container>

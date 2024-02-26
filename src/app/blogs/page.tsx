@@ -74,11 +74,11 @@ const Blogs: NextPage = async () => {
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
-  dayjs.tz.setDefault("Asia/Tokyo")
+  dayjs.tz.setDefault('Asia/Tokyo')
 
   const formatDate = (datestr: string) => {
     const jstdate = dayjs(datestr).tz()
-    return jstdate.format("YYYY-MM-DD HH:mm:ss")
+    return jstdate.format('YYYY-MM-DD HH:mm:ss')
   }
 
   return (

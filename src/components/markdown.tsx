@@ -30,6 +30,7 @@ import * as jsxRuntime from 'react/jsx-runtime'
 import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
 import type { Options as RehypeReactOptions } from 'rehype-react'
+import rehypeSlug from 'rehype-slug'
 import { unified } from 'unified'
 
 type MarkdownTemplateProps = {
@@ -157,33 +158,45 @@ const preCode = {
   },
 }
 
-const MdHeading1: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+const MdHeading1: FC<HTMLAttributes<HTMLHeadingElement>> = ({
+  children,
+  id,
+}) => {
   return (
-    <Text as="h1" id={String(children)} scrollMarginTop={20} {...h1.props}>
+    <Text as="h1" id={id} scrollMarginTop={20} {...h1.props}>
       {children}
     </Text>
   )
 }
 
-const MdHeading2: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+const MdHeading2: FC<HTMLAttributes<HTMLHeadingElement>> = ({
+  children,
+  id,
+}) => {
   return (
-    <Text as="h2" id={String(children)} scrollMarginTop={20} {...h2.props}>
+    <Text as="h2" id={id} scrollMarginTop={20} {...h2.props}>
       {children}
     </Text>
   )
 }
 
-const MdHeading3: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+const MdHeading3: FC<HTMLAttributes<HTMLHeadingElement>> = ({
+  children,
+  id,
+}) => {
   return (
-    <Text as="h3" id={String(children)} scrollMarginTop={20} {...h3.props}>
+    <Text as="h3" id={id} scrollMarginTop={20} {...h3.props}>
       {children}
     </Text>
   )
 }
 
-const MdHeading4: FC<HTMLAttributes<HTMLHeadingElement>> = ({ children }) => {
+const MdHeading4: FC<HTMLAttributes<HTMLHeadingElement>> = ({
+  children,
+  id,
+}) => {
   return (
-    <Text as="h4" id={String(children)} scrollMarginTop={20} {...h4.props}>
+    <Text as="h4" id={id} scrollMarginTop={20} {...h4.props}>
       {children}
     </Text>
   )
@@ -222,7 +235,9 @@ const MdParagraph: FC<HTMLAttributes<HTMLParagraphElement>> = ({
 
 const MdCodeblock: FC<CodeBlockProps> = ({ children, lang }) => {
   if (lang) {
-    const highlightCode = highlight.highlight(String(children), { language: lang }).value
+    const highlightCode = highlight.highlight(String(children), {
+      language: lang,
+    }).value
     return (
       <pre>
         <Box
@@ -339,6 +354,7 @@ const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
 export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
   const processor = unified()
     .use(rehypeParse, { fragment: true })
+    .use(rehypeSlug)
     .use(rehypeReact, {
       Fragment: Fragment,
       /* @ts-ignore */
