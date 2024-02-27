@@ -15,9 +15,16 @@ import {
   Card,
   CardHeader,
   CardBody,
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  PopoverBody,
+  PopoverFooter,
 } from '@chakra-ui/react'
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
+import { IoMdMail } from "react-icons/io"
 import {
   SiTwitter,
   SiGithub,
@@ -38,7 +45,7 @@ export const generateMetadata = async (
   parent: ResolvingMetadata,
 ): Promise<Metadata> => {
   return {
-    title: 'Myuu.dev',
+    title: 'Akihiro Saiki - Myuu.dev',
     description: "Myuu's Website",
     openGraph: {
       ...(await parent).openGraph,
@@ -280,6 +287,28 @@ const Home: NextPage = async () => {
                     fontSize="18px"
                   />
                 </Link>
+                <Popover>
+                  <PopoverTrigger>
+                    <IconButton
+                      aria-label="Mail"
+                      variant="ghost"
+                      colorScheme="cyan"
+                      icon={<IoMdMail />}
+                      mx={2}
+                      fontSize="18px"
+                    />
+                  </PopoverTrigger>
+                  <PopoverContent color='white' bg='blue.800' borderColor='blue.800'>
+                    <PopoverArrow bg='blue.800' />
+                    <PopoverBody textAlign="center">
+                      nanami [at] myuu.dev<br />
+                      saiki [at] kasahara.cs.waseda.ac.jp
+                    </PopoverBody>
+                    <PopoverFooter textAlign="center" fontSize="14px">
+                      Please replace [at] to @
+                    </PopoverFooter>
+                  </PopoverContent>
+                </Popover>
               </Box>
             </Box>
           </Box>
