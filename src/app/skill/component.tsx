@@ -62,43 +62,43 @@ export const Component = () => {
       <Heading as="h5" fontSize={18} mb={2} fontWeight="300">
         Awesome
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="orange" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           <TagLeftIcon as={SiRust} />
           Rust
         </Tag>
-        <Tag colorScheme="cyan" mx={2}>
+        <Tag colorScheme="cyan" mx={2} flexShrink="0">
           <TagLeftIcon as={SiGo} />
           Go
         </Tag>
-        <Tag colorScheme="blue" mx={2}>
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiC} />C
         </Tag>
-        <Tag colorScheme="purple" mx={2}>
+        <Tag colorScheme="purple" mx={2} flexShrink="0">
           <TagLeftIcon as={SiCplusplus} />
           C++
         </Tag>
-        <Tag colorScheme="orange" mx={2}>
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           RISC-V Assembly
         </Tag>
       </Box>
       <Heading as="h5" fontSize={18} mt={4} mb={2} fontWeight="300">
         Be used to
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="red" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="red" mx={2} flexShrink="0">
           <TagLeftIcon as={SiRuby} />
           Ruby
         </Tag>
-        <Tag colorScheme="teal" mx={2}>
+        <Tag colorScheme="teal" mx={2} flexShrink="0">
           <TagLeftIcon as={SiCsharp} />
           C#
         </Tag>
-        <Tag colorScheme="orange" mx={2}>
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           <TagLeftIcon as={FaJava} />
           Java
         </Tag>
-        <Tag colorScheme="brown" mx={2}>
+        <Tag colorScheme="brown" mx={2} flexShrink="0">
           <TagLeftIcon as={SiPython} />
           Python
         </Tag>
@@ -107,30 +107,28 @@ export const Component = () => {
       <Heading as="h5" fontSize={18} mt={4} mb={2} fontWeight="300">
         Simply can write
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="navy" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="navy" mx={2} flexShrink="0">
           <TagLeftIcon as={SiTypescript} />
           Typescript
         </Tag>
-        <Tag colorScheme="yellow" mx={2}>
+        <Tag colorScheme="yellow" mx={2} flexShrink="0">
           <TagLeftIcon as={SiJavascript} />
           Javascript
         </Tag>
-        <Tag colorScheme="green" mx={2}>
+        <Tag colorScheme="green" mx={2} flexShrink="0">
           <TagLeftIcon as={SiVim} />
           Vim script
         </Tag>
-      </Box>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="purple" mx={2}>
+        <Tag colorScheme="purple" mx={2} flexShrink="0">
           <TagLeftIcon as={SiLua} />
           Lua
         </Tag>
-        <Tag colorScheme="cyan" mx={2}>
+        <Tag colorScheme="cyan" mx={2} flexShrink="0">
           <TagLeftIcon as={SiHaskell} />
           Haskell
         </Tag>
-        <Tag colorScheme="gray" mx={2}>
+        <Tag colorScheme="gray" mx={2} flexShrink="0">
           <TagLeftIcon as={SiOcaml} />
           Ocaml
         </Tag>
@@ -139,12 +137,12 @@ export const Component = () => {
       <Heading as="h5" fontSize={18} mt={4} mb={2} fontWeight="300">
         Framework
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="purple" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="purple" mx={2} flexShrink="0">
           <TagLeftIcon as={SiDotnet} />
           .NET
         </Tag>
-        <Tag colorScheme="red" mx={2}>
+        <Tag colorScheme="red" mx={2} flexShrink="0">
           <TagLeftIcon as={SiRubyonrails} />
           Rails
         </Tag>
@@ -159,20 +157,20 @@ export const Component = () => {
       >
         Virtualization
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="blue" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiKubernetes} />
           Kubernetes
         </Tag>
-        <Tag colorScheme="cyan" mx={2}>
+        <Tag colorScheme="cyan" mx={2} flexShrink="0">
           <TagLeftIcon as={SiDocker} />
           Docker
         </Tag>
-        <Tag colorScheme="green" mx={2}>
+        <Tag colorScheme="green" mx={2} flexShrink="0">
           <TagLeftIcon as={SiVmware} />
           VMware
         </Tag>
-        <Tag colorScheme="orange" mx={2}>
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           <TagLeftIcon as={SiQemu} />
           QEMU KVM
         </Tag>
@@ -187,16 +185,16 @@ export const Component = () => {
       >
         Cloud
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="orange" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           <TagLeftIcon as={SiAmazonaws} />
           AWS
         </Tag>
-        <Tag colorScheme="cyan" mx={2}>
+        <Tag colorScheme="cyan" mx={2} flexShrink="0">
           <TagLeftIcon as={SiGooglecloud} />
           GCP
         </Tag>
-        <Tag colorScheme="blue" mx={2}>
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiMicrosoftazure} />
           Azure
         </Tag>
@@ -211,30 +209,28 @@ export const Component = () => {
       >
         Operating System
       </Heading>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="blue" mx={2}>
+      <Box display="flex" py={2} pl={4} overflow="auto">
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiArchlinux} />
           ArchLinux
         </Tag>
-        <Tag colorScheme="red" mx={2}>
+        <Tag colorScheme="red" mx={2} flexShrink="0">
           <TagLeftIcon as={SiRedhat} />
           RHEL
         </Tag>
-        <Tag colorScheme="blue" mx={2}>
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiFedora} />
           Fedora
         </Tag>
-        <Tag colorScheme="orange" mx={2}>
+        <Tag colorScheme="orange" mx={2} flexShrink="0">
           <TagLeftIcon as={SiUbuntu} />
           Ubuntu
         </Tag>
-      </Box>
-      <Box display="flex" py={2} pl={4}>
-        <Tag colorScheme="navy" mx={2}>
+        <Tag colorScheme="navy" mx={2} flexShrink="0">
           <TagLeftIcon as={SiKalilinux} />
           Kali Linux
         </Tag>
-        <Tag colorScheme="cyan" mx={2}>
+        <Tag colorScheme="cyan" mx={2} flexShrink="0">
           <TagLeftIcon as={SiWindows} />
           Windows
         </Tag>
@@ -249,16 +245,16 @@ export const Component = () => {
       >
         Editor
       </Heading>
-      <Box display="flex" py={2} pl={4} mb={6}>
-        <Tag colorScheme="green" mx={2}>
+      <Box display="flex" py={2} pl={4} mb={6} overflow="auto">
+        <Tag colorScheme="green" mx={2} flexShrink="0">
           <TagLeftIcon as={SiNeovim} />
           Neovim
         </Tag>
-        <Tag colorScheme="green" mx={2}>
+        <Tag colorScheme="green" mx={2} flexShrink="0">
           <TagLeftIcon as={SiVim} />
           Vim
         </Tag>
-        <Tag colorScheme="blue" mx={2}>
+        <Tag colorScheme="blue" mx={2} flexShrink="0">
           <TagLeftIcon as={SiVisualstudiocode} />
           VSCode
         </Tag>

@@ -1,4 +1,7 @@
+"use client"
+import { ChevronRightIcon } from '@chakra-ui/icons'
 import {
+  Box,
   Card,
   CardBody,
   CardHeader,
@@ -42,3 +45,25 @@ export const BlogEntry = ({ id, title, tags, dateString }: BlogEntryProps) => {
     </Card>
   )
 }
+
+export const BlogTitle = ({ children }: { children: any }) => (
+  <Box>
+    <Link as={NextLink} href="/blogs" fontStyle="italic" passHref>
+      Myuu&rsquo;s Trashcan
+    </Link>
+    <span>
+      &nbsp;
+      <ChevronRightIcon />
+      &nbsp;
+    </span>
+    <Heading
+      display="inline-block"
+      as="h3"
+      fontSize={20}
+      fontWeight="300"
+      mb={4}
+    >
+      {children}
+    </Heading>
+  </Box>
+)

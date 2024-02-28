@@ -75,10 +75,10 @@ const Blogs = async ({ params }: Props) => {
     <Layout>
       <Container maxWidth="100%" fontSize="18px">
         <Heading as="h3" fontSize={25} mt={2} mb={4} fontWeight="300">
-          Blogs
+          Myuu&rsquo;s Trashcan
         </Heading>
         <Box pt={5} pb={10} textAlign="center" fontStyle="italic">
-          &quot;Garbage Collection&quot; &nbsp; &quot;掃きだめ&quot; &nbsp;
+          &quot;Garbage&quot; &nbsp; &quot;掃きだめ&quot; &nbsp;
           &quot;戯れ言&quot; <br />
           気が向いたら検索とか整理できるようにするかも（嘘かも）
         </Box>
@@ -91,7 +91,8 @@ const Blogs = async ({ params }: Props) => {
         >
           Tags
         </Heading>
-        <HStack pb={5} justifyContent="space-between" overflowX="auto">
+        <Box justifyContent="center" display="flex" pb={5}>
+          <HStack overflow="auto">
           {tags.map((tag, idx) => (
             <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
               <Tag
@@ -105,7 +106,8 @@ const Blogs = async ({ params }: Props) => {
               </Tag>
             </Link>
           ))}
-        </HStack>
+          </HStack>
+        </Box>
         <Heading
           as="h4"
           fontSize={23}

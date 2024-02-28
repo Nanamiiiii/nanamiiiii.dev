@@ -15,7 +15,7 @@ const SourceSansProRegular = Source_Sans_3({
 const styles = {
   global: (props: any) => ({
     body: {
-      bg: mode('#f5fffe', '#202023')(props),
+      bg: mode('#f0f8fc', '#202023')(props),
     },
   }),
 }

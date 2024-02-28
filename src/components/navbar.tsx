@@ -50,7 +50,7 @@ export const Navbar = (props: any) => {
       position="fixed"
       as="nav"
       w="100%"
-      bg={useColorModeValue('#ffffff40', '#20202380')}
+      bg={useColorModeValue('#f0f8fc40', '#20202380')}
       css={{ backdropFilter: 'blur(10px)' }}
       zIndex={2}
       {...props}
@@ -58,7 +58,7 @@ export const Navbar = (props: any) => {
       <Container
         display="flex"
         p={2}
-        maxW="container.md"
+        maxW="container.lg"
         flex-wrap="wrap"
         alignItems="center"
         justifyContent="space-between"

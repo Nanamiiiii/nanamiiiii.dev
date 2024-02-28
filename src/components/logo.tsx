@@ -33,7 +33,7 @@ const Logo = () => {
           fontFamily={Gwendolyn_regular.style.fontFamily}
           fontWeight="normal"
         >
-          Myuu.dev
+          🐬
         </Text>
       </LogoBox>
     </Link>

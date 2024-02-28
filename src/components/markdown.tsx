@@ -313,8 +313,8 @@ const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
       >
         <Image
           objectFit="contain"
-          minW="25%"
-          maxW={{ base: '100%', md: '40%' }}
+          minW="20%"
+          maxW={{ base: '100%', md: '30%' }}
           src={img}
           alt={title}
         />

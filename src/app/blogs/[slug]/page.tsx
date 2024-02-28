@@ -8,7 +8,6 @@ import {
   Tag,
   Tbody,
   Td,
-  Text,
   Tr,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
@@ -18,6 +17,7 @@ import { JSDOM } from 'jsdom'
 import { Metadata, ResolvingMetadata } from 'next'
 import { draftMode } from 'next/headers'
 import { notFound } from 'next/navigation'
+import { BlogTitle } from '../../../components/blog'
 import Layout from '../../../components/layouts/article'
 import { MarkdownTemplate } from '../../../components/markdown'
 import { MarkdownToc } from '../../../components/toc'
@@ -156,9 +156,9 @@ const BlogArticle = async ({ params }: Props) => {
   return (
     <Layout>
       <Container maxWidth="100%">
-        <Text fontStyle="italic" textColor="gray">
-          Myuu&rsquo;s garbage
-        </Text>
+        <BlogTitle>
+          {params.slug}
+        </BlogTitle>
         <Heading as="h3" fontSize={30} mt={2} mb={2} fontWeight="300">
           {article.title}
         </Heading>
