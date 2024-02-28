@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
- 
+
 const sitemap = (): MetadataRoute.Sitemap => {
   return [
     {

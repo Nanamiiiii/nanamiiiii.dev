@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -7,6 +7,9 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/blogs/pages', '/blogs/tag'],
     },
-    sitemap: ['https://myuu.dev/sitemap.xml', 'https://myuu.dev/blogs/sitemap.xml'],
+    sitemap: [
+      'https://myuu.dev/sitemap.xml',
+      'https://myuu.dev/blogs/sitemap.xml',
+    ],
   }
 }

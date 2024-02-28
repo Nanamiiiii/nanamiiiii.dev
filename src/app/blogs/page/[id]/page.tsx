@@ -1,28 +1,26 @@
 import {
   Box,
-  Card,
-  CardBody,
-  CardHeader,
   Container,
   HStack,
   Heading,
   Tag,
-  Text,
-  VStack,
   Link,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { Metadata, ResolvingMetadata } from 'next'
 import getConfig from 'next/config'
-import NextLink from 'next/link'
+import { BlogEntry } from '../../../../components/blog'
 import Layout from '../../../../components/layouts/article'
 import { Pagenation } from '../../../../components/pagenation'
 import { getTags, getVisibleArticles } from '../../../../lib/newt'
 import type { Article, ArticleTag } from '../../../../types/blog'
 
 const { publicRuntimeConfig } = getConfig()
+
+export const dynamicParams = false
 
 export const generateStaticParams = async () => {
   const articles = await getVisibleArticles()
@@ -48,39 +46,6 @@ export const generateMetadata = async (
       url: 'https://myuu.dev/blogs/page/' + params.id,
     },
   }
-}
-
-type BlogEntryProps = {
-  id: string
-  title: string
-  tags: string[]
-  dateString: string
-}
-
-const BlogEntry = ({ id, title, tags, dateString }: BlogEntryProps) => {
-  return (
-    <Card width="80%" variant="outline" size="sm" backgroundColor="#00000000">
-      <CardHeader pb={0}>
-        <HStack spacing={2} pb={2}>
-          {tags.map((tag: string, idx: number) => (
-            <Tag key={idx} variant="subtle" colorScheme="cyan">
-              {tag}
-            </Tag>
-          ))}
-        </HStack>
-        <Heading fontSize="20px">
-          <Link as={NextLink} href={`/blogs/${id}`}>
-            {title}
-          </Link>
-        </Heading>
-      </CardHeader>
-      <CardBody>
-        <Text textAlign="right" textColor="gray" fontStyle="italic">
-          {dateString}
-        </Text>
-      </CardBody>
-    </Card>
-  )
 }
 
 type Props = {
@@ -129,7 +94,13 @@ const Blogs = async ({ params }: Props) => {
         <HStack pb={5} justifyContent="space-between" overflowX="auto">
           {tags.map((tag, idx) => (
             <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
-              <Tag key={idx} variant="subtle" colorScheme="cyan" flexShrink="0">
+              <Tag
+                key={idx}
+                variant="subtle"
+                colorScheme="cyan"
+                flexShrink="0"
+                whiteSpace="nowrap"
+              >
                 {tag.name}
               </Tag>
             </Link>
@@ -145,7 +116,13 @@ const Blogs = async ({ params }: Props) => {
         >
           Entries
         </Heading>
-        <VStack pb={5}>
+        <SimpleGrid
+          columns={{ sm: 1, md: 2 }}
+          spacing="10px"
+          gap="10px"
+          pb={5}
+          justifyItems="center"
+        >
           {articles
             .slice(entryStart, entryEnd)
             .map((article: Article, idx: number) => (
@@ -157,7 +134,7 @@ const Blogs = async ({ params }: Props) => {
                 dateString={formatDate(article._sys.createdAt)}
               />
             ))}
-        </VStack>
+        </SimpleGrid>
         <Pagenation totalCounts={articles.length} nowPage={pageNum} />
       </Container>
     </Layout>

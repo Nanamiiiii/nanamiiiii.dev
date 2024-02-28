@@ -1,55 +1,48 @@
 import {
   Box,
-  Card,
-  CardBody,
-  CardHeader,
   Container,
   HStack,
   Heading,
   Tag,
-  Text,
-  VStack,
   Link,
   TagLabel,
   TagCloseButton,
+  SimpleGrid,
 } from '@chakra-ui/react'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { Metadata, ResolvingMetadata } from 'next'
 import getConfig from 'next/config'
-import NextLink from 'next/link'
 import { notFound } from 'next/navigation'
+import { BlogEntry } from '../../../../../components/blog'
 import Layout from '../../../../../components/layouts/article'
 import { Pagenation } from '../../../../../components/pagenation'
 import {
   getTag,
   getTags,
   getVisibleArticlesByTag,
-  getVisibleArticlesByTagId,
 } from '../../../../../lib/newt'
 import type { Article, ArticleTag } from '../../../../../types/blog'
 
 const { publicRuntimeConfig } = getConfig()
 
-export const generateStaticParams = async () => {
-  const tags = await getTags()
-  const params: { tag: string; idx: string }[] = []
-  tags.forEach(async (tag: ArticleTag) => {
-    const articles = await getVisibleArticlesByTagId(tag._id)
-    const range = (start: number, end: number) =>
-      [...Array(end - start + 1)].map((_, i) => start + i)
-    range(
-      1,
-      Math.ceil(articles.length / publicRuntimeConfig.pagenation),
-    ).forEach(repo => {
-      params.push({
-        tag: tag.slug,
-        idx: `${repo}`,
-      })
-    })
-  })
-  return params
+export const dynamicParams = false
+
+export const generateStaticParams = async ({
+  params: { tag },
+}: {
+  params: { tag: string }
+}) => {
+  const articles = await getVisibleArticlesByTag(tag)
+  const range = (start: number, end: number) =>
+    [...Array(end - start + 1)].map((_, i) => start + i)
+  return range(
+    1,
+    Math.ceil(articles.length / publicRuntimeConfig.pagenation),
+  ).map(repo => ({
+    idx: `${repo}`,
+  }))
 }
 
 export const generateMetadata = async (
@@ -66,39 +59,6 @@ export const generateMetadata = async (
   }
 }
 
-type BlogEntryProps = {
-  id: string
-  title: string
-  tags: string[]
-  dateString: string
-}
-
-const BlogEntry = ({ id, title, tags, dateString }: BlogEntryProps) => {
-  return (
-    <Card width="80%" variant="outline" size="sm" backgroundColor="#00000000">
-      <CardHeader pb={0}>
-        <HStack spacing={2} pb={2}>
-          {tags.map((tag: string, idx: number) => (
-            <Tag key={idx} variant="subtle" colorScheme="cyan">
-              {tag}
-            </Tag>
-          ))}
-        </HStack>
-        <Heading fontSize="20px">
-          <Link as={NextLink} href={`/blogs/${id}`}>
-            {title}
-          </Link>
-        </Heading>
-      </CardHeader>
-      <CardBody>
-        <Text textAlign="right" textColor="gray" fontStyle="italic">
-          {dateString}
-        </Text>
-      </CardBody>
-    </Card>
-  )
-}
-
 type Props = {
   params: {
     tag: string
@@ -113,8 +73,8 @@ const Blogs = async ({ params }: Props) => {
   if (!selectTag) notFound()
   const pageNum = Number(params.idx)
 
-  const entryStart = (pageNum - 1) * 10
-  const entryEnd = pageNum * 10
+  const entryStart = (pageNum - 1) * publicRuntimeConfig.pagenation
+  const entryEnd = pageNum * publicRuntimeConfig.pagenation
 
   dayjs.extend(utc)
   dayjs.extend(timezone)
@@ -154,6 +114,7 @@ const Blogs = async ({ params }: Props) => {
                   variant="solid"
                   colorScheme="cyan"
                   flexShrink="0"
+                  whiteSpace="nowrap"
                 >
                   <TagLabel>{tag.name}</TagLabel>
                   <TagCloseButton as="a" href="/blogs" />
@@ -167,6 +128,7 @@ const Blogs = async ({ params }: Props) => {
                     variant="subtle"
                     colorScheme="cyan"
                     flexShrink="0"
+                    whiteSpace="nowrap"
                   >
                     {tag.name}
                   </Tag>
@@ -185,7 +147,13 @@ const Blogs = async ({ params }: Props) => {
         >
           Entries
         </Heading>
-        <VStack pb={5}>
+        <SimpleGrid
+          columns={{ sm: 1, md: 2 }}
+          spacing="10px"
+          gap="10px"
+          pb={5}
+          justifyItems="center"
+        >
           {articles
             .slice(entryStart, entryEnd)
             .map((article: Article, idx: number) => (
@@ -197,7 +165,7 @@ const Blogs = async ({ params }: Props) => {
                 dateString={formatDate(article._sys.createdAt)}
               />
             ))}
-        </VStack>
+        </SimpleGrid>
         <Pagenation totalCounts={articles.length} nowPage={pageNum} />
       </Container>
     </Layout>

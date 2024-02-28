@@ -24,7 +24,7 @@ import {
 } from '@chakra-ui/react'
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
 import NextLink from 'next/link'
-import { IoMdMail } from "react-icons/io"
+import { IoMdMail } from 'react-icons/io'
 import {
   SiTwitter,
   SiGithub,
@@ -298,10 +298,15 @@ const Home: NextPage = async () => {
                       fontSize="18px"
                     />
                   </PopoverTrigger>
-                  <PopoverContent color='white' bg='blue.800' borderColor='blue.800'>
-                    <PopoverArrow bg='blue.800' />
+                  <PopoverContent
+                    color="white"
+                    bg="blue.800"
+                    borderColor="blue.800"
+                  >
+                    <PopoverArrow bg="blue.800" />
                     <PopoverBody textAlign="center">
-                      nanami [at] myuu.dev<br />
+                      nanami [at] myuu.dev
+                      <br />
                       saiki [at] kasahara.cs.waseda.ac.jp
                     </PopoverBody>
                     <PopoverFooter textAlign="center" fontSize="14px">
