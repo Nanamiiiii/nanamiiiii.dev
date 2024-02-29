@@ -5,7 +5,7 @@ import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
   <Box fontWeight="300">
-    <Link as={NextLink} href="/works" passHref>
+    <Link as={NextLink} href="/works" fontStyle="italic" passHref>
       Works
     </Link>
     <span>
