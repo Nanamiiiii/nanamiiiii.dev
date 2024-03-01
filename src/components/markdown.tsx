@@ -47,7 +47,8 @@ type CodeBlockProps = HTMLAttributes<HTMLElement> & {
 }
 
 type AlertProps = HTMLAttributes<HTMLElement> & {
-  status: 'tips' | 'info' | 'notice' | 'warn',
+  variant: 'tips' | 'info' | 'notice' | 'warn',
+  title?: string,
 }
 
 const h1 = {
@@ -297,33 +298,33 @@ const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
   )
 }
 
-const MdAlert: FC<AlertProps> = ({ children, status }) => {
-  type PropsType = {
-    title: string | undefined,
-    status: "error" | "success" | "warning" | "info",
-  }
-  const props = match<"tips" | "info" | "notice" | "warn", PropsType>(status)
-    .with('tips', () => ({ title: "Tips", status: "success" }))
-    .with('info', () => ({ title: undefined, status: "info" }))
-    .with('notice', () => ({ title: "Notice", status: "warning" }))
-    .with('warn', () => ({ title: "Warning", status: "error" }))
+const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
+  type StatusVariant = "error" | "success" | "warning" | "info"
+
+  const status = match<"tips" | "info" | "notice" | "warn", StatusVariant>(variant)
+    .with('tips', () =>  "success")
+    .with('info', () => "info")
+    .with('notice', () => "warning")
+    .with('warn', () => "error")
     .exhaustive()
 
-  if (props.title) {
+  if (title) {
     return (
-      <Alert status={props.status}>
+      <Alert status={status} my={5} borderRadius={10}>
         <AlertIcon />
         <Box>
-          <AlertTitle>{props.title}</AlertTitle>
+          <AlertTitle>{title}</AlertTitle>
           <AlertDescription>{children}</AlertDescription>
         </Box>
       </Alert>
     )
   } else {
     return (
-      <Alert status={props.status}>
+      <Alert status={status} my={5} borderRadius={10}>
         <AlertIcon />
-        {children}
+        <Box>
+          {children}
+        </Box>
       </Alert>
     )
   }
