@@ -45,6 +45,7 @@
     "server-only": "^0.0.1",
     "sharp": "0.33.1",
     "tls": "^0.0.1",
+    "ts-pattern": "^5.0.8",
     "unified": "^11.0.4"
   },
   "devDependencies": {

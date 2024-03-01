@@ -107,6 +107,9 @@ dependencies:
   tls:
     specifier: ^0.0.1
     version: 0.0.1
+  ts-pattern:
+    specifier: ^5.0.8
+    version: 5.0.8
   unified:
     specifier: ^11.0.4
     version: 11.0.4
@@ -5496,6 +5499,10 @@ packages:
     dependencies:
       typescript: 5.3.3
     dev: true
+
+  /ts-pattern@5.0.8:
+    resolution: {integrity: sha512-aafbuAQOTEeWmA7wtcL94w6I89EgLD7F+IlWkr596wYxeb0oveWDO5dQpv85YP0CGbxXT/qXBIeV6IYLcoZ2uA==}
+    dev: false
 
   /tsconfig-paths@3.15.0:
     resolution: {integrity: sha512-2Ac2RgzDe/cn48GvOe3M+o82pEFewD3UPbyoUHHdKasHwJKjds4fLXWf/Ux5kATBKN20oaFGu+jbElp1pos0mg==}

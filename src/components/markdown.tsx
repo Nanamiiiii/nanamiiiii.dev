@@ -14,6 +14,10 @@ import {
   HStack,
   LinkBox,
   LinkOverlay,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
 } from '@chakra-ui/react'
 import highlight from 'highlight.js'
 
@@ -31,6 +35,7 @@ import rehypeParse from 'rehype-parse'
 import rehypeReact from 'rehype-react'
 import type { Options as RehypeReactOptions } from 'rehype-react'
 import rehypeSlug from 'rehype-slug'
+import { match } from 'ts-pattern'
 import { unified } from 'unified'
 
 type MarkdownTemplateProps = {
@@ -39,6 +44,10 @@ type MarkdownTemplateProps = {
 
 type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   lang?: string
+}
+
+type AlertProps = HTMLAttributes<HTMLElement> & {
+  status: 'tips' | 'info' | 'notice' | 'warn',
 }
 
 const h1 = {
@@ -288,6 +297,38 @@ const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
   )
 }
 
+const MdAlert: FC<AlertProps> = ({ children, status }) => {
+  type PropsType = {
+    title: string | undefined,
+    status: "error" | "success" | "warning" | "info",
+  }
+  const props = match<"tips" | "info" | "notice" | "warn", PropsType>(status)
+    .with('tips', () => ({ title: "Tips", status: "success" }))
+    .with('info', () => ({ title: undefined, status: "info" }))
+    .with('notice', () => ({ title: "Notice", status: "warning" }))
+    .with('warn', () => ({ title: "Warning", status: "error" }))
+    .exhaustive()
+
+  if (props.title) {
+    return (
+      <Alert status={props.status}>
+        <AlertIcon />
+        <Box>
+          <AlertTitle>{props.title}</AlertTitle>
+          <AlertDescription>{children}</AlertDescription>
+        </Box>
+      </Alert>
+    )
+  } else {
+    return (
+      <Alert status={props.status}>
+        <AlertIcon />
+        {children}
+      </Alert>
+    )
+  }
+}
+
 type LinkCardProps = {
   href: string
   title: string
@@ -376,6 +417,7 @@ export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
         code: MdInlineCode,
         blockquote: MdQuote,
         linkcard: MdLinkCard,
+        alert: MdAlert,
       },
     } as RehypeReactOptions)
   return <Box {...props}>{processor.processSync(props.source).result}</Box>
