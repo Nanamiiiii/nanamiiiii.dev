@@ -54,8 +54,8 @@ type AlertProps = HTMLAttributes<HTMLElement> & {
 const h1 = {
   component: Text,
   props: {
-    mt: '24px',
-    mb: '16px',
+    mt: '1.5em',
+    mb: '0.5em',
     lineHeight: 1.25,
 
     color: '#202020',
@@ -69,8 +69,8 @@ const h1 = {
 const h2 = {
   component: Text,
   props: {
-    mt: '24px',
-    mb: '16px',
+    mt: '1.5em',
+    mb: '0.5em',
     lineHeight: 1.25,
 
     color: '#202020',
@@ -84,8 +84,8 @@ const h2 = {
 const h3 = {
   component: Text,
   props: {
-    mt: '24px',
-    mb: '16px',
+    mt: '1.5em',
+    mb: '0.5em',
     lineHeight: 1.25,
 
     color: '#202020',
@@ -97,8 +97,8 @@ const h3 = {
 const h4 = {
   component: Text,
   props: {
-    mt: '12px',
-    mb: '8px',
+    mt: '1.5em',
+    mb: '0.5em',
     lineHeight: 1.25,
 
     color: '#202020',
@@ -111,8 +111,8 @@ const p = {
   component: Text,
   props: {
     lineHeight: '1.5',
-    mt: '8px',
-    mb: '8px',
+    mt: '0.5em',
+    mb: '0.5em',
     fontSize: '16px',
     color: '##000',
   },
@@ -165,7 +165,6 @@ const code = {
 const preCode = {
   props: {
     fontSize: '14px',
-    mb: '10px',
   },
 }
 
