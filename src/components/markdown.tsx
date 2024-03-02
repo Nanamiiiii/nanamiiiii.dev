@@ -39,10 +39,6 @@ import rehypeSlug from 'rehype-slug'
 import { match } from 'ts-pattern'
 import { unified } from 'unified'
 
-type MarkdownTemplateProps = {
-  source: string
-} & BoxProps
-
 type CodeBlockProps = HTMLAttributes<HTMLElement> & {
   lang?: string
 }
@@ -112,8 +108,8 @@ const p = {
   component: Text,
   props: {
     lineHeight: '1.5',
-    mt: '0.5em',
-    mb: '0.5em',
+    mt: '0.8em',
+    mb: '0.8em',
     fontSize: '16px',
     color: '##000',
   },
@@ -123,8 +119,8 @@ const ul = {
   component: UnorderedList,
   props: {
     color: '#000',
-    mt: '1em',
-    mb: '1em',
+    mt: '0em',
+    mb: '0em',
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -134,8 +130,8 @@ const ol = {
   component: OrderedList,
   props: {
     color: '#000',
-    mt: '1em',
-    mb: '1em',
+    mt: '0em',
+    mb: '0em',
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -166,8 +162,8 @@ const code = {
 const preCode = {
   props: {
     fontSize: '14px',
-    mt: '1em',
-    mb: '1em',
+    mt: '0.8em',
+    mb: '0.8em',
   },
 }
 
@@ -289,7 +285,7 @@ const MdCodeblock: FC<CodeBlockProps> = ({ children, lang }) => {
 }
 
 const MdInlineCode: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
-  return <ChakraCode {...code.props}>{children}</ChakraCode>
+  return <ChakraCode {...code.props} bgColor="#E0E0E0">{children}</ChakraCode>
 }
 
 const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
@@ -413,7 +409,7 @@ const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
   )
 }
 
-export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
+export const MarkdownTemplate = ({source, ...props}: { source: string } & BoxProps) => {
   const processor = unified()
     .use(rehypeParse, { fragment: true })
     .use(rehypeSlug)
@@ -442,5 +438,5 @@ export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
         alert: MdAlert,
       },
     } as RehypeReactOptions)
-  return <Box {...props}>{processor.processSync(props.source).result}</Box>
+  return <Box {...props}>{processor.processSync(source).result}</Box>
 }
