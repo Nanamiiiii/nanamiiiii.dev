@@ -62,7 +62,7 @@ const h1 = {
     fontWeight: '600',
     pb: '.3em',
     fontSize: '1.8em',
-    borderBottom: '1px solid #E7ECF2',
+    borderBottom: '2px solid #D7DCE2',
   },
 }
 
@@ -77,7 +77,7 @@ const h2 = {
     fontWeight: '600',
     pb: '.3em',
     fontSize: '1.5em',
-    borderBottom: '1px solid #E7ECF2',
+    borderBottom: '1.5px solid #D7DCE2',
   },
 }
 
