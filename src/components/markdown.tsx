@@ -122,8 +122,8 @@ const ul = {
   component: UnorderedList,
   props: {
     color: '#000',
-    mt: 0,
-    mb: 0,
+    mt: 1em,
+    mb: 1em,
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -133,8 +133,8 @@ const ol = {
   component: OrderedList,
   props: {
     color: '#000',
-    mt: 0,
-    mb: 0,
+    mt: 1em,
+    mb: 1em,
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -165,6 +165,8 @@ const code = {
 const preCode = {
   props: {
     fontSize: '14px',
+    mt: '1em',
+    mb: '1em',
   },
 }
 
