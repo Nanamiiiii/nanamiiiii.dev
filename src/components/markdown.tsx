@@ -28,6 +28,7 @@ import React, {
   FC,
   Fragment,
   HTMLAttributes,
+  ImgHTMLAttributes,
   LiHTMLAttributes,
 } from 'react'
 import * as jsxRuntime from 'react/jsx-runtime'
@@ -122,8 +123,8 @@ const ul = {
   component: UnorderedList,
   props: {
     color: '#000',
-    mt: 1em,
-    mb: 1em,
+    mt: '1em',
+    mb: '1em',
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -133,8 +134,8 @@ const ol = {
   component: OrderedList,
   props: {
     color: '#000',
-    mt: 1em,
-    mb: 1em,
+    mt: '1em',
+    mb: '1em',
     pl: '2em',
     lineHeight: '1.6',
   },
@@ -168,6 +169,14 @@ const preCode = {
     mt: '1em',
     mb: '1em',
   },
+}
+
+const img = {
+  props: {
+    p: '0.5em',
+    ml: 'auto',
+    mr: 'auto',
+  }
 }
 
 const MdHeading1: FC<HTMLAttributes<HTMLHeadingElement>> = ({
@@ -332,6 +341,15 @@ const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
   }
 }
 
+const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({
+  src,
+  alt,
+}) => {
+  return (
+    <Image src={src} alt={alt} {...img.props} />
+  )
+}
+
 type LinkCardProps = {
   href: string
   title: string
@@ -416,6 +434,7 @@ export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
         li: MdListItem,
         a: MdLink,
         p: MdParagraph,
+        img: MdImage,
         codeblk: MdCodeblock,
         code: MdInlineCode,
         blockquote: MdQuote,
