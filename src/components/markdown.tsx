@@ -111,7 +111,8 @@ const p = {
   component: Text,
   props: {
     lineHeight: '1.5',
-    mb: '10px',
+    mt: '8px',
+    mb: '8px',
     fontSize: '16px',
     color: '##000',
   },
