@@ -38,6 +38,9 @@ dependencies:
   '@iconify/react':
     specifier: ^4.1.1
     version: 4.1.1(react@18.2.0)
+  '@img/sharp-linux-x64':
+    specifier: ^0.33.2
+    version: 0.33.2
   '@jsdevtools/rehype-toc':
     specifier: ^3.0.2
     version: 3.0.2
@@ -1823,7 +1826,6 @@ packages:
     optionalDependencies:
       '@img/sharp-libvips-linux-x64': 1.0.1
     dev: false
-    optional: true
 
   /@img/sharp-linuxmusl-arm64@0.33.2:
     resolution: {integrity: sha512-F+0z8JCu/UnMzg8IYW1TMeiViIWBVg7IWP6nE0p5S5EPQxlLd76c8jYemG21X99UzFwgkRo5yz2DS+zbrnxZeA==}
