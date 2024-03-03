@@ -44,8 +44,8 @@ type CodeBlockProps = HTMLAttributes<HTMLElement> & {
 }
 
 type AlertProps = HTMLAttributes<HTMLElement> & {
-  variant: 'tips' | 'info' | 'notice' | 'warn',
-  title?: string,
+  variant: 'tips' | 'info' | 'notice' | 'warn'
+  title?: string
 }
 
 const h1 = {
@@ -172,7 +172,7 @@ const img = {
     p: '0.5em',
     ml: 'auto',
     mr: 'auto',
-  }
+  },
 }
 
 const MdHeading1: FC<HTMLAttributes<HTMLHeadingElement>> = ({
@@ -285,7 +285,11 @@ const MdCodeblock: FC<CodeBlockProps> = ({ children, lang }) => {
 }
 
 const MdInlineCode: FC<HTMLAttributes<HTMLElement>> = ({ children }) => {
-  return <ChakraCode {...code.props} bgColor="#E0E0E0">{children}</ChakraCode>
+  return (
+    <ChakraCode {...code.props} bgColor="#E0E0E0">
+      {children}
+    </ChakraCode>
+  )
 }
 
 const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
@@ -306,13 +310,15 @@ const MdQuote: FC<BlockquoteHTMLAttributes<HTMLQuoteElement>> = ({
 }
 
 const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
-  type StatusVariant = "error" | "success" | "warning" | "info"
+  type StatusVariant = 'error' | 'success' | 'warning' | 'info'
 
-  const status = match<"tips" | "info" | "notice" | "warn", StatusVariant>(variant)
-    .with('tips', () =>  "success")
-    .with('info', () => "info")
-    .with('notice', () => "warning")
-    .with('warn', () => "error")
+  const status = match<'tips' | 'info' | 'notice' | 'warn', StatusVariant>(
+    variant,
+  )
+    .with('tips', () => 'success')
+    .with('info', () => 'info')
+    .with('notice', () => 'warning')
+    .with('warn', () => 'error')
     .exhaustive()
 
   if (title) {
@@ -329,21 +335,14 @@ const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
     return (
       <Alert status={status} my={5} borderRadius={10}>
         <AlertIcon />
-        <Box>
-          {children}
-        </Box>
+        <Box>{children}</Box>
       </Alert>
     )
   }
 }
 
-const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({
-  src,
-  alt,
-}) => {
-  return (
-    <Image src={src} alt={alt} {...img.props} />
-  )
+const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt }) => {
+  return <Image src={src} alt={alt} {...img.props} />
 }
 
 type LinkCardProps = {
@@ -409,7 +408,10 @@ const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
   )
 }
 
-export const MarkdownTemplate = ({source, ...props}: { source: string } & BoxProps) => {
+export const MarkdownTemplate = ({
+  source,
+  ...props
+}: { source: string } & BoxProps) => {
   const processor = unified()
     .use(rehypeParse, { fragment: true })
     .use(rehypeSlug)

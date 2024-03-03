@@ -16,6 +16,10 @@ import { SiC, SiLinux } from 'react-icons/si'
 import P from '../../../components/paragraph'
 import { Title, WorkImage, Meta } from '../../../components/work'
 
+import capture1 from '../../../public/images/works/tinysv_1.png'
+import capture2 from '../../../public/images/works/tinysv_2.png'
+import capture3 from '../../../public/images/works/tinysv_3.png'
+
 export const Component = () => {
   return (
     <Container maxWidth="100%" fontSize="18px" fontWeight="300">
@@ -23,9 +27,12 @@ export const Component = () => {
         tinysv <Badge>2021</Badge>
       </Title>
 
-      <P>
-        A <b>minimal & extensive</b> web server application for Linux.
-      </P>
+      <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
+        <P>
+          A <b>minimal & extensive</b> web server application for Linux.
+        </P>
+      </Box>
+
       <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
         <Button
           colorScheme="blue"
@@ -40,7 +47,11 @@ export const Component = () => {
         </Button>
       </Box>
 
-      <List px={{ base: '60px', md: '150px' }} ml={4} my={4}>
+      <List
+        w={{ base: '90%', sm: '60%', md: '50%', lg: '40%' }}
+        mx="auto"
+        my={4}
+      >
         <ListItem>
           <Meta>Platform</Meta>
           <ListIcon as={SiLinux} />
@@ -67,7 +78,12 @@ export const Component = () => {
         <Center>Features</Center>
       </Heading>
 
-      <UnorderedList px={{ base: '60px', md: '150px' }} mb={4} mt={2}>
+      <UnorderedList
+        w={{ base: '90%', sm: '70%', md: '60%', lg: '50%' }}
+        mx="auto"
+        mb={4}
+        mt={2}
+      >
         <ListItem>Linux syscall based</ListItem>
         <ListItem>Small footprint</ListItem>
         <ListItem>Module-based enhancement (no need for rebuild)</ListItem>
@@ -78,9 +94,9 @@ export const Component = () => {
         <Center>Screenshots</Center>
       </Heading>
 
-      <WorkImage src="/images/works/tinysv_1.png" alt="tinysv1" />
-      <WorkImage src="/images/works/tinysv_2.png" alt="tinysv2" />
-      <WorkImage src="/images/works/tinysv_3.png" alt="tinysv3" />
+      <WorkImage src={capture1} alt="tinysv1" />
+      <WorkImage src={capture2} alt="tinysv2" />
+      <WorkImage src={capture3} alt="tinysv3" />
     </Container>
   )
 }

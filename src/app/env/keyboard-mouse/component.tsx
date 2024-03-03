@@ -11,6 +11,9 @@ import {
 import { Title, DevPort } from '../../../components/device'
 import Layout from '../../../components/layouts/article'
 
+import keyboard from '../../../public/images/devices/keyboard.png'
+import mouse from '../../../public/images/devices/mouse.png'
+
 export const Component = () => {
   return (
     <Layout>
@@ -20,7 +23,7 @@ export const Component = () => {
           <Center>Keyboard</Center>
         </Heading>
 
-        <DevPort src="/images/devices/keyboard.png" alt="keyboard" />
+        <DevPort src={keyboard} alt="keyboard" />
 
         <UnorderedList spacing={2} my={6}>
           <ListItem display="flex" alignItems="center">
@@ -55,7 +58,7 @@ export const Component = () => {
           <Center>Mouse</Center>
         </Heading>
 
-        <DevPort src="/images/devices/mouse.png" alt="mouse" />
+        <DevPort src={mouse} alt="mouse" />
 
         <UnorderedList spacing={2} my={6}>
           <ListItem display="flex" alignItems="center">

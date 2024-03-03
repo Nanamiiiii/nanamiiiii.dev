@@ -1,6 +1,7 @@
 'use client'
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
+import { Heading, Box, Link, Badge } from '@chakra-ui/react'
+import NextImage, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
@@ -25,8 +26,33 @@ export const Title = ({ children }: { children: any }) => (
   </Box>
 )
 
-export const WorkImage = ({ src, alt }: { src: string; alt: string }) => (
-  <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
+export const WorkImage = ({
+  src,
+  alt,
+}: {
+  src: StaticImageData
+  alt: string
+}) => (
+  <Box
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    width={{ base: '100%', sm: '90%', md: '80%', lg: '70%' }}
+    mx="auto"
+  >
+    <NextImage
+      src={src}
+      alt={alt}
+      placeholder="blur"
+      loading="lazy"
+      style={{
+        borderRadius: '10px',
+        marginBottom: '1rem',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}
+    />
+  </Box>
 )
 
 export const WorkImagePad = ({
@@ -34,19 +60,32 @@ export const WorkImagePad = ({
   alt,
   pad,
 }: {
-  src: string
+  src: StaticImageData
   alt: string
   pad: number
 }) => (
-  <Image
-    boxShadow="sm"
-    borderRadius="lg"
-    w="full"
-    src={src}
-    alt={alt}
-    mb={4}
-    p={pad}
-  />
+  <Box
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+    width={{ base: '400px', lg: '100%' }}
+    mx="auto"
+  >
+    <NextImage
+      src={src}
+      alt={alt}
+      placeholder="blur"
+      loading="lazy"
+      style={{
+        borderRadius: '10px',
+        marginBottom: '1rem',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        padding: `var(--chakra-space-${pad})`,
+        boxShadow: 'var(--chakra-shadows-sm)',
+      }}
+    />
+  </Box>
 )
 
 export const Meta = ({ children }: { children: any }) => (

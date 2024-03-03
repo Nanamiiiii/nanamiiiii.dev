@@ -156,9 +156,7 @@ const BlogArticle = async ({ params }: Props) => {
   return (
     <Layout>
       <Container maxWidth="100%">
-        <BlogTitle>
-          {params.slug}
-        </BlogTitle>
+        <BlogTitle>{params.slug}</BlogTitle>
         <Heading as="h3" fontSize={30} mt={2} mb={2} fontWeight="300">
           {article.title}
         </Heading>

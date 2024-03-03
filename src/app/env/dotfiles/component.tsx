@@ -13,6 +13,10 @@ import { Title, DevPort, Meta } from '../../../components/device'
 import Layout from '../../../components/layouts/article'
 import P from '../../../components/paragraph'
 
+import linuxDesktop from '../../../public/images/devices/desktop_env_20240208.png'
+import macDesktop from '../../../public/images/devices/mac_desktop.webp'
+import neovim from '../../../public/images/devices/neovim_env.png'
+
 export const Component = () => {
   return (
     <Layout>
@@ -40,7 +44,7 @@ export const Component = () => {
           <Center>Linux Desktop env.</Center>
         </Heading>
 
-        <DevPort src="/images/devices/desktop_env_20240208.png" alt="i3-de" />
+        <DevPort src={linuxDesktop} alt="i3-de" />
 
         <List my={6} ml={4}>
           <ListItem display="flex" mb={1} alignItems="center">
@@ -81,7 +85,7 @@ export const Component = () => {
           <Center>macOS Desktop env.</Center>
         </Heading>
 
-        <DevPort src="/images/devices/mac_desktop.webp" alt="mac-de" />
+        <DevPort src={macDesktop} alt="mac-de" />
 
         <List my={6} ml={4}>
           <ListItem display="flex" mb={1} alignItems="center">
@@ -106,7 +110,7 @@ export const Component = () => {
           <Center>Terminal / Neovim</Center>
         </Heading>
 
-        <DevPort src="/images/devices/neovim_env.png" alt="term-vim" />
+        <DevPort src={neovim} alt="term-vim" />
 
         <List my={6} pl={4}>
           <ListItem fontWeight="400" fontSize={20} mb={1}>

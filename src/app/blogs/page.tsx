@@ -69,19 +69,19 @@ const Blogs: NextPage = async () => {
         </Heading>
         <Box justifyContent="center" display="flex" pb={5}>
           <HStack overflow="auto">
-          {tags.map((tag, idx) => (
-            <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
-              <Tag
-                key={idx}
-                variant="subtle"
-                colorScheme="cyan"
-                flexShrink="0"
-                whiteSpace="nowrap"
-              >
-                {tag.name}
-              </Tag>
-            </Link>
-          ))}
+            {tags.map((tag, idx) => (
+              <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
+                <Tag
+                  key={idx}
+                  variant="subtle"
+                  colorScheme="cyan"
+                  flexShrink="0"
+                  whiteSpace="nowrap"
+                >
+                  {tag.name}
+                </Tag>
+              </Link>
+            ))}
           </HStack>
         </Box>
         <Heading

@@ -11,6 +11,9 @@ import {
 import { Title, DevPort } from '../../../components/device'
 import Layout from '../../../components/layouts/article'
 
+import audio from '../../../public/images/devices/audio.png'
+import mobile from '../../../public/images/devices/mobile.png'
+
 export const Component = () => {
   return (
     <Layout>
@@ -20,7 +23,7 @@ export const Component = () => {
           <Center>Mobile</Center>
         </Heading>
 
-        <DevPort src="/images/devices/mobile.png" alt="mobile" />
+        <DevPort src={mobile} alt="mobile" />
 
         <UnorderedList spacing={2} my={6}>
           <ListItem display="flex" alignItems="center">
@@ -67,7 +70,7 @@ export const Component = () => {
           <Center>Audio</Center>
         </Heading>
 
-        <DevPort src="/images/devices/audio.png" alt="audio" />
+        <DevPort src={audio} alt="audio" />
 
         <UnorderedList spacing={2} my={6}>
           <ListItem display="flex" alignItems="center">

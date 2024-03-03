@@ -107,37 +107,37 @@ const Blogs = async ({ params }: Props) => {
         </Heading>
         <Box justifyContent="center" display="flex" pb={5}>
           <HStack overflow="auto">
-          {tags.map((tag, idx) => {
-            if (tag.slug == selectTag.slug) {
-              return (
-                <Tag
-                  key={idx}
-                  variant="solid"
-                  colorScheme="cyan"
-                  flexShrink="0"
-                  whiteSpace="nowrap"
-                >
-                  <TagLabel>{tag.name}</TagLabel>
-                  <TagCloseButton as="a" href="/blogs" />
-                </Tag>
-              )
-            } else {
-              return (
-                <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
+            {tags.map((tag, idx) => {
+              if (tag.slug == selectTag.slug) {
+                return (
                   <Tag
                     key={idx}
-                    variant="subtle"
+                    variant="solid"
                     colorScheme="cyan"
                     flexShrink="0"
                     whiteSpace="nowrap"
                   >
-                    {tag.name}
+                    <TagLabel>{tag.name}</TagLabel>
+                    <TagCloseButton as="a" href="/blogs" />
                   </Tag>
-                </Link>
-              )
-            }
-          })}
-        </HStack>
+                )
+              } else {
+                return (
+                  <Link key={idx} href={`/blogs/tag/${tag.slug}/1`}>
+                    <Tag
+                      key={idx}
+                      variant="subtle"
+                      colorScheme="cyan"
+                      flexShrink="0"
+                      whiteSpace="nowrap"
+                    >
+                      {tag.name}
+                    </Tag>
+                  </Link>
+                )
+              }
+            })}
+          </HStack>
         </Box>
         <Heading
           as="h4"

@@ -1,5 +1,6 @@
 import { ChevronRightIcon } from '@chakra-ui/icons'
-import { Heading, Box, Image, Link, Badge } from '@chakra-ui/react'
+import { Heading, Box, Link, Badge } from '@chakra-ui/react'
+import NextImage, { StaticImageData } from 'next/image'
 import NextLink from 'next/link'
 
 export const Title = ({ children }: { children: any }) => (
@@ -24,8 +25,23 @@ export const Title = ({ children }: { children: any }) => (
   </Box>
 )
 
-export const DevPort = ({ src, alt }: { src: string; alt: string }) => (
-  <Image borderRadius="lg" w="full" src={src} alt={alt} mb={4} />
+export const DevPort = ({
+  src,
+  alt,
+}: {
+  src: StaticImageData
+  alt: string
+}) => (
+  <NextImage
+    src={src}
+    alt={alt}
+    placeholder="blur"
+    loading="lazy"
+    style={{
+      borderRadius: '10px',
+      marginBottom: '1rem',
+    }}
+  />
 )
 
 export const DevPortPad = ({
@@ -33,18 +49,21 @@ export const DevPortPad = ({
   alt,
   pad,
 }: {
-  src: string
+  src: StaticImageData
   alt: string
   pad: number
 }) => (
-  <Image
-    boxShadow="sm"
-    borderRadius="lg"
-    w="full"
+  <NextImage
     src={src}
     alt={alt}
-    mb={4}
-    p={pad}
+    placeholder="blur"
+    loading="lazy"
+    style={{
+      borderRadius: '10px',
+      marginBottom: '1rem',
+      padding: `var(--chakra-space-${pad})`,
+      boxShadow: 'var(--chakra-shadows-sm)',
+    }}
   />
 )
 

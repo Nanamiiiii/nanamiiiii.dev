@@ -17,6 +17,10 @@ import { SiLinux, SiMacos } from 'react-icons/si'
 import P from '../../../components/paragraph'
 import { Title, WorkImage, Meta } from '../../../components/work'
 
+import capture1 from '../../../public/images/works/nwc_1.png'
+import capture2 from '../../../public/images/works/nwc_3.png'
+import capture3 from '../../../public/images/works/nwc_4.png'
+
 export const Component = () => {
   return (
     <Container maxWidth="100%" fontSize="18px" fontWeight="300">
@@ -24,10 +28,13 @@ export const Component = () => {
         NetworkWebCamera <Badge>2021</Badge>
       </Title>
 
-      <P>
-        Applications to use Android Smartphone as WebCamera on Multi-Platform
-        Computer.
-      </P>
+      <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
+        <P>
+          Applications to use Android Smartphone as WebCamera on Multi-Platform
+          Computer.
+        </P>
+      </Box>
+
       <Box display="flex" justifyContent="center" alignItems="center" mb={6}>
         <Button
           colorScheme="blue"
@@ -55,7 +62,11 @@ export const Component = () => {
         </Button>
       </Box>
 
-      <List px={{ base: '30px', md: '60px' }} ml={4} my={4}>
+      <List
+        w={{ base: '90%', sm: '60%', md: '50%', lg: '40%' }}
+        mx="auto"
+        my={4}
+      >
         <ListItem>
           <Meta>Platform</Meta>
           <Badge>Cam</Badge>
@@ -99,7 +110,8 @@ export const Component = () => {
       </Heading>
 
       <UnorderedList
-        mx={{ base: '60px', sm: '100px', md: '160px' }}
+        w={{ base: '90%', sm: '70%', md: '60%', lg: '50%' }}
+        mx="auto"
         mb={4}
         mt={2}
       >
@@ -130,9 +142,9 @@ export const Component = () => {
         <Center>Screenshots</Center>
       </Heading>
 
-      <WorkImage src="/images/works/nwc_1.png" alt="nwc1" />
-      <WorkImage src="/images/works/nwc_3.png" alt="nwc3" />
-      <WorkImage src="/images/works/nwc_4.png" alt="nwc4" />
+      <WorkImage src={capture1} alt="nwc1" />
+      <WorkImage src={capture2} alt="nwc3" />
+      <WorkImage src={capture3} alt="nwc4" />
     </Container>
   )
 }

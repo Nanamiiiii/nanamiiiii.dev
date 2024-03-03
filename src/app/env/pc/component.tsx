@@ -28,6 +28,8 @@ import {
 import { Title, DevPort, Meta } from '../../../components/device'
 import Layout from '../../../components/layouts/article'
 
+import pc from '../../../public/images/devices/pc.png'
+
 export const Component = () => {
   return (
     <Layout>
@@ -38,7 +40,7 @@ export const Component = () => {
           <Center>Workstation</Center>
         </Heading>
 
-        <DevPort src="/images/devices/pc.png" alt="mainpc" />
+        <DevPort src={pc} alt="mainpc" />
 
         <List my={6} ml={4}>
           <ListItem display="flex" mb={2} alignItems="center">

@@ -10,11 +10,17 @@ import {
 import { Title, DevPort, Meta } from '../../../components/device'
 import Layout from '../../../components/layouts/article'
 
+import dell4k from '../../../public/images/devices/display.png'
+
 export const Component = () => {
   return (
     <Layout>
       <Container maxWidth="100%" fontSize="18px" fontWeight="300">
         <Title>Displays</Title>
+
+        <DevPort src={dell4k} alt="dell4k" />
+
+        <Divider />
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>ASUS ProArt PA279CRV</Center>
@@ -48,8 +54,6 @@ export const Component = () => {
           <Center>DELL U2720QM</Center>
         </Heading>
 
-        <DevPort src="/images/devices/display.png" alt="dell4k" />
-
         <List my={6} ml={4}>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>RESOLUTION</Meta>
@@ -78,8 +82,6 @@ export const Component = () => {
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>HP OMEN 27i QHD</Center>
         </Heading>
-
-        <DevPort src="/images/no_img.png" alt="omen" />
 
         <List my={6} ml={4}>
           <ListItem display="flex" mb={1} alignItems="center">
