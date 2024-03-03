@@ -22,6 +22,8 @@ import {
 import highlight from 'highlight.js'
 
 import 'highlight.js/styles/tokyo-night-dark.css'
+import NextImage from 'next/image'
+import { getPlaiceholder } from "plaiceholder"
 import React, {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -341,8 +343,37 @@ const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
   }
 }
 
-const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = ({ src, alt }) => {
-  return <Image src={src} alt={alt} {...img.props} />
+
+const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = async ({ src, alt }) => {
+  if (!alt) {
+    alt = ""
+  }
+  if (!src) {
+    return (
+      <Image alt={alt} {...img.props} />
+    )
+  }
+  const buffer = await fetch(src).then(async (res) =>
+    Buffer.from(await res.arrayBuffer())
+  )
+  const { base64, metadata: { width, height } } = await getPlaiceholder(buffer)
+  return (
+      <NextImage
+        width={width}
+        height={height}
+        src={src}
+        alt={alt} 
+        loading='lazy'
+        placeholder='blur'
+        blurDataURL={base64}
+        style={{
+          padding: `${img.props.p}`,
+          marginLeft: `${img.props.ml}`,
+          marginRight: `${img.props.mr}`,
+          objectFit: 'contain',
+        }}
+      />
+  )
 }
 
 type LinkCardProps = {
@@ -408,7 +439,7 @@ const MdLinkCard: FC<LinkCardProps> = ({ href, title, desc, img }) => {
   )
 }
 
-export const MarkdownTemplate = ({
+export const MarkdownTemplate = async ({
   source,
   ...props
 }: { source: string } & BoxProps) => {
@@ -440,5 +471,6 @@ export const MarkdownTemplate = ({
         alert: MdAlert,
       },
     } as RehypeReactOptions)
-  return <Box {...props}>{processor.processSync(source).result}</Box>
+  const file = await processor.process(source)
+  return <Box {...props}>{file.result}</Box>
 }
