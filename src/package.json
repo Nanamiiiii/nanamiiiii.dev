@@ -19,7 +19,7 @@
     "@chakra-ui/theme-tools": "^2.1.2",
     "@emotion/babel-plugin": "^11.11.0",
     "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.0",
+    "@emotion/styled": "^11.11.5",
     "@iconify/icons-logos": "^1.2.36",
     "@iconify/react": "^4.1.1",
     "@jsdevtools/rehype-toc": "^3.0.2",
