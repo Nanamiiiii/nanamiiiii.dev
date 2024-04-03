@@ -217,9 +217,10 @@ const Home: NextPage = async () => {
                 Akihiro Saiki
               </Heading>
               <Text fontSize="18px">
-                Graduate School of Fundemental Science and Engineering, Waseda
+                Department of Computer Science and Engineering, Waseda
                 University
               </Text>
+              <Text fontSize="18px">Research Associate / Ph.D Student</Text>
               <Box mt={2}>
                 <Link href="https://twitter.com/Nanamii_i" target="_blank">
                   <IconButton

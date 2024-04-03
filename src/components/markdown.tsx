@@ -23,7 +23,7 @@ import highlight from 'highlight.js'
 
 import 'highlight.js/styles/tokyo-night-dark.css'
 import NextImage from 'next/image'
-import { getPlaiceholder } from "plaiceholder"
+import { getPlaiceholder } from 'plaiceholder'
 import React, {
   AnchorHTMLAttributes,
   BlockquoteHTMLAttributes,
@@ -343,36 +343,39 @@ const MdAlert: FC<AlertProps> = ({ children, variant, title }) => {
   }
 }
 
-
-const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = async ({ src, alt }) => {
+const MdImage: FC<ImgHTMLAttributes<HTMLImageElement>> = async ({
+  src,
+  alt,
+}) => {
   if (!alt) {
-    alt = ""
+    alt = ''
   }
   if (!src) {
-    return (
-      <Image alt={alt} {...img.props} />
-    )
+    return <Image alt={alt} {...img.props} />
   }
-  const buffer = await fetch(src).then(async (res) =>
-    Buffer.from(await res.arrayBuffer())
+  const buffer = await fetch(src).then(async res =>
+    Buffer.from(await res.arrayBuffer()),
   )
-  const { base64, metadata: { width, height } } = await getPlaiceholder(buffer)
+  const {
+    base64,
+    metadata: { width, height },
+  } = await getPlaiceholder(buffer)
   return (
-      <NextImage
-        width={width}
-        height={height}
-        src={src}
-        alt={alt} 
-        loading='lazy'
-        placeholder='blur'
-        blurDataURL={base64}
-        style={{
-          padding: `${img.props.p}`,
-          marginLeft: `${img.props.ml}`,
-          marginRight: `${img.props.mr}`,
-          objectFit: 'contain',
-        }}
-      />
+    <NextImage
+      width={width}
+      height={height}
+      src={src}
+      alt={alt}
+      loading="lazy"
+      placeholder="blur"
+      blurDataURL={base64}
+      style={{
+        padding: `${img.props.p}`,
+        marginLeft: `${img.props.ml}`,
+        marginRight: `${img.props.mr}`,
+        objectFit: 'contain',
+      }}
+    />
   )
 }
 

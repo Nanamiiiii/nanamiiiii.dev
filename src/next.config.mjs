@@ -10,15 +10,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: "https",
-        hostname: "myuu-dev.assets.newt.so",
+        protocol: 'https',
+        hostname: 'myuu-dev.assets.newt.so',
       },
       {
-        protocol: "https",
-        hostname: "storage.googleapis.com",
+        protocol: 'https',
+        hostname: 'storage.googleapis.com',
       },
     ],
-  }
+  },
 }
 
 export default withPlaiceholder(nextConfig)
