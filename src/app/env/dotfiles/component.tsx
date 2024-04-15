@@ -14,7 +14,7 @@ import Layout from '../../../components/layouts/article'
 import P from '../../../components/paragraph'
 
 import linuxDesktop from '../../../public/images/devices/desktop_env_20240208.png'
-import macDesktop from '../../../public/images/devices/mac_desktop.webp'
+import macDesktop from '../../../public/images/devices/mac_desktop_202404.webp'
 import neovim from '../../../public/images/devices/neovim_env.png'
 
 export const Component = () => {
@@ -38,7 +38,7 @@ export const Component = () => {
         </Box>
 
         <P>My dotfiles is published above.</P>
-        <P>includes i3wm, Neovim, Zsh, tmux, etc...</P>
+        <P>includes i3wm, yabai, Neovim, Zsh, tmux, etc...</P>
 
         <Heading as="h4" fontSize={20} my={6} fontWeight="400">
           <Center>Linux Desktop env.</Center>
@@ -53,7 +53,7 @@ export const Component = () => {
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Status Bar</Meta>
-            Polybar
+            i3blocks
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Launcher</Meta>
@@ -99,6 +99,10 @@ export const Component = () => {
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Status Bar</Meta>
             Sketchybar
+          </ListItem>
+          <ListItem display="flex" mb={1} alignItems="center">
+            <Meta>Launcher</Meta>
+            Raycast
           </ListItem>
           <ListItem display="flex" mb={1} alignItems="center">
             <Meta>Input</Meta>
