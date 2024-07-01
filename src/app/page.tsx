@@ -306,7 +306,7 @@ const Home: NextPage = async () => {
                   >
                     <PopoverArrow bg="blue.800" />
                     <PopoverBody textAlign="center">
-                      nanami [at] myuu.dev
+                      sk [at] myuu.dev
                       <br />
                       saiki [at] kasahara.cs.waseda.ac.jp
                     </PopoverBody>
