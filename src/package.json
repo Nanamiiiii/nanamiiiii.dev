@@ -34,7 +34,7 @@
     "microcms-js-sdk": "^2.7.0",
     "net": "^1.0.2",
     "newt-client-js": "^3.3.4",
-    "next": "^14.2.5",
+    "next": "^14.2.6",
     "node-html-parser": "^6.1.13",
     "plaiceholder": "^3.0.0",
     "react": "18.3.1",
