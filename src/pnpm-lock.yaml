@@ -75,8 +75,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       newt-client-js:
-        specifier: ^3.3.4
-        version: 3.3.4
+        specifier: ^3.3.5
+        version: 3.3.5
       next:
         specifier: ^14.2.7
         version: 14.2.7(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -2384,8 +2384,8 @@ packages:
   net@1.0.2:
     resolution: {integrity: sha512-kbhcj2SVVR4caaVnGLJKmlk2+f+oLkjqdKeQlmUtz6nGzOpbcobwVIeSURNgraV/v3tlmGIX82OcPCl0K6RbHQ==}
 
-  newt-client-js@3.3.4:
-    resolution: {integrity: sha512-Fr0s258jmxfcqRlB7skwsTjLdkUTm8spvdJ5zixsjyf81UB/f1VlKxZZNCmNFNB5bxlj16zu8HNN7zG0azLU/Q==}
+  newt-client-js@3.3.5:
+    resolution: {integrity: sha512-ao/TQkmygAcfoyhOU+V52uFhvDm3bEbnI2foSBbf7F+K2Up4m2lJ3oK+N1OToo5qUfnz6EvujM+gyfmbZxRc9A==}
     engines: {node: '>=14'}
 
   next@14.2.7:
@@ -6068,7 +6068,7 @@ snapshots:
 
   net@1.0.2: {}
 
-  newt-client-js@3.3.4:
+  newt-client-js@3.3.5:
     dependencies:
       axios: 1.7.5
       axios-retry: 3.9.1
