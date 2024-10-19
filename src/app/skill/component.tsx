@@ -4,10 +4,8 @@ import {
   Container,
   Divider,
   Heading,
-  ListItem,
   Tag,
   TagLeftIcon,
-  UnorderedList,
 } from '@chakra-ui/react'
 import { FaJava } from 'react-icons/fa'
 import {
@@ -32,7 +30,7 @@ import {
   SiKubernetes,
   SiDocker,
   SiQemu,
-  SiAmazonaws,
+  SiAmazonwebservices,
   SiMicrosoftazure,
   SiVmware,
   SiGooglecloud,
@@ -42,6 +40,7 @@ import {
   SiFedora,
   SiLua,
 } from 'react-icons/si'
+import { ItemizeName, ItemizeSection } from '../../components/itemize'
 
 export const Component = () => {
   return (
@@ -187,7 +186,7 @@ export const Component = () => {
       </Heading>
       <Box display="flex" py={2} pl={4} overflow="auto">
         <Tag colorScheme="orange" mx={2} flexShrink="0">
-          <TagLeftIcon as={SiAmazonaws} />
+          <TagLeftIcon as={SiAmazonwebservices} />
           AWS
         </Tag>
         <Tag colorScheme="cyan" mx={2} flexShrink="0">
@@ -265,13 +264,15 @@ export const Component = () => {
       <Heading as="h3" fontSize={25} mt={6} mb={2} fontWeight="300">
         Qualifications
       </Heading>
-      <Box display="flex" py={2} pl={2}>
-        <UnorderedList>
-          <ListItem>
-            IPA 情報処理安全確保支援士 (2022/10, Not Registered)
-          </ListItem>
-          <ListItem>IPA 応用情報技術者試験 (2020/10)</ListItem>
-        </UnorderedList>
+      <Box display="flex" py={2} pl={2} justifyContent="left" flexFlow="column">
+        <ItemizeSection>
+          <ItemizeName>2022.10</ItemizeName>
+          IPA 情報処理安全確保支援士 (Not Registered)
+        </ItemizeSection>
+        <ItemizeSection>
+          <ItemizeName>2020.10</ItemizeName>
+          IPA 応用情報技術者試験
+        </ItemizeSection>
       </Box>
     </Container>
   )

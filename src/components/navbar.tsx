@@ -17,34 +17,23 @@ import {
 import NextLink from 'next/link'
 import Logo from './logo'
 
-const LinkItem = ({
-  href,
-  path,
-  children,
-}: {
-  href: string
-  path: string
-  children: any
-}) => {
-  const active = path === href
-  const inactiveColor = useColorModeValue('gray200', 'whiteAlpha.900')
+const LinkItem = ({ href, children }: { href: string; children: any }) => {
   return (
-    <Link
-      as={NextLink}
-      href={href}
-      p={2}
-      bg={active ? '#c4e8f2' : undefined}
-      color={active ? '#202023' : inactiveColor}
-      passHref
-    >
+    <Link as={NextLink} href={href} p={2} color="#202023" passHref>
+      {children}
+    </Link>
+  )
+}
+
+const LinkItemExt = ({ href, children }: { href: string; children: any }) => {
+  return (
+    <Link href={href} p={2} color="#202023" isExternal>
       {children}
     </Link>
   )
 }
 
 export const Navbar = (props: any) => {
-  const { path } = props
-
   return (
     <Box
       position="fixed"
@@ -78,18 +67,10 @@ export const Navbar = (props: any) => {
           mt={{ base: 4, nmd: 0 }}
           fontWeight="300"
         >
-          <LinkItem href="/skill" path={path}>
-            Skill
-          </LinkItem>
-          <LinkItem href="/works" path={path}>
-            Works
-          </LinkItem>
-          <LinkItem href="/env" path={path}>
-            My Env
-          </LinkItem>
-          <LinkItem href="/blogs" path={path}>
-            Blogs
-          </LinkItem>
+          <LinkItem href="/">Home</LinkItem>
+          <LinkItem href="/skill">Skill</LinkItem>
+          <LinkItem href="/works">Works</LinkItem>
+          <LinkItemExt href="https://notes.myuu.dev">Blogs</LinkItemExt>
         </Stack>
 
         <Box display="flex" flex={1} alignItems="center" justifyContent="right">
@@ -110,9 +91,6 @@ export const Navbar = (props: any) => {
                 </MenuItem>
                 <MenuItem as={NextLink} href="/works" passHref>
                   Works
-                </MenuItem>
-                <MenuItem as={NextLink} href="/env" passHref>
-                  My Env
                 </MenuItem>
                 <MenuItem as={NextLink} href="/blogs" passHref>
                   Blogs

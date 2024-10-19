@@ -1,6 +1,6 @@
 import {
-  BoxProps,
   Box,
+  BoxProps,
   Text,
   UnorderedList,
   ListItem,

@@ -21,17 +21,19 @@ import {
   PopoverArrow,
   PopoverBody,
   PopoverFooter,
+  UnorderedList,
+  ListItem,
 } from '@chakra-ui/react'
 import type { Metadata, NextPage, ResolvingMetadata } from 'next'
-import NextLink from 'next/link'
 import { IoMdMail } from 'react-icons/io'
 import {
-  SiTwitter,
+  SiX,
   SiGithub,
   SiInstagram,
   SiFacebook,
   SiVimeo,
   SiLinkedin,
+  SiBluesky,
 } from 'react-icons/si'
 import { ItemizeName, ItemizeSection } from '../components/itemize'
 import Layout from '../components/layouts/article'
@@ -39,6 +41,8 @@ import Paragraph from '../components/paragraph'
 import Section from '../components/section'
 import { getPublications } from '../lib/newt'
 import { Publication } from '../types/blog'
+
+import 'highlight.js/styles/tokyo-night-dark.css'
 
 export const generateMetadata = async (
   props: any,
@@ -52,14 +56,6 @@ export const generateMetadata = async (
       url: 'https://myuu.dev',
     },
   }
-}
-
-const LinkText = ({ href, children }: { href: string; children: any }) => {
-  return (
-    <Link as={NextLink} href={href} bg="undefined" color="gray200" passHref>
-      {children}
-    </Link>
-  )
 }
 
 const AchievementsCard = ({
@@ -227,7 +223,17 @@ const Home: NextPage = async () => {
                     aria-label="twitter"
                     variant="ghost"
                     colorScheme="cyan"
-                    icon={<SiTwitter />}
+                    icon={<SiX />}
+                    mx={2}
+                    fontSize="18px"
+                  />
+                </Link>
+                <Link href="https://bsky.app/profile/myuu.dev" target="_blank">
+                  <IconButton
+                    aria-label="bluesky"
+                    variant="ghost"
+                    colorScheme="cyan"
+                    icon={<SiBluesky />}
                     mx={2}
                     fontSize="18px"
                   />
@@ -336,13 +342,79 @@ const Home: NextPage = async () => {
               <ItemizeName>Origin</ItemizeName>
               Niigata, Niigata, Japan (Very good place to live!)
             </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>Graduated from</ItemizeName>
-              Niigata Meikun High School
-            </ItemizeSection>
           </Section>
 
           <Section delay={'0.15'}>
+            <Heading
+              as="h3"
+              variant="section-title"
+              fontSize={20}
+              fontWeight="300"
+            >
+              Academic Background
+            </Heading>
+            <ItemizeSection>
+              <ItemizeName>2013.04 - 2019.03</ItemizeName>
+              <Link
+                href="https://www.niigata-meikun.ed.jp/"
+                color="gray.800"
+                isExternal
+              >
+                Niigata Meikun J.H.S. / H.S., Japan
+              </Link>
+              <ItemizeSection>
+                <ItemizeName>2013.04 - 2016.03</ItemizeName>
+                Niigata Meikun J.H.S.
+              </ItemizeSection>
+              <ItemizeSection>
+                <ItemizeName>2016.04 - 2019.03</ItemizeName>
+                Niigata Meikun H.S.
+              </ItemizeSection>
+            </ItemizeSection>
+            <ItemizeSection>
+              <ItemizeName>2019.04 - Now</ItemizeName>
+              <Link
+                href="https://www.fse.sci.waseda.ac.jp/"
+                color="gray.800"
+                isExternal
+              >
+                Waseda University, Japan
+              </Link>
+              <ItemizeSection>
+                <ItemizeName>2019.04 - 2023.03</ItemizeName>
+                School of Fundamental Science and Engineering.
+              </ItemizeSection>
+              <ItemizeSection>
+                <ItemizeName>2023.04 - 2024.03</ItemizeName>
+                Graduate School of Fundamental Science and Engineering (Master).
+              </ItemizeSection>
+              <ItemizeSection>
+                <ItemizeName>2024.04 - Now</ItemizeName>
+                Graduate School of Fundamental Science and Engineering (Ph.D).
+              </ItemizeSection>
+            </ItemizeSection>
+          </Section>
+
+          <Section delay={'0.2'}>
+            <Heading
+              as="h3"
+              variant="section-title"
+              fontSize={20}
+              fontWeight="300"
+            >
+              Career
+            </Heading>
+            <ItemizeSection>
+              <ItemizeName>2021.08 - 2024.03</ItemizeName>
+              Security Engineer at Pentio Co., Ltd. (internship)
+            </ItemizeSection>
+            <ItemizeSection>
+              <ItemizeName>2024.04 - Now</ItemizeName>
+              Research Associate at Waseda University.
+            </ItemizeSection>
+          </Section>
+
+          <Section delay={'0.25'}>
             <Heading
               as="h3"
               variant="section-title"
@@ -361,7 +433,7 @@ const Home: NextPage = async () => {
             </ItemizeSection>
           </Section>
 
-          <Section delay={'0.2'}>
+          <Section delay={'0.3'}>
             <PubSection
               reviewed={reviewedPub}
               noreview={noreviewPub}
@@ -370,47 +442,22 @@ const Home: NextPage = async () => {
             />
           </Section>
 
-          <Section delay={'0.25'}>
+          <Section delay={'0.35'}>
             <Heading
               as="h3"
               variant="section-title"
               fontSize={20}
               fontWeight="300"
             >
-              Love
+              Awards
             </Heading>
             <ItemizeSection>
-              <ItemizeName>VideoGame</ItemizeName>
-              Especially FPS (Call of Duty, VALORANT...) / BIOHAZARD(Resident
-              Evil)
-            </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>
-                <LinkText href="/works">Movie Creation</LinkText>
-              </ItemizeName>
-              MotionGraphics, Gameplay Montage etc...
-            </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>
-                <LinkText href="/env/pc">DIY PC</LinkText>
-              </ItemizeName>
-              Create Custom PCs & Collect Devices
-            </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>Sports</ItemizeName>
-              Soccer (Love Albirex Niigata in J.League!) / Badminton
-            </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>Music</ItemizeName>
-              Coldrain, MY FIRST STORY, SECONDWALL and <i>Dojin</i> Music
-            </ItemizeSection>
-            <ItemizeSection>
-              <ItemizeName>Anime</ItemizeName>
-              Used to watch a lot, but not so much anymore... I have no time ;(
+              <ItemizeName>2024.03</ItemizeName>
+              IEICE CPSY Presentation Award for Excellent Young Researcher
             </ItemizeSection>
           </Section>
 
-          <Section delay={'0.3'}>
+          <Section delay={'0.4'}>
             <Heading
               as="h3"
               variant="section-title"
@@ -419,10 +466,130 @@ const Home: NextPage = async () => {
             >
               Interest
             </Heading>
+            <Paragraph>Basically Low-layer Technologies</Paragraph>
             <Paragraph>Computer Architecture / Operating System </Paragraph>
             <Paragraph>
               Virtualization / Infrastructure / Cyber Security
             </Paragraph>
+          </Section>
+
+          <Section delay={'0.45'}>
+            <Heading
+              as="h3"
+              variant="section-title"
+              fontSize={20}
+              fontWeight="300"
+            >
+              Hobbies
+            </Heading>
+            <UnorderedList>
+              <ListItem>
+                Games
+                <UnorderedList>
+                  <ListItem>
+                    Call of Duty, VALORANT, ... (FPS makes people crazy...)
+                  </ListItem>
+                  <ListItem>Resident Evil (Played almost all titles.)</ListItem>
+                </UnorderedList>
+              </ListItem>
+              <ListItem>
+                Movie Creation
+                <UnorderedList>
+                  <ListItem>MotionGraphics</ListItem>
+                  <ListItem>Gameplay Montage (past)</ListItem>
+                </UnorderedList>
+              </ListItem>
+              <ListItem>
+                PC / Gadget
+                <UnorderedList>
+                  <ListItem>DIY PC is awsome! (Prefer NZXT)</ListItem>
+                  <ListItem>
+                    Xperia (Sorry, I&apos;m using Pixel 8 Pro now...)
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+              <ListItem>
+                Sports
+                <UnorderedList>
+                  <ListItem>
+                    Watch soccer match (Love Albirex Niigata in J.League)
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+              <ListItem>
+                Music
+                <UnorderedList>
+                  <ListItem>
+                    Coldrain, MY FIRST STORY, SECONDWALL and <i>Dojin</i> Music
+                  </ListItem>
+                </UnorderedList>
+              </ListItem>
+              <ListItem>
+                Anime
+                <UnorderedList>
+                  <ListItem>Especially like works around 2010.</ListItem>
+                </UnorderedList>
+              </ListItem>
+            </UnorderedList>
+          </Section>
+
+          <Section delay={'0.5'}>
+            <Heading
+              as="h3"
+              variant="section-title"
+              fontSize={20}
+              fontWeight="300"
+            >
+              PGP Public Key
+            </Heading>
+            Created new pgp key on 2024-10-03.
+            <br />
+            <pre>
+              <Box
+                as="code"
+                className="hljs"
+                borderRadius={10}
+                overflowX="scroll"
+              >
+                pub ed25519 2024-10-03 [SC]
+                <br />
+                EF868D07BBE906673ECCF715E79A0A2575F66DA2
+              </Box>
+            </pre>
+            <br />
+            <pre>
+              <Box
+                as="code"
+                className="hljs"
+                borderRadius={10}
+                overflowX="scroll"
+              >
+                -----BEGIN PGP PUBLIC KEY BLOCK-----
+                <br />
+                <br />
+                mDMEZv5KGhYJKwYBBAHaRw8BAQdANqyDUJXUHiAbqdxXkgrAk6AxOeJJrSAeTZ9v
+                <br />
+                cFQceA60G0FraWhpcm8gU2Fpa2kgPHNrQG15dXUuZGV2PoiTBBMWCgA7FiEE74aN
+                <br />
+                B7vpBmc+zPcV55oKJXX2baIFAmb+ShoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwEC
+                <br />
+                HgcCF4AACgkQ55oKJXX2baKtYwEAoQ8Uf+3gK8Nu+qiStcEjg9PL2mhLQ3yG9jgY
+                <br />
+                rcK3fY4A+QHd20MZlaNTFPKAwbkdLCVS9WsMiYZf9AcfapO1aUgBuDgEZv5KGhIK
+                <br />
+                KwYBBAGXVQEFAQEHQPOZVouTc1WtZRiMNrucFPumvkZMC0S4UYygMLpLiUleAwEI
+                <br />
+                B4h4BBgWCgAgFiEE74aNB7vpBmc+zPcV55oKJXX2baIFAmb+ShoCGwwACgkQ55oK
+                <br />
+                JXX2baJ/AQEAoxU20tot+T1OE37dFmRXF2+wTLhg5TlHqingLNduN38A/1JZ8gIS
+                <br />
+                zdnT/jzk5ATqeKsz59h8u5mJPNd2Thzt7EsF
+                <br />
+                =dDaC
+                <br />
+                -----END PGP PUBLIC KEY BLOCK-----
+              </Box>
+            </pre>
           </Section>
         </Container>
       </Layout>
