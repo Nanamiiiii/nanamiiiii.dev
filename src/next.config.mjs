@@ -1,6 +1,4 @@
 // @ts-check
-import withPlaiceholder from '@plaiceholder/next'
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -19,6 +17,15 @@ const nextConfig = {
       },
     ],
   },
+  redirects: async () => {
+    return [
+      {
+        source: '/blogs',
+        destination: 'https://notes.myuu.dev',
+        permanent: true,
+      }
+    ]
+  }
 }
 
-export default withPlaiceholder(nextConfig)
+export default nextConfig

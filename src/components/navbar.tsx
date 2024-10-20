@@ -92,7 +92,7 @@ export const Navbar = (props: any) => {
                 <MenuItem as={NextLink} href="/works" passHref>
                   Works
                 </MenuItem>
-                <MenuItem as={NextLink} href="/blogs" passHref>
+                <MenuItem as="a" href="https://notes.myuu.dev">
                   Blogs
                 </MenuItem>
               </MenuList>
