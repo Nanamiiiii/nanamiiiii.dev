@@ -70,7 +70,7 @@ export const Navbar = (props: any) => {
           <LinkItem href="/">Home</LinkItem>
           <LinkItem href="/skill">Skill</LinkItem>
           <LinkItem href="/works">Works</LinkItem>
-          <LinkItemExt href="https://notes.myuu.dev">Blogs</LinkItemExt>
+          <LinkItemExt href="https://notes.myuu.dev/index">Blogs</LinkItemExt>
         </Stack>
 
         <Box display="flex" flex={1} alignItems="center" justifyContent="right">
@@ -92,7 +92,7 @@ export const Navbar = (props: any) => {
                 <MenuItem as={NextLink} href="/works" passHref>
                   Works
                 </MenuItem>
-                <MenuItem as="a" href="https://notes.myuu.dev">
+                <MenuItem as="a" href="https://notes.myuu.dev/index" target="_blank" rel="noreferrer noopener">
                   Blogs
                 </MenuItem>
               </MenuList>
