@@ -27,7 +27,7 @@
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
     "dayjs": "^1.11.13",
-    "framer-motion": "^10.18.0",
+    "framer-motion": "^11.18.1",
     "fs": "0.0.1-security",
     "highlight.js": "11.11.1",
     "jsdom": "^23.2.0",
